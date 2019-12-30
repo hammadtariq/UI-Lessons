@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* body{
+        background-color:green; 
+    } */
+    .parent{
+        height: 100%;
+        width: 50%
+    }
+    .default,.defaultOne,.defaultTwo{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 1px solid ;
+    }
+    .red{
+        background-color: red;
+        /* border:1px solid red; */
+    }
+    .green{
+        background-color: green;
+        /* border:1px solid green; */
+    }
+    .yellow{
+     border: 1px solid yellow;   
+    }
+    </style>
+</head>
+<body >
+    <button onclick="signalSwitch()">start</button>
+    <div class="parent">
+        <div class="default"> 1</div>
+        <div class="defaultOne">2 </div>
+        <div class="defaultTwo">3</div >
+        
+    </div>
+   <script>
+       let t = 5000
+         let flg=true;
+         console.log(flg);
+
+function signalSwitch(){
+    
+  
+      
+// setInterval(()=>{
+   setTimeout(()=>{
+       document.querySelector(".default").classList.add("red")
+   },1000);
+   setTimeout(()=>{
+       document.querySelector(".defaultOne").classList.add("yellow")
+   },1000);
+   setTimeout(()=>{
+       document.querySelector(".defaultTwo").classList.add("green")
+   },2000);
+   
+
+// },8000)
+
+
+}
+       
+      
+       
+// setInterval(()=>{
+//     (flg?
+//      ( (document.querySelector(".red").style.backgroundColor="red")
+//       && (document.querySelector(".green").style.backgroundColor="white")):
+//     (( document.querySelector(".green").style.backgroundColor="green") && (document.querySelector(".red").style.backgroundColor="white"))
+//     )
+//     flg=!flg;
+//     console.log(flg);
+
+// },2000)
+
+       
+      
+       
+
+   </script>
+</body>
+</html>
