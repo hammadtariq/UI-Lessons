@@ -1,0 +1,33 @@
+  /* body{
+        background-color:green; 
+    } */
+    .parent {
+        height: 100%;
+        width: 50%
+    }
+
+    .default {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 1px solid;
+    }
+
+    .red {
+        background-color: red;
+        /* border:1px solid red; */
+    }
+
+    .green {
+        background-color: green;
+        /* border:1px solid green; */
+    }
+
+    .yellow {
+        /* border: 1px solid yellow;    */
+        background-color: yellow;
+    }
+
+    .white {
+        background-color: white;
+    }
