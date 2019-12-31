@@ -6,79 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <style>
-    #red{
-        height: 150px;
-        width: 150px;
-        border-radius: 50%;
-        border:1px solid red;
-        background-color:black;
-    }
-    #yellow{height: 150px;
-        width: 150px;
-        border-radius: 50%;
-        border:1px solid yellowgreen;
-        background-color:black;
-    }
-    #green{height: 150px;
-        width: 150px;
-        border-radius: 50%;
-        border:1px solid green;
-        background-color:black;
-    
-
-    }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <style src='index.js'></style>
 </head>
 <body>
     <div id='red'></div>
     <div id='yellow'></div>
     <div id='green'></div>
     
+    <button onclick="stop()" id='stop'>RESET</button>
+    <button onclick="c" id="start">START</button>
 
-    <button id='stop'>Stop</button>
-    <button id='start'>Start</button>
-
-    <script>
-
-            document.getElementById('start').onclick=start
-            document.getElementById('stop').onclick=stop
-
-            function stop(){
-                clearInterval(a)
-                document.getElementById('red').style.backgroundColor='black'
-                document.getElementById('yellow').style.backgroundColor='black'
-                document.getElementById('green').style.backgroundColor='black'
-            }
-
- 
-            function start(){
-                document.getElementById('yellow').style.backgroundColor='black'
-                document.getElementById('green').style.backgroundColor='black'
-                
-               var a= setInterval(() => {
-                    
-                
-                setTimeout(()=>{
-                    document.getElementById('red').style.backgroundColor='red'
-                    document.getElementById('yellow').style.backgroundColor='black'
-                    document.getElementById('green').style.backgroundColor='black'
-
-                },0)
-                setTimeout(()=>{
-                    document.getElementById('red').style.backgroundColor='black' 
-                    document.getElementById('yellow').style.backgroundColor='yellow'
-                },3000)
-                setTimeout(()=>{
-                    document.getElementById('red').style.backgroundColor='black'
-                    document.getElementById('yellow').style.backgroundColor='black'
-                    document.getElementById('green').style.backgroundColor='green'
-
-                },5000)
-            }, 10000);
-
-            }
-        
-    </script>
+    
 </body>
 </html>

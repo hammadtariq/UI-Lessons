@@ -1,0 +1,21 @@
+#red{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border:1px solid red;
+    background-color:black;
+}
+#yellow{height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border:1px solid yellowgreen;
+    background-color:black;
+}
+#green{height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border:1px solid green;
+    background-color:black;
+
+
+}
