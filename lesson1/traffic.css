@@ -1,7 +1,7 @@
 .dot {
     height: 50px;
     width: 50px;
-    background-color:black;
+    background-color:white;
     border-radius: 50%;
     display: inline-block;
   
@@ -9,10 +9,8 @@
   li{
       list-style-type: none;
   }
-.box{
-    height: 60px;
-    width: 70px;
-    background-color:red;
-    border-radius: 50%;
+.abc{
+
+    background-color:black;
     display: inline-block;
   }

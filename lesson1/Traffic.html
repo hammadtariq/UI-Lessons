@@ -1,53 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    
-    
-<!-- 
-    <script>
-        var myvar=document.getElementsByClassName('dot');
-        color=["red","blue","green","black"];
-    //    var i=0;
-       var q;
-    function StartSignal(){
-    
-        myvar[i].style.backgroundColor=color[i];
-        q=setTimeout(myfunc2, 2000,i);
-        q=setTimeout(StartSignal, 2000,i);
-        if(i==2){
-            i=0;
-        }else{
-       i++;
-        }
-        
-    }   
-    function myfunc2(i){
-         myvar[i].style.backgroundColor=color[3];
-    
-    }
-    function restartStartSignal(q){
-            clearTimeout(q);
-            i=0;
-            q=setTimeout(StartSignal, 2000);
-    }
-    
-        
-    
-        
-    </script> -->
-    
-<!-- <style>
-/* .dot {
-  height: 50px;
-  width: 50px;
-  background-color:black;
-  border-radius: 50%;
-  display: inline-block;
-
-}
-li{
-    list-style-type: none;
-} */
-</style> -->
+   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,13 +11,19 @@ li{
     <script src="./tarffic.js"></script>
 </head>
 <body>
-    
+    <div class="abc">
     <li><span class="dot"></span></li>
     <li><span class="dot"></span></li>
     <li><span class="dot"></span></li>
+</div>
+    <!-- <button onclick="setTimeout(StartSignal, 2000,i=0);">Start</button> -->
+    <!-- <button  onclick="restartStartSignal()">Reset</button> -->
+    <button id="a", onclick="run()">Start</button>
+    <button id="b"  disabled onclick="restartStartSignal()" >Reset</button>
 
-    <button onclick="setTimeout(StartSignal, 2000,i=0);">Start</button>
-    <button  onclick="restartStartSignal(q)">Reset</button>
+    <!-- <button onclick="restart()">Restart</button> -->
+
+
 
 </body>
 </html>
