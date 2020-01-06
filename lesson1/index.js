@@ -5,20 +5,6 @@ document.getElementById("green").style.backgroundColor = "black";
 document.getElementById("yellow").style.backgroundColor = "black";
 
 function stop() {
-  // if (flag==false){
-  // setTimeout(()=>{
-  //     document.getElementById('red').style.backgroundColor='black'
-  //     document.getElementById('yellow').style.backgroundColor='yellow'
-
-  // },0)
-  // setTimeout(()=>{
-
-  //     document.getElementById('red').style.backgroundColor='red'
-  //     document.getElementById('yellow').style.backgroundColor='black'
-  //     document.getElementById('green').style.backgroundColor='black'
-  // },2000)
-  // flag=true
-  // }
   clearInterval(c);
   clearInterval(q);
   clearInterval(w);
@@ -54,20 +40,6 @@ function start() {
     document.getElementById("yellow").style.backgroundColor = "black";
     document.getElementById("green").style.backgroundColor = "black";
   }, 9000);
+  
 }
 
-let num1 = 9;
-let num2 = 12
-
-function add(num1, num2) {
-    
-let num1 = 9;
-let num2 = 12
-
-    return num1+num2;
-}
-
-add()
-
-
-expect(add(2,3)).toEqual(5);

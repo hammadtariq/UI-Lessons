@@ -1,0 +1,36 @@
+.App{
+    display: flex;
+    justify-content: center;      
+}
+
+.mytodo {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  border-color: black;
+}
+
+#update{
+    border-radius: 2px;
+    height: 10px;
+    width: 90px;
+    padding-left: 1px;
+}
+.form input {
+  border-radius: 10px;
+  height: 30px;
+  width: 250px;
+  padding-left: 20px;
+}
+.form button {
+  border-radius: 10px;
+  height: 30px;
+  width: 80px;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.show{
+    width:20px;
+}
