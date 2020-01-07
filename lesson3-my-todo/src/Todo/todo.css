@@ -9,6 +9,7 @@
   justify-content: center;
   border-radius: 10px;
   border-color: black;
+  width: 50%;
 }
 
 #update{
@@ -38,4 +39,14 @@ body{
 .button{
   display: flex;
   justify-content: right;
+}
+
+.my-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+.antd{
+  width: 100%;
 }
