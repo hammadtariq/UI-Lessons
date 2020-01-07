@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
+import { List, Typography } from 'antd';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -10,36 +10,53 @@ class App extends React.Component {
     this.deleteData = this.deleteData.bind(this);
     this.state = {
       lists: [
-        {
-          id: 1,
-          listValue: "hello"
-        }
+        {id: 1, listValue: "hello",flg:false },
+        { id: 2, listValue: "pal" ,flg:false}
       ],
       content: "",
-      edit:false
+    
+      val:"",
+      toggle:false
     };
   }
-  toggleEditState =()=>{
-    this.setState({
-      edit:!this.state.edit
+  toggleEditState =(id)=>{
+    console.log(id)
+    this.state.lists.map(item=>{
+      if(item.id==id){
+        item.flg=true
+        this.setState({val:item.listValue})
+      }
+      else{
+        item.flg=false
+      }
     })
+    this.setState({
+      toggle:!this.state.toggle,
+      
+     
+    })
+    
+    console.log(this.state.toggle)
   }
   handleChange(e) {
     this.setState({
       content: e.target.value
     });
+    
   }
   handleSubmit(e) {
     e.preventDefault();
-    let newId = (e.id = Math.random() * 20);
+    let newId = (e.id = Math.floor(Math.random() * 20));
     console.log(e.id);
     console.log(e.listValue);
     const addContent = this.state.content;
     console.log(this.state.content);
     const lists = [...this.state.lists, { id: newId, listValue: addContent }];
     this.setState({
-      lists
+      lists,
+     content:""
     });
+    
     console.log(lists);
   }
   deleteData(addid) {
@@ -53,44 +70,64 @@ class App extends React.Component {
     });
   }
   onUpdateChange =(e)=>{
-  console.log(e.target.value);
+  this.setState({
+    val:e.target.value,
+  })
   
+  console.log("onUpdateChange",this.state.edit)
   }
-  editToDoHandler =(id,val)=>{
-console.log(id,val)
-    this.state.lists.map(list=>
-      console.log(list.listValue)
-      )
-
-  }
-      
+  editToDoHandler =(id)=>{
+    const lists = [...this.state.lists]
+    lists.map(list=>{
+      if(list.id===id){
+        list.listValue=this.state.val
+        list.flg=true
+      }
+      this.setState({  lists,
+         toggle:false,})
+     
+    })
+  }   
   
   render() {
-    const { lists } = this.state;
+    const { lists,toggle } = this.state;
     return (
-      <div>
-        <h1>toDO</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleChange} />
+      <div className="parent">
+  <h1>toDO </h1>
+        <form onSubmit={this.handleSubmit} className="todo-form" id="create-course-form">
+          <input type="text" onChange={this.handleChange} value={this.state.content}  />
+          
           <input type="submit" value="submit" />
-        </form>
-        
+        </form> 
+        <div className="list-item">
         {lists.map(list => {
           return (
-            <ul key={list.id}>
-              <li>
-                {list.listValue}
-                <button type="button" onClick={() => this.deleteData(list.id)}>
-                  delete
-                </button>
-                <input type="text" onChange={this.onUpdateChange} />
-                <button onClick={()=>this.editToDoHandler(list.id,list.listValue)}>Edit</button> 
+            <section key={list.id} className="two"> 
+                <div className="kole">
+                   {( toggle && list.flg==true) ?(
+                  <div className="pole">
+                 
+                    <input type="text" onChange={this.onUpdateChange} value={this.state.val} className="list-value"  />
+                <button onClick={()=>this.editToDoHandler(list.id) } >save</button>
                 
-               
-              </li>
-            </ul>
+                  </div>
+                ):(
+                  <div className="one">
+                     <p>{list.listValue} </p>
+                    <div className="three">
+                    <button onClick={()=>this.toggleEditState(list.id)}>edit</button>
+                    <button type="button" onClick={() => this.deleteData(list.id)}>delete</button>
+                    </div>
+                  
+                  </div>
+                 
+                ) } 
+                </div>   
+              
+            </section>
           );
         })}
+        </div>
       </div>
     );
   }
