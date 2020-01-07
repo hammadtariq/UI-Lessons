@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import "./todo.css";
-
+//import "./todo.css";
+import "antd/dist/antd.css";
+import { Form, Icon, Input, Button, List } from "antd";
 
 class Todo extends Component {
   state = {
     val: "",
     val2: "",
-    list: ["Arsalan", "Nasir", "Shahan", "Abc", "CDe"],
+    list: ["Abc", "DEF", "abc", "xyz", "CDe"],
     showText: false
   };
   func = e => {
@@ -43,47 +44,82 @@ class Todo extends Component {
     });
   };
 
+  updateText=id=>{
+    this.setState({ showText: !this.state.showText})
+    
+  }
+
   render() {
     return (
       <div className="mytodo">
-        <form className="form" onSubmit={this.handleSubmit}>
-          <input
-            value={this.state.val}
-            onChange={this.handleChange}
-            placeholder="Add Task"
-          />
-          <button type="submit">Submit</button>
+        <Form layout="horizontal" onSubmit={this.handleSubmit}>
+          <Form.Item>
+            <Input
+              prefix={
+                <Icon type="info-circle" style={{ color: "rgba(0,0,0,.25)" }} />
+              }
+              placeholder="Add Task"
+              onChange={this.handleChange}
+              style={{ height: 60 }}
+            />
+          </Form.Item>
 
-          <ul>
-            {this.state.list.map((item, index) => (
+          <List
+            size="small"
+            bordered
+            dataSource={this.state.list.map((item, index) => (
               <li key={index}>
-                {item}
-                <button
-                  onClick={() => {
-                    this.delete(index);
-                  }}
-                >
-                  X
-                </button>
                 {!this.state.showText ? (
-                  <button
-                    className="update"
-                    onClick={() => {
-                      this.setState({ showText: !this.state.showText });
-                    }}
-                  >
-                    Update
-                  </button>
+                  <span>
+                    <b>{item.toUpperCase()}</b>
+                    <Button
+                      type="danger"
+                      onClick={() => {
+                        this.delete(index);
+                      }}
+                    >
+                      X
+                    </Button>
+                    <Button
+                      type="primary"
+                      onClick={() => {this.updateText(index)}}
+                    >
+                      Update
+                    </Button>
+                  </span>
                 ) : (
                   <span>
-                    <input onChange={this.func} className="show" type="text" />{" "}
-                    <button onClick={() => this.update(index)}>Submit</button>
+                    <Form.Item>
+                      <Input
+                        prefix={
+                          <Icon
+                            type="info-circle"
+                            style={{ color: "rgba(0,0,0,.25)" }}
+                          />
+                        }
+                        placeholder="Add Task"
+                        onChange={this.func}
+                      />
+                    </Form.Item>
+                    <Button
+                      type="primary"
+                      onClick={() => {
+                        this.update(index);
+                      }}
+                    >
+                      Update
+                    </Button>
                   </span>
                 )}
+                
               </li>
             ))}
-          </ul>
-        </form>
+            renderItem={item => <List.Item>{item}</List.Item>}
+          />
+          <Form.Item>
+            <Button icon="plus" type="primary" block htmlType="submit" />
+          </Form.Item>
+        </Form>
       </div>
     );
   }
