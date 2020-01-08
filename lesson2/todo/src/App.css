@@ -1,4 +1,7 @@
 
+body{
+  font-size: 2rem !important;
+}
 .parent{
  /* display: flex;
  flex-direction: column; */
@@ -31,7 +34,9 @@
   height: 28px;
 } */
 h1{
-  
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 .one,.two,.three{
@@ -44,5 +49,23 @@ p{
 }
 .kole{
   width: 50%;
- 
+}
+.ant-list-split ,.ant-list-item{
+  width: 90% ;
+  border-bottom: 0px !important;
+}
+.innerDiv{
+  display: flex;
+  margin-left: 1rem;
+  justify-content: space-evenly;
+}
+.ant-input{
+  height: 40px !important;
+  width:80% !important;
+}
+.ant-form{
+  margin: 1rem !important;
+}
+.submit{
+  height: 2.3rem !important;
 }

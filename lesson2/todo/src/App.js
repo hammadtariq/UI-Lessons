@@ -31,11 +31,8 @@ class App extends React.Component {
       }
     })
     this.setState({
-      toggle:!this.state.toggle,
-      
-     
+      toggle:!this.state.toggle,       
     })
-    
     console.log(this.state.toggle)
   }
   handleChange(e) {

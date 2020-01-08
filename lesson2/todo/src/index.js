@@ -9,7 +9,7 @@ class TestRender extends React.Component{
     render(){
         return(
             <div>
-            <App/>
+            {/* <App/> */}
             <Test/>
         </div>
         )
