@@ -1,0 +1,49 @@
+body{
+  background-color:white;
+}
+.App{
+  background-color:#3f3160;
+  min-height: 500px;
+  width: 400px;
+  margin: 40px auto;
+
+}
+
+.Input{
+  width: 200px;
+}
+
+
+#abc h1{
+  padding-left: 20px;
+}
+
+
+
+  
+
+
+#hello{
+  height: 40px;
+  width: 300px;
+  padding: 0 20px;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  border:0;
+
+  
+}
+#hello:focus{
+  outline:none;
+
+  
+}
+
+#myform button{
+  height: 40px;
+  margin:0px;
+  /* font-size: 18px; */
+  border-radius: 5px;
+  
+}
