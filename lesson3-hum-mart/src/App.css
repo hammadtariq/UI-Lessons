@@ -1,0 +1,128 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+p{
+  margin: 0px !important;
+}
+.karachiC{
+  background-color: black;
+  color: white;
+  height: 2rem;
+  text-align: center;
+  padding-top: 0.5rem;
+  font-size: 15px;
+}
+.karachiP{
+  height: 2.4rem;
+  background-color: #7bae23;
+}
+.customcare{
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ececec;
+  font-size: 0.9rem;
+  height: 1.5rem;
+}
+.customcare > p{
+  padding-left: 1rem;
+}
+.custom{
+  padding-right: 8rem;
+}
+.logHeader{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 6rem;
+  font-size: 2rem;
+}
+.searchInput{
+  margin-top: 1rem;
+  width: 40% !important;
+  height: 50px;
+  
+}
+.searchInput> input,button{
+  border-radius: 0px !important; 
+  background-color: #e96125 !important;
+  border-color: #e96125 !important;
+}
+.logHeader>p:nth-child(1){
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+nav,.sliderP,.deliveryP,.cardsliderP{
+ display: flex !important;
+ justify-content: center;
+ 
+}
+.navC{
+  width: 85%;
+  background-color: #7bae23;
+  height: 3rem;
+}
+.sliderP,.deliveryP,.cardsliderP{
+  margin-top: 1rem;
+}
+.parent,.slideOne,.slideTwo{
+  height: 350px;
+}
+.parent{
+display: flex;
+  width: 85%;
+  justify-content: space-evenly;
+  
+}
+.slideOne{
+  width: 30%;
+  /* background-color: tomato; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.slideTwo{
+  width: 69%;
+  background-color: turquoise;
+}
+.advOne,.advTwo{
+  height: 172px;
+}
+.advOne{
+  background-color: violet;
+}
+.advTwo{
+  background-color: yellowgreen;
+}
+.deliveryP{
+  background-color: #f9f9f9;
+}
+.delivery,.deliveryOne{
+  height: 3rem;
+}
+
+.delivery{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.deliveryOne{
+ background-color: lightsalmon;
+ width: 32.9%;
+}
+.cardsliderP{
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  background-color:#ececec;
+}
+.cardslider{
+  display: flex;
+  justify-content: space-around;
+width: 85%;
+height: 250px;
+border-top: 1px solid black;
+}
+.ant-card-cover > *{
+  height: 153px !important;
+}
