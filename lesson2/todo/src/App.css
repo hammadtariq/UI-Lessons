@@ -1,10 +1,5 @@
 
-body{
-  font-size: 2rem !important;
-}
 .parent{
- /* display: flex;
- flex-direction: column; */
  margin-left: 2rem;
 }
 .todo-form{
@@ -21,9 +16,7 @@ body{
   width: 50%;
   border-radius: 5px;
 }
-.list-item>input{
-  
-}
+
 .list-value{
   height: 1.5rem;
     width: 58.5%;
@@ -58,6 +51,13 @@ p{
   display: flex;
   margin-left: 1rem;
   justify-content: space-evenly;
+  align-items: center;
+}
+.innerDivOne{
+  display: flex;
+  margin-left: 1rem;
+  justify-content: space-between;
+  align-items: center;
 }
 .ant-input{
   height: 40px !important;
@@ -68,4 +68,14 @@ p{
 }
 .submit{
   height: 2.3rem !important;
+}
+.ant-form-item{
+  margin-bottom: 0px !important;
+}
+
+.border{
+  border-bottom: 1px dotted #aebdcd;
+}
+.antP{
+  height: 3.8rem !important;
 }

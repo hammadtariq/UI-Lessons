@@ -85,11 +85,13 @@ class Test extends React.Component {
         <h1>CRUD REACT</h1>
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
-           <div className="innerDiv">
+           <div className="innerDiv"
+           >
            <Input
               onChange={this.handleChange}
               value={this.state.content}
               placeholder="enter here"
+              className="editInput"
             />
             <Button
               type="primary"
@@ -110,7 +112,7 @@ class Test extends React.Component {
           renderItem={item => (
             <div className="antP">
               {this.state.toggle && item.flg == true ? (
-                <div className="innerDiv">
+                <div className="innerDivOne border">
                   <Form.Item>
                     <Input
                       onChange={this.handleChange}
@@ -118,6 +120,7 @@ class Test extends React.Component {
                       placeholder="enter here"
                       onChange={this.onUpdateChange}
                       value={this.state.val}
+                      className="abc"
                     />
                   </Form.Item>
                   <Button
@@ -130,7 +133,7 @@ class Test extends React.Component {
                   </Button>
                 </div>
               ) : (
-                <div className="innerDiv">
+                <div className="innerDiv border">
                   <List.Item>{item.listValue} </List.Item>
                   <Button
                     type="primary"
