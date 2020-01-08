@@ -78,7 +78,7 @@ class Todo extends Component {
               style={{ height: 60 }}
             />
 
-            <Button icon="plus" type="primary" block htmlType="submit" />
+            <Button icon="plus-circle" type="primary" block htmlType="submit" />
           </Form.Item>
           <List
             size="large"
