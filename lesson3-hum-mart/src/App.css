@@ -7,13 +7,13 @@ p{
 .karachiC{
   background-color: black;
   color: white;
-  height: 2rem;
+  height: 2.3rem;
   text-align: center;
   padding-top: 0.5rem;
-  font-size: 15px;
+  font-size: 16px;
 }
 .karachiP{
-  height: 2.4rem;
+  height: 2.55rem;
   background-color: #7bae23;
 }
 .customcare{
@@ -51,21 +51,36 @@ p{
   font-weight: 900;
   font-size: 2.5rem;
 }
+
 nav,.sliderP,.deliveryP,.cardsliderP{
  display: flex !important;
  justify-content: center;
  
 }
-.navC{
-  width: 85%;
-  background-color: #7bae23;
-  height: 3rem;
+nav{
+  position: sticky !important;
+  top:1px;
+  z-index: 1;
 }
-.sliderP,.deliveryP,.cardsliderP{
-  margin-top: 1rem;
+.navC{
+  padding-right: 10rem;
+    width: 85%;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #7bae23;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.8rem;
+}
+.navC > a{
+  color: white;
+}
+.sliderP,.deliveryP,.cardsliderP,.categoriesP,.onlineSuper,.pageMsg{
+  margin-top: 3rem;
 }
 .parent,.slideOne,.slideTwo{
-  height: 350px;
+  height: 360px;
 }
 .parent{
 display: flex;
@@ -81,11 +96,11 @@ display: flex;
   justify-content: space-between;
 }
 .slideTwo{
-  width: 69%;
+  width: 68%;
   background-color: turquoise;
 }
 .advOne,.advTwo{
-  height: 172px;
+  height: 177px;
 }
 .advOne{
   background-color: violet;
@@ -94,10 +109,11 @@ display: flex;
   background-color: yellowgreen;
 }
 .deliveryP{
+  height: 80px;
   background-color: #f9f9f9;
 }
 .delivery,.deliveryOne{
-  height: 3rem;
+  height: 4.9rem;
 }
 
 .delivery{
@@ -118,6 +134,7 @@ display: flex;
 }
 .cardslider{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 width: 85%;
 height: 250px;
@@ -125,4 +142,47 @@ border-top: 1px solid black;
 }
 .ant-card-cover > *{
   height: 153px !important;
+}
+.categoriesP{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.categoriesC{
+  display: flex;
+  height: 150px;
+  background-color: lightpink;
+  width: 48%;
+  justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+}
+.categories{
+  width: 85%;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.categoriesImg{
+background-image: url("./assets/one.jpg");
+height: 100px;
+width: 200px;
+background-size: contain;
+background-repeat: no-repeat;
+}
+.onlineSuper{
+  background-color: #f9f9f9;
+  padding-top: 1rem;
+    padding-left: 1rem;
+}
+.pageMsg{
+  background-color: #f9f9f9;
+  height: 300px;
+  width: 100%;
+}
+footer{
+  background-color: #272723;
+  height: 400px;
+  width: 100%;
 }
