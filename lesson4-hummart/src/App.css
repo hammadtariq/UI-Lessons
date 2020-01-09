@@ -120,6 +120,25 @@ div{
   height: 1000px;
   
 }
+.category-parent{
+  margin-top: 1rem;
+  background-color: ghostwhite;
+  height: 1105px;
+
+}
+
+.ant-card-hoverable {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category-child{
+  margin-left: 7%;
+  height: 50%;
+  width: 85%;
+}
 
 .mobile{
   margin-left: 7%;
@@ -129,9 +148,9 @@ div{
 }
 .offers{
   margin-left: 7%;
-  height: 40%;
+  height: 50%;
   width: 85%;
-  background-color: lightblue;
+  background-color: palegreen;
 }
 .m{
   font-size: 20px;
@@ -141,6 +160,12 @@ div{
 .f{
   font-size: 20px;
   font-weight: bold;
+  height: 10%;
+}
+.text{
+  font-size: 20px;
+  font-weight: bold;
+  height: 10%;
 }
 
 .item1,.item2,.item3,.item4,.item5{
@@ -149,5 +174,35 @@ div{
 .card{
   display: flex;
   
-  height: 45%;
+  height: 90%;
+}
+.card-button>Button{
+  width: 100px;
+  shape-outside: margin-box;
+}
+.card-button{
+  display: flex;
+  justify-content: space-between;
+}
+
+.row1,.row2,.row3,.row4,.row5,.row6,.row7{
+  display: flex;
+  justify-content: space-between;
+}
+.card-row1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.des-child{
+  margin-left: 6rem;
+  margin-top: 2rem;
+  margin-right: 7rem;
+  height: 100%;
+}
+
+.description{
+  height: 250px;
+  background-color: ghostwhite;
 }
