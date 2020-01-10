@@ -76,31 +76,34 @@ nav{
 .navC > a{
   color: white;
 }
-.sliderP,.deliveryP,.cardsliderP,.categoriesP,.onlineSuper,.pageMsg{
+.sliderP{
+  margin-top: 0.5rem;
+}
+.deliveryP,.cardsliderP,.categoriesP,.onlineSuper,.pageMsg{
   margin-top: 3rem;
 }
 .parent,.slideOne,.slideTwo{
-  height: 360px;
+  height: 390px;
 }
 .parent{
 display: flex;
   width: 85%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   
 }
 .slideOne{
-  width: 30%;
+  width: 29%;
   /* background-color: tomato; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .slideTwo{
-  width: 68%;
-  background-color: turquoise;
+  width: 70%;
+ 
 }
 .advOne,.advTwo{
-  height: 177px;
+  height: 192px;
 }
 .advOne{
   background-color: violet;
@@ -123,27 +126,34 @@ display: flex;
  
 }
 .deliveryOne{
- background-color: lightsalmon;
- width: 32.9%;
+  display: flex;
+ border-right: 1px solid white;
+ width: 33%;
 }
 .cardsliderP{
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  background-color:#ececec;
+  background-color:#f9f9f9;
+}
+.mo{
+  padding-top: 2rem;
+  border-bottom: 1px solid #e1e1e1;
+  width: 85%;
 }
 .cardslider{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 width: 85%;
-height: 250px;
-border-top: 1px solid black;
+
+
 }
 .ant-card-cover > *{
   height: 153px !important;
 }
 .categoriesP{
+  background-color:#f9f9f9;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +161,7 @@ border-top: 1px solid black;
 .categoriesC{
   display: flex;
   height: 150px;
-  background-color: lightpink;
+  background-color: white;
   width: 48%;
   justify-content: space-evenly;
     align-items: center;
@@ -185,4 +195,52 @@ footer{
   background-color: #272723;
   height: 400px;
   width: 100%;
+}
+.logoOne{
+  color:black
+}
+.logoTwo{
+  color: #7bae23;
+}
+.logoSizeOne,.logoSizeTwo{
+  font-size: 3rem;
+}
+.deliveryImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+ 
+    width: 14%;
+}
+.deliveryContent{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+h3{
+  margin: 0px !important;
+}
+.ant-list-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between  ;
+}
+.ant-list,.ant-list-split{
+  width: 100% !important;
+}
+.card-inner{
+  width: 164px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;;
+}
+.card-inner > .ant-btn{
+  border-radius: 20px !important;
+  font-size: 0.65rem !important;
+  font-weight: bold !important;
+}
+.card-inner > p{
+  font-size: 1.2rem;
 }
