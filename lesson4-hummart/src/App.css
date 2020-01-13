@@ -68,6 +68,15 @@ div{
   height: 100%;
 }
 
+.nav-again{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:limegreen;
+  width:100%;
+  height: 100%;
+}
+
 .nav-div>a{
   color:black;
   
@@ -232,4 +241,18 @@ div{
 .h,.um{
   color: black;
   font-size: 3rem;
+}
+
+.cart-object{
+  display: flex;
+  justify-content: space-around;
+}
+.checkout{
+  display: flex;
+  justify-content: space-between;
+}
+.sticky{
+  position: top;
+  top:0;
+  width: 100%;
 }
