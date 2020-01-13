@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+.Myheader{
+    height: 40px;
+    width: 100%;
+    background-color: black;
+
+}
+
+.Myheader p{
+    color: white;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    padding: 10px;
+    
+}

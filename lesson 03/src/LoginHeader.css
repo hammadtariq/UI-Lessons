@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+.MyLoginheader{
+    height: 25px;
+    width: 100%;
+    background-color: #7B858A;
+
+}
+
+.MyLoginheader span {
+float:right; 
+margin-right: 20px;
+
+}
+
+.MyLoginheader span label{
+    margin-right: 20px;
+    
+    }

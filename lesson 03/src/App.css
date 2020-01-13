@@ -1,0 +1,22 @@
+.header{
+  width: 100%;
+  height: 500px;;
+  background-color: black;
+}
+#Mydrawer{
+  /* width: 500px; */
+}
+#drawerdiv{
+  border-color: black;
+  border-color: red;
+  border-width: 2px;
+}
+#l2{
+  float: right;
+  font-weight: bold;
+}
+#l1{
+  float: left;
+  font-weight: bold;
+
+}

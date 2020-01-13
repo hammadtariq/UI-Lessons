@@ -1,0 +1,10 @@
+.Mybtndiv{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: flex-end;
+
+}
+#btn{
+border-radius: 40px;
+width:60%;
+}
