@@ -16,8 +16,9 @@ class Cart extends React.Component {
         content: "ADD TO CART",
         Img:
           "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
-        price: 420,
-        count:0
+        price: 100,
+        counter:1,
+        flg:false,
       },
       {
         id: 2,
@@ -26,7 +27,8 @@ class Cart extends React.Component {
         Img:
           "https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg",
         price: 825,
-        count:0
+        counter:1,
+        flg:false,
       },
       {
         id: 3,
@@ -35,7 +37,8 @@ class Cart extends React.Component {
         Img:
           "https://www.themealdb.com/images/media/meals/r33cud1576791081.jpg",
         price: 854,
-        count:0
+        counter:1,
+        flg:false,
       },
       {
         id: 4,
@@ -44,7 +47,8 @@ class Cart extends React.Component {
         Img:
           "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
         price: 455,
-        count:0
+        counter:1,
+        flg:false,
       },
       {
         id: 5,
@@ -53,7 +57,8 @@ class Cart extends React.Component {
         Img:
           "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
         price: 484,
-        count:0
+        counter:1,
+        flg:false,
       }
     ];
     const { Meta } = Card;
@@ -80,7 +85,7 @@ class Cart extends React.Component {
                     <div className="card-inner">
                       <p>Rs:{item.price}</p>
                       <Button 
-                       onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.count)}
+                       onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
                       type="danger">{item.content}</Button>
                     </div>
                   </Card>

@@ -15,6 +15,8 @@ import Categories from "./components/Categories";
 import OnlineSuper from "./components/OnlineSuper";
 import ExtraContentThree from "./components/ExtraContentThree";
 import Footer from "./components/Footer";
+import CategoriesComponet from './components/CategoriesComponent';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -22,30 +24,60 @@ class App extends React.Component {
     this.state = {
       cartItem: [],
       headTitle:"um",
+      count:0,
       
     };
+    
   }
-  showdata = (id, title, price,count) => {
+  showdata = (id, title, price,counter,Img) => {
     console.log(id, price, title);
     console.log("helo");
     const updateCartItem = [
       ...this.state.cartItem,
-      { id: id, price: price, title: title ,count:count}
+      { id: id, price: price, title: title ,counter:counter,Img:Img}
     ];
     this.setState({ cartItem: updateCartItem });
     console.log(this.state.cartItem);
   };
 add=(id)=>{
-  console.log(id)
-  
-  this.state.cartItem.map((el)=>{
-    console.log(el.id,id)
-    if(id===el.id){
-      console.log(this.state.cartItem.count);
-    }
-  
+  console.log(id);
+
    
- })
+  const stateCopy = [...this.state.cartItem];
+  stateCopy.map((item,index)=>{
+    
+    if(item.id==id){
+      console.log(item.id==id)
+    //  let a= item.counter;
+    //  this.setState((state)=>console.log(state.cartItem[index].counter+=1))
+    // this.setState((state)=> console.log(({cartItem:state.cartItem[index].counter+=1})))
+    const a = item.counter+=1;
+    const b = item.price*=a;
+const cartItem = [...this.state.cartItem,{price:b,counter:a}]
+    console.log(cartItem);
+    this.setState((state)=>({cartItem:state.cartItem}))
+      }
+      console.log(this.state.cartItem);
+  })
+}
+delete = (id)=>{
+  const stateCopy = [...this.state.cartItem];
+  stateCopy.map((item,index)=>{
+    
+    if(item.id==id){
+      console.log(item.id==id)
+      if(item.counter>1){
+    const a = item.counter-=1;
+   
+const cartItem = [...this.state.cartItem,{counter:a}]
+    console.log(cartItem);
+    this.setState((state)=>({cartItem:state.cartItem}))
+      }}
+      else{
+        item.counter=1;
+      }
+      console.log(this.state.cartItem);
+  })
 }
  
   render() {
@@ -60,8 +92,9 @@ add=(id)=>{
         <Header 
         cartData={this.state.headTitle}
         showCartData={this.state.cartItem}
-        sendCount={this.state.count}
+       sendCount={this.state.count}
         sendAdd={this.add}
+        sendMinus= {this.delete}
          />
         <nav>
           <Navbar />

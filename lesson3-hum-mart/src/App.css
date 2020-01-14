@@ -259,7 +259,7 @@ h3{
 .ant-badge{
   font-size: 2rem !important;
 }
-.ant-drawer-wrapper-body{
+.drawer{
   display: flex;
     flex-direction: column;
     justify-content: space-between
@@ -267,4 +267,20 @@ h3{
 .cart-item{
   display: flex;
   justify-content: space-evenly;
+  margin: 1rem 0px;
+    border-bottom: 1px dotted;
+}
+.totalOne{
+  display: flex;
+  justify-content: space-between;
+}
+.counter-part{
+  display: flex;
+  justify-content: space-evenly;
+}
+.ant-drawer-body{
+  padding: 1px !important;
+}
+.abc{
+  background-color: #7bae23;
 }
