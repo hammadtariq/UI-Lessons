@@ -10,7 +10,7 @@ class RouterComponents extends React.Component{
                 <BrowserRouter>
                 <Switch>
                     <Route exact={true} path="/" component={App}/>
-                    <Route path="/category/:id,:content" component={CategoriesComponent} />
+                    <Route path="/category/:id" component={CategoriesComponent} />
                     <Route path="/descriptionmeal" component={Meal}/>
                 </Switch>
                 </BrowserRouter>

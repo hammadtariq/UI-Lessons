@@ -112,7 +112,7 @@ class Categories extends React.Component {
                   <p>{item.contentTwo}</p>
                 </div>
                 <div>
-                <Link to={`/category/${item.id},${item.content}`}>
+                <Link to={`/category/${item.id}}`}>
                 <Icon type="right" />
                 </Link>
                 </div>

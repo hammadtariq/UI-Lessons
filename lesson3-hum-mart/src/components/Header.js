@@ -97,7 +97,7 @@ class Header extends React.Component {
               );
             })}
 
-            <Button type="danger" block></Button>
+            <Button type="danger" block>Proceed To Checkout</Button>
           </Drawer>
         </div>
       </div>
