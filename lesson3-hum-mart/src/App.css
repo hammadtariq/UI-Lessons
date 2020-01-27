@@ -73,6 +73,17 @@ nav{
     justify-content: space-around;
     font-size: 0.8rem;
 }
+.navX{
+  padding-right: 10rem;
+    width: 100% !important;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #7bae23;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.8rem;
+}
 .navC > a{
   color: white;
 }

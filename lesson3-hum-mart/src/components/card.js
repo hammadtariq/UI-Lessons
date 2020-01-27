@@ -1,15 +1,8 @@
 import React from "react";
 import { List, Card, Button } from "antd";
 import Header from "./Header";
-import { connect} from "react-redux";
-class Cart extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
-
-  render() {
-    console.log(this.props);
+const Cart = props=> {
+  console.log(props.data)
     const { Meta } = Card;
     return (
       <div className="cardsliderP">
@@ -19,9 +12,8 @@ class Cart extends React.Component {
         </div>
         <div className="cardslider">
           <List
-           
             itemLayout="horizontal"
-            dataSource={this.props.data}
+            dataSource={props.data}
             renderItem={item => (
               <List.Item key={item.id}>
                 <div className="cards">
@@ -34,7 +26,7 @@ class Cart extends React.Component {
                     <div className="card-inner">
                       <p>Rs:{item.price}</p>
                       <Button 
-                       onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
+                       onClick={()=>props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
                       type="danger">{item.content}</Button>
                     </div>
                   </Card>
@@ -45,11 +37,5 @@ class Cart extends React.Component {
         </div>
       </div>
     );
-  }
 }
-const mapStateToProps= (state)=>{
- return{
-  data:state.data
- }
-}
-export default connect(mapStateToProps)(Cart);
+export default Cart;
