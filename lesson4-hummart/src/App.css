@@ -61,7 +61,7 @@ div{
 }
 .nav-div{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color:limegreen;
   width:85%;
@@ -70,7 +70,7 @@ div{
 
 .nav-again{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color:limegreen;
   width:100%;
@@ -78,6 +78,10 @@ div{
 }
 
 .nav-div>a{
+  color:black;
+  
+}
+.nav-again>a{
   color:black;
   
 }

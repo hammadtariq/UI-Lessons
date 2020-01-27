@@ -1,0 +1,20 @@
+.menu{
+    width: 20%;
+    margin-left: 9rem;
+}
+.breadcrumb{
+    width: 50%;
+    margin-right: 6rem;
+    height: 30%;
+}
+.parent{
+    margin-right: 9rem;
+    display: flex;
+    align-content: space-between;
+}
+.heading{
+    display: flex;
+}
+.dropdown{
+    margin-left: 9rem;
+}

@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Card, Button } from "antd";
+
+import Cart from '../components/cart'
 const { Meta } = Card;
 
 class Item extends Component {
+
+  CartCall = (index,str) =>{
+        }
+
   render() {
     return (
       <div className="item-parent">
@@ -21,7 +27,7 @@ class Item extends Component {
                   <div className="card-button">
                     <strong>{item.price}</strong>
                     <Button
-                      onClick={() => this.props.Cart(index, "mobiles")}
+                      onClick={() => ''} 
                       shape="round"
                       type="danger"
                     >
