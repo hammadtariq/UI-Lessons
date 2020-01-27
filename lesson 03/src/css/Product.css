@@ -21,18 +21,25 @@
 .p1{
     width:100%;
     min-height: 800px;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #f9f9f9 ;
     display: flex;
     justify-content: center;
 }
 .p2{
     width: 80%;
-    background-color: grey;
+    /* background-color: #7B858A; */
+    /* color: #7B858A; */
+    /* background-color: white; */
+
+
    
 }
 .p3{
     display: flex;
     justify-content: space-around;
+    margin-top:20px;
+    /* background-color: white; */
 }
 .p41{
     width: 30%;
