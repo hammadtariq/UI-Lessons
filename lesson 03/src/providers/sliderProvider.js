@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 
 
 const mapStateToProps = state => {
-  
   return {
         myListOfImages:state.SliderImages
 };

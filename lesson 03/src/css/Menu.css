@@ -1,5 +1,6 @@
 .menuDiv{
-    top:5px;
-    z-index:1;
-    position: sticky;
+    top:2px;
+     z-index:1;
+     position: sticky;
+     width: "25%"
 }

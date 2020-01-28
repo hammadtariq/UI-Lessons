@@ -5,13 +5,16 @@ import Footer from "../components/Footer";
 import Body from "../components/Body";
 
 function Home(props) {
-  
   debugger;
+  console.log(props)
+  
   return (
     <div className="app">
-      <Header />
+      <Header  />
       <Slider SliderImages={props.myList} leftImages={props.leftImages} />
-      <Body productImages={props.productImages} categoriesdiv={props.categoriesdiv} />
+      {/* <Body  bodyObject={props.bodyObject}  changeCount={props.changeCount()} productImages={props.productImages} categoriesdiv={props.categoriesdiv} /> */}
+      <Body changeCount={props.changeCount}  bodyObject={props.bodyObject}  />
+      
       <Footer />
     </div>
   );

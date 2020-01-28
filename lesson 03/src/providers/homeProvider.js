@@ -7,12 +7,19 @@ const mapStateToProps = state => {
   return {
       myList:state.SliderImages
       ,leftImages:state.leftImages,
-      productImages:state.productImages,
-      categoriesdiv:state.categoriesdiv
+      bodyObject:state.bodyObject,
+      // productImages:state.productImages,
+      // categoriesdiv:state.categoriesdiv
 
   };
 };
 
-const homeProvider = withRouter(connect(mapStateToProps)(Home));
+const mapDispatchToProps = dispatch => {
+  return {
+     changeCount:(count)=>{dispatch({type:"changeCount",payload:count})}
+  };
+};
+
+const homeProvider = withRouter(connect(mapStateToProps,mapDispatchToProps)(Home));
 
 export default homeProvider;

@@ -1,91 +1,99 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge } from "antd";
-import "../css/Menu.css"
-import { Menu } from 'antd';
+import { Drawer, Input, Button, Icon, Badge, Card } from "antd";
+import "../css/Menu.css";
+import { Menu } from "antd";
+import m2 from "../images/m1.jpg";
+import { Pagination } from "antd";
 
-const { SubMenu } = Menu;
-
+const { Meta } = Card;
 
 class MyMenu extends React.Component {
+  state = {
+    // CardImages: [m2, m2, m2, m2, m2, m2, m2, m2],
+    // Menulist: [
+    //   "Mobiles",
+    //   "Nokia",
+    //   "Xiaomi",
+    //   "Samsung",
+    //   "Huawei",
+    //   "Infinity",
+    //   "Tecno",
+    //   "Motorola"
+    // ]
+  };
 
-    render() {
-        return (
-            <div>
-               <this.Sider />
-            </div>
+  render() {
+    return (
+      <div>
+        <this.Sider />
+      </div>
+    );
+  }
 
-);
-    }
-
-
-Sider=()=> {
-        return (
-            <div style={{marginLeft:"100px",width:"85%",height:"800px" ,backgroundColor:"black"}}>
-          <div className="menuDiv">
+  Sider = () => {
+    return (
+      <div
+        style={{
+          marginLeft: "100px",
+          width: "85%",
+          height: "800px",
+          // backgroundColor: "black",
+          display: "flex"
+        }}
+      >
+        <div style={{ width: "25%" }} className="menuDiv">
           <Menu
-            onClick={this.handleClick}
-            style={{ width: 256 }}
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
+            style={{ width: "100%" }}
+            defaultSelectedKeys={["0"]}
             mode="inline"
           >
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="mail" />
-                  <span>Navigation One</span>
-                </span>
-              }
-            >
-              <Menu.ItemGroup key="g1" title="Item 1">
-                <Menu.Item key="1">Option 1</Menu.Item>
-                <Menu.Item key="2">Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup key="g2" title="Item 2">
-                <Menu.Item key="3">Option 3</Menu.Item>
-                <Menu.Item key="4">Option 4</Menu.Item>
-              </Menu.ItemGroup>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="appstore" />
-                  <span>Navigation Two</span>
-                </span>
-              }
-            >
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-              <SubMenu key="sub3" title="Submenu">
-                <Menu.Item key="7">Option 7</Menu.Item>
-                <Menu.Item key="8">Option 8</Menu.Item>
-              </SubMenu>
-            </SubMenu>
-            <SubMenu
-              key="sub4"
-              title={
-                <span>
-                  <Icon type="setting" />
-                  <span>Navigation Three</span>
-                </span>
-              }
-            >
-              <Menu.Item key="9">Option 9</Menu.Item>
-              <Menu.Item key="10">Option 10</Menu.Item>
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
+            {this.props.MenuList.map((item, index) => (
+              <Menu.Item key={index}>{item}</Menu.Item>
+            ))}
           </Menu>
+        </div>
+        <div style={{ width: "75%", height: "80%", backgroundColor: "white" }}>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between"
+            }}
+          >
+            {this.props.CardImages.map(item => (
+              <div
+                style={{
+                  width: "200px"
+                }}
+              >
+                <Card
+                  hoverable
+                  style={{ width: "100%" }}
+                  cover={<img src={item.img} />}
+                >
+                  <Meta title="Price" description="40$" />
+                  <span>
+                    <label>{item.text}</label>
+                    <br />
+                    <label id="mylabel">{item.price}</label>
+                    <Button
+                      // onClick={() => this.updateCount(index)}
+                      id="btn"
+                      type="danger"
+                    >
+                      Add To Cart
+                    </Button>
+                  </span>
+                </Card>
+              </div>
+            ))}
           </div>
-          </div>
-        );
-      }
-    
-    
-
-
+        </div>
+      </div>
+    );
+  };
 }
 export default MyMenu;
