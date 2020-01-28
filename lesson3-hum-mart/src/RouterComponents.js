@@ -4,6 +4,7 @@ import App from './App';
 import CategoriesComponent from './components/CategoriesComponent';
 import Meal from './components/meal.js'
 import CategoriesPageData from './providers/categories-page-data';
+import ProductDescription from './components/ProductDescription';
 class RouterComponents extends React.Component{
     render(){
         return(
@@ -13,6 +14,7 @@ class RouterComponents extends React.Component{
                     <Route exact={true} path="/" component={App}/>
                     <Route path="/category/:id" component={CategoriesPageData} />
                     <Route path="/descriptionmeal" component={Meal}/>
+                    <Route path = "/description/:descriptionId" component={ProductDescription}/>
                 </Switch>
                 </BrowserRouter>
             </div>

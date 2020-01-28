@@ -1,0 +1,89 @@
+.des-page {
+  display: flex;
+  margin-left: 5.9rem;
+
+  justify-content: flex-start;
+
+  margin-top: 1rem;
+  align-items: center;
+}
+.des-body {
+  display: flex;
+  width: 100%;
+
+  height: 500px;
+}
+.des-img {
+  width: 50%;
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.five-star {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 1rem;
+}
+.five-star > i {
+  padding: 0px;
+}
+.five-star > p {
+  margin-left: 1rem !important;
+}
+.des-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.des-cart-up {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+.des-cart-p {
+  font-size: 20px;
+}
+.des-cart-down {
+  margin-left: 1rem;
+}
+.des-cart-down > p {
+  font-size: 25px;
+}
+.des-cart-down > button {
+  border: none;
+  border-radius: 3px !important;
+  background-color: #e96125;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  height: 46px;
+}
+.tab-one {
+  display: flex;
+  flex-direction: column;
+}
+.tab-one-child {
+  display: flex;
+  margin-top: 1rem;
+}
+.tab-one-child > p:nth-child(2) {
+  margin-left: 6rem !important;
+}
+.des-details {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.des-details > .ant-tabs {
+  width: 80%;
+}
+.tab-one-child > b {
+  width: 25%;
+}
+.tab-two-child {
+  width: 50%;
+}
