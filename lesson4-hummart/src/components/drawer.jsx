@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Button, Icon, Drawer } from "antd";
 
 class Drawerr extends Component {
-
-    
   render() {
+    console.log(">>>", this.props);
+    debugger;
     return (
       <Drawer
         title="MY CART"
@@ -32,7 +32,7 @@ class Drawerr extends Component {
                     <b>{item.quantity}</b>
                     <Button
                       onClick={() => {
-                        this.props.plus(index)
+                        this.props.plus(index);
                       }}
                       type="danger"
                       shape="circle"

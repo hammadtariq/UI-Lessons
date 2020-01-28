@@ -1,27 +1,22 @@
 import { connect } from "react-redux";
 import Home from "../container/home";
-
-function CartOpen() {
-  return { type: "cartopen" };
-}
+import { openCart, closeCart } from "../actions/actions";
 
 const mapDispatchtoProps = dispatch => {
   return {
-    display: () => {
-      dispatch(CartOpen());
-    }
+    display: () => dispatch(openCart()),
+    onClose: () => dispatch(closeCart())
   };
 };
 
 const mapStatetoProps = state => {
   return {
-    mobile: state.Mobiledata,
-    offer: state.offers,
-    count: state.count,
-    showZero: state.showZero,
-    total: state.total,
-    visible: state.visible,
-    style:state.styleS
+    mobile: state.items.Mobiledata,
+    offer: state.items.offers,
+    count: state.cart.count,
+    showZero: state.cart.showZero,
+    total: state.cart.total,
+    visible: state.cart.visible
   };
 };
 

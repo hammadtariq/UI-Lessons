@@ -9,22 +9,16 @@ import Header from "../components/header";
 import React, { Component } from "react";
 import Item from "../components/item";
 import Footer from "../components/footer";
-import '../App.css'
-import { message } from "antd";
+import "../App.css";
 import "antd/dist/antd.css";
 
 let lastY = 0;
 class Home extends Component {
   state = {
-    style:'nav-div',
+    style: "nav-div",
     index: []
   };
 
-  onClose = () => {
-    this.setState({
-      visible: false
-    });
-  };
 
   // Cart = (id, arr) => {
   //   let count = this.state.count;
@@ -49,12 +43,6 @@ class Home extends Component {
   //   });
   //   message.success("Item Added");
   // };
-
-  Display = () => {
-    this.setState({
-      visible: true
-    });
-  };
 
   plus = ind => {
     let value = this.state.index;
@@ -123,7 +111,7 @@ class Home extends Component {
         <Description />
         <Drawerr
           total={this.props.total}
-          onClose={this.onClose}
+          onClose={this.props.onClose}
           visible={this.props.visible}
           index={this.state.index}
           minus={this.minus}

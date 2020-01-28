@@ -1,15 +1,25 @@
-import {connect} from 'react-redux';
-import Mobiles from '../container/categoriesmobiles';
+import { connect } from "react-redux";
+import Mobiles from "../container/categoriesmobiles";
+import { openCart, closeCart } from "../actions/actions";
 
-const mapStatetoProps=state=>{
-    return{
-        mobile:state.Mobiledata,
-        offer:state.offers,
-        count:state.count,
-        showZero:state.showZero,
-        total:state.total
-    }
-}
+const mapDispatchtoProps = dispatch => {
+  return {
+    display: () => dispatch(openCart()),
+    onClose: () => dispatch(closeCart())
+  };
+};
 
-const homeProvider=connect(mapStatetoProps)(Mobiles)
-export default homeProvider;
+const mapStatetoProps = state => {
+  console.log(state);
+  debugger;
+  return {
+    mobile: state.items.mobilesCategory,
+    count: state.cart.count,
+    showZero: state.cart.showZero,
+    total: state.cart.total,
+    visible: state.cart.visible
+  };
+};
+
+const mobileProvider = connect(mapStatetoProps, mapDispatchtoProps)(Mobiles);
+export default mobileProvider;
