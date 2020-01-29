@@ -13,28 +13,29 @@ import Footer from "./components/Footer";
 import CardProvider from './providers/cardProvider';
 import CategoriesProvider from './providers/categories-provider';
 import Drawers from './components/Drawer'
-
+import ShowCardProvider from './providers/show-card-provider';
+import a from './actions/showdrawersaction.js'
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartItem: [],
+  
       count: 0,
-      visible: false 
+   
     };
   }
-  showDrawer = () => {
-    this.setState({
-      visible: true
-    });
-    console.log(this.state.visible,"show drawer")
-  };
+  // showDrawer = () => {
+  //   this.setState({
+  //     visible: true
+  //   });
+  //   console.log(this.state.visible,"show drawer")
+  // };
 
-  onClose = () => {
-    this.setState({
-      visible: false
-    });
-  };
+  // onClose = () => {
+  //   this.setState({
+  //     visible: false
+  //   });
+  // };
   showdata = (id, title, price, counter, Img) => {
     console.log(id, price, title);
     console.log("helo");
@@ -89,17 +90,18 @@ class App extends React.Component {
         <div className="customcare">
           <ExtraContentTwo />
         </div>
-        <Header
+        {/* <Header
           showDrawer={this.showDrawer}
-        />
-        <Drawers
-         visible={this.state.visible}
-         onClose={this.onClose}
-         showCartData={this.state.cartItem}
-         sendCount={this.state.count}
-         sendAdd={this.add}
-         sendMinus={this.delete}
-        />
+        /> */}
+        <ShowCardProvider />
+        {/* <Drawers
+         visible={this.props.visible}
+        //  onClose={this.onClose}
+        //  showCartData={this.state.cartItem}
+        //  sendCount={this.state.count}
+        //  sendAdd={this.add}
+        //  sendMinus={this.delete}
+        /> */}
         <nav>
           <Navbar />
         </nav>
@@ -110,7 +112,9 @@ class App extends React.Component {
           <Delivery />
         </div>
       
-        <CardProvider sendShowData={this.showdata}/>
+        <CardProvider 
+        // sendShowData={this.showdata}
+        />
        <CategoriesProvider/>
         <OnlineSuper />
         <ExtraContentThree />

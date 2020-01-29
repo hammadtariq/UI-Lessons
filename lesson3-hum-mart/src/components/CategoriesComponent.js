@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import Drawers from "./Drawer";
 import Sider from "./SideMenu";
 import "../css/categories-components.css";
+import ShowCardProvider from '../providers/show-card-provider'
 import { Icon, Select, Tabs, List, Card, Button } from "antd";
 class CategoriesComponent extends React.Component {
   goToDescriptionPage = Id => {
@@ -31,7 +32,8 @@ class CategoriesComponent extends React.Component {
         <div className="customcare">
           <ExtraContentTwo />
         </div>
-        <Header showDrawer={this.showDrawer} />
+        <ShowCardProvider/>
+
         {/* <Drawers
              visible={this.state.visible}
              onClose={this.onClose}

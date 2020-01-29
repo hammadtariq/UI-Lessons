@@ -3,15 +3,21 @@ import { connect } from "react-redux";
 import { render } from "@testing-library/react";
 import ExtraContentOne from "./ExtraContentOne";
 import ExtraComtentTwo from "./ExtraContentTwo";
-import Header from "./Header";
 import Navbar from "./Navbar";
 import { Icon, Button, Tabs, Form, Input } from "antd";
 import "../css/product-description.css";
+import ShowCardProvider from '../providers/show-card-provider'
 import Footer from "./Footer";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
   }
+  handleClick = ()=>{
+   
+   console.log(this.props.addtocart(this.props.post.id));
+   
+   
+   }
   render() {
     console.log(this.props.post, "sk");
     const { post } = this.props;
@@ -25,7 +31,8 @@ class ProductDescription extends React.Component {
         <div className="customcare">
           <ExtraComtentTwo />
         </div>
-        <Header showDrawer={this.showDrawer} />
+        <ShowCardProvider/>
+        {/* <Header showDrawer={this.showDrawer} /> */}
         {/* <Drawers
              visible={this.state.visible}
              onClose={this.onClose}
@@ -68,7 +75,9 @@ class ProductDescription extends React.Component {
             </div>
             <div className="des-cart-down">
               <p>Rs:{post.price}</p>
-              <Button type="danger" icon="shopping" block>
+              <Button 
+               onClick={this.handleClick} 
+              type="danger" icon="shopping" block>
                 ADD TO CART
               </Button>
             </div>
@@ -156,4 +165,9 @@ const mapStateToProps = (state, ownProps) => {
     post: state.categoriesData.find(post => post.id == id)
   };
 };
-export default connect(mapStateToProps)(ProductDescription);
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    addtocart:(id)=>{dispatch({type:'ADD_CART',id:id})}
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ProductDescription);

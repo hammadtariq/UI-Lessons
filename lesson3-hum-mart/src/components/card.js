@@ -1,8 +1,14 @@
 import React from "react";
 import { List, Card, Button } from "antd";
 import Header from "./Header";
-const Cart = props=> {
-  console.log(props.data)
+class Cart extends React.Component {
+  handleClick = (Id)=>{
+   
+    this.props.addtocart(this.props.data[Id].id);
+   }
+  render(){
+ 
+  console.log(this.props,"cart data")
     const { Meta } = Card;
     return (
       <div className="cardsliderP">
@@ -13,7 +19,7 @@ const Cart = props=> {
         <div className="cardslider">
           <List
             itemLayout="horizontal"
-            dataSource={props.data}
+            dataSource={this.props.data}
             renderItem={item => (
               <List.Item key={item.id}>
                 <div className="cards">
@@ -25,8 +31,9 @@ const Cart = props=> {
                     <Meta title={item.title} />
                     <div className="card-inner">
                       <p>Rs:{item.price}</p>
-                      <Button 
-                       onClick={()=>props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
+                      <Button
+                      onClick={()=>this.handleClick(item.id)} 
+                      //  onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
                       type="danger">{item.content}</Button>
                     </div>
                   </Card>
@@ -37,5 +44,5 @@ const Cart = props=> {
         </div>
       </div>
     );
-}
+}}
 export default Cart;
