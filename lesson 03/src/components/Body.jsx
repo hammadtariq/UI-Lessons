@@ -3,6 +3,8 @@ import "antd/dist/antd.css";
 import { Drawer, Input, Button, Icon, Badge } from "antd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+
+
 import "../css/Mobilediv.css";
 import "../css/Product.css";
 import "../css/Product.css";
@@ -13,11 +15,7 @@ class Body extends React.Component {
     super(props);
 
     this.state = {
-      Total: 0,
-      myCartList: [],
-      visible: false,
-
-      // count: 0
+      // myCartList: [],
     };
   }
 
@@ -35,8 +33,8 @@ class Body extends React.Component {
                 <div className="p41">
                   <h1 id="p4h1">{item.text}</h1>
                 </div>
-                <div className="p41">
-                  <Link to="/mobiles">
+                <div className="p41" >
+                  <Link   to="/mobiles">
                     {" "}
                     <Icon
                       type="caret-right"
@@ -47,7 +45,7 @@ class Body extends React.Component {
                         marginLeft: "40px"
                       }}
                     />
-                  </Link>
+                  </Link >
                 </div>
               </div>
               <div className="p4">
@@ -116,39 +114,26 @@ class Body extends React.Component {
   };
 
   updateCount = index => {
-    // let count = this.state.count;
-    let count = 0;
+    let count = this.props.bodyObject.count;
     debugger;
-    count=this.props.bodyObject.count
-
-
-    let mytotal = this.state.Total + this.props.bodyObject.productImages[index].price;
-
-    this.setState({
-      Total: mytotal
-    });
-
+    let mytotal = this.props.bodyObject.Total + this.props.bodyObject.productImages[index].price;
     count = count + 1;
-    // this.props.count(count)
     debugger;
-    {this.props.changeCount(count)}
-    // this.setState({
-    //   count: count
-    // });
+    {this.props.changeCount(count,mytotal)}
+    debugger;
+    console.log(this.props.bodyObject.count);
 
     let list = this.props.bodyObject.productImages[index];
     list.counter += 1;
-    if (this.state.myCartList.length === 0) {
-      let list2 = [...this.state.myCartList];
+    if (this.props.bodyObject.myCartList.length === 0) {
+      let list2 = this.props.bodyObject.myCartList;
       list2.push(list);
-      this.setState({
-        myCartList: list2
-      });
+      this.props.updateCartList(list2)
     } else {
       let myVar = false;
       let p =this.props.bodyObject.productImages[index].key;
-      for (let i = 0; i < this.state.myCartList.length; i++) {
-        if (this.state.myCartList[i].key === p) {
+      for (let i = 0; i < this.props.bodyObject.myCartList.length; i++) {
+        if (this.props.bodyObject.myCartList[i].key === p) {
           this.setState({
             counter: list.counter
           });
@@ -157,11 +142,10 @@ class Body extends React.Component {
         }
       }
       if (myVar === false) {
-        let list2 = [...this.state.myCartList];
+        let list2 = this.props.bodyObject.myCartList;
         list2.push(list);
-        this.setState({
-          myCartList: list2
-        });
+        this.props.updateCartList(list2)
+
       }
     }
   };
@@ -227,118 +211,7 @@ class Body extends React.Component {
     );
   };
 
-  CartMinus = index => {
-    let count = this.state.count;
-    count = count - 1;
-
-    let mytotal = this.state.Total - this.state.myCartList[index].price;
-
-    let list = [...this.state.myCartList];
-
-    list[index].counter -= 1;
-    if (list[index].counter === 0) {
-      list.splice(index, 1);
-      this.setState({
-        myCartList: list,
-        count: count,
-        Total: mytotal
-      });
-    } else {
-      this.setState({
-        myCartList: list,
-        count: count,
-        Total: mytotal
-      });
-    }
-  };
-  Cartadd = index => {
-    let count = this.state.count;
-    count = count + 1;
-    let mytotal = this.state.Total + this.state.myCartList[index].price;
-    this.setState({
-      count: count,
-      Total: mytotal
-    });
-    let list = this.state.myCartList[index];
-    list.counter += 1;
-  };
-
-  Drawer = () => {
-    return (
-      <Drawer
-        width={500}
-        id="Mydrawer"
-        title="My Cart"
-        placement="right"
-        closable={false}
-        onClose={this.onClose}
-        visible={this.state.visible}
-      >
-        <div id="drawerdiv">
-          <span>
-            <label id="l1">SubTotal</label>
-
-            <label id="l2">Rs {this.state.Total}</label>
-          </span>
-          <br />
-          <span>
-            <label id="l1">Delievery Charges</label>
-            <label id="l2">Free</label>
-          </span>
-          <br />
-          <br />
-
-          <div className="dd1">
-            {this.state.myCartList.map((items, index) => {
-              return (
-                <div>
-                  <div key={index} id="cartdiv">
-                    <div className="p41">
-                      <img id="p4img" src={items.img} />
-                    </div>
-                    <div className="p41">
-                      <label>src={items.text}</label>
-                    </div>
-                    <div className="p41">
-                      <label>Rs {items.price} </label>
-                    </div>
-                  </div>
-
-                  <div>
-                    <span id="spanbtn">
-                      <Button
-                        onClick={() => this.CartMinus(index)}
-                        shape="circle"
-                      >
-                        -
-                      </Button>
-                      <p>{items.counter}</p>
-                      <Button
-                        onClick={() => this.Cartadd(index)}
-                        shape="circle"
-                      >
-                        +
-                      </Button>
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-            <div className="Drawarbtn">
-              <div>
-                {/* <Link to={"/Header"}> */}
-                <Button style={{ width: "100%" }} type="danger">
-                  Submit
-                </Button>
-                {/* </Link> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Drawer>
-    );
-  };
-
+  
   render() {
     return (
       <div>

@@ -6,15 +6,18 @@ import Body from "../components/Body";
 
 function Home(props) {
   debugger;
-  console.log(props)
-  
+  console.log(props);
+
   return (
     <div className="app">
-      <Header  />
+      <Header
+        changeStateOfDrawer={props.changeStateOfDrawer}
+        bodyObject={props.bodyObject}
+        changeCount={props.changeCount}
+        
+      />
       <Slider SliderImages={props.myList} leftImages={props.leftImages} />
-      {/* <Body  bodyObject={props.bodyObject}  changeCount={props.changeCount()} productImages={props.productImages} categoriesdiv={props.categoriesdiv} /> */}
-      <Body changeCount={props.changeCount}  bodyObject={props.bodyObject}  />
-      
+      <Body updateCartList={props.updateCartList} changeCount={props.changeCount} bodyObject={props.bodyObject} />
       <Footer />
     </div>
   );

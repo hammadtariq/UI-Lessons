@@ -1,11 +1,8 @@
 import appInitialState from "../App-Store/Initial-State";
-
+import  audioList from "../reducers/rootReducer";
 
 export default function reducer(state = appInitialState, action) {
-  if(action.type==="changeCount"){
-    console.log("action.payload", action.payload)
-    return {...state, count: action.payload}
-    
-  }
-  return state;
+  return {
+    ...state,bodyObject: audioList(state.bodyObject, action),
+  };
 }

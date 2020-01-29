@@ -11,11 +11,6 @@ import "../css/App.css";
 class Header extends React.Component {
   
     state = {
-      Total: 0,
-      myCartList: [],
-      visible: false,
-
-      count: 0,
       categoryItem: [
         "MOBILES TABLETS & LAPTOPS",
         "ELECTRONIC ACCESSORIESPHARMACY",
@@ -26,15 +21,11 @@ class Header extends React.Component {
   }
 
   showDrawer = () => {
-    this.setState({
-      visible: true
-    });
+    {this.props.changeStateOfDrawer(true)}
   };
 
   onClose = () => {
-    this.setState({
-      visible: false
-    });
+    {this.props.changeStateOfDrawer(false)}
   };
 
   Header = () => {
@@ -75,49 +66,7 @@ class Header extends React.Component {
     );
   };
 
-  updateCount = index => {
-    let count = this.state.count;
-    let mytotal = this.state.Total + this.state.mobdiv[index].price;
-
-    this.setState({
-      Total: mytotal
-    });
-
-    count = count + 1;
-    this.setState({
-      count: count
-    });
-
-    let list = this.state.mobdiv[index];
-    list.counter += 1;
-    if (this.state.myCartList.length === 0) {
-      let list2 = [...this.state.myCartList];
-      list2.push(list);
-      this.setState({
-        myCartList: list2
-      });
-    } else {
-      let myVar = false;
-      let p = this.state.mobdiv[index].key;
-      for (let i = 0; i < this.state.myCartList.length; i++) {
-        if (this.state.myCartList[i].key === p) {
-          this.setState({
-            counter: list.counter
-          });
-          myVar = true;
-          return;
-        }
-      }
-      if (myVar === false) {
-        let list2 = [...this.state.myCartList];
-        list2.push(list);
-        this.setState({
-          myCartList: list2
-        });
-      }
-    }
-  };
-
+ 
   LogoDiv = () => {
     return (
       <div className="Logodiv">
@@ -140,13 +89,14 @@ class Header extends React.Component {
             </div>
 
             <div className="cartdiv">
-              <Badge count={this.state.count} showZero="true">
+              <Badge count={this.props.bodyObject.count} showZero="true">
                 <Icon
                   onClick={this.showDrawer}
                   className="mycart"
                   type="shopping-cart"
                 />
               </Badge>
+              
             </div>
           </span>
         </div>
@@ -155,38 +105,40 @@ class Header extends React.Component {
   };
 
   CartMinus = index => {
-    let count = this.state.count;
+    let count = this.props.bodyObject.count;
     count = count - 1;
 
-    let mytotal = this.state.Total - this.state.myCartList[index].price;
+    let mytotal = this.props.bodyObject.Total - this.props.bodyObject.myCartList[index].price;
 
-    let list = [...this.state.myCartList];
+    let list =this.props.bodyObject.myCartList;
 
     list[index].counter -= 1;
     if (list[index].counter === 0) {
       list.splice(index, 1);
-      this.setState({
-        myCartList: list,
-        count: count,
-        Total: mytotal
-      });
+    {this.props.changeCount(count,mytotal)}
+         //////////////////        
+      // this.setState({
+      //   myCartList: list,
+      //   count: count,
+      //   Total: mytotal
+      // });
     } else {
-      this.setState({
-        myCartList: list,
-        count: count,
-        Total: mytotal
-      });
+      {this.props.changeCount(count,mytotal)}
+      
+      // this.setState({
+      //   myCartList: list,
+      //   count: count,
+      //   Total: mytotal
+      // });
     }
   };
   Cartadd = index => {
-    let count = this.state.count;
+    let count = this.props.bodyObject.count;
     count = count + 1;
-    let mytotal = this.state.Total + this.state.myCartList[index].price;
-    this.setState({
-      count: count,
-      Total: mytotal
-    });
-    let list = this.state.myCartList[index];
+    let mytotal = this.props.bodyObject.Total + this.props.bodyObject.myCartList[index].price;
+    {this.props.changeCount(count,mytotal)}
+    
+    let list = this.props.bodyObject.myCartList[index];
     list.counter += 1;
   };
 
@@ -199,13 +151,13 @@ class Header extends React.Component {
         placement="right"
         closable={false}
         onClose={this.onClose}
-        visible={this.state.visible}
+        visible={this.props.bodyObject.visible}
       >
         <div id="drawerdiv">
           <span>
             <label id="l1">SubTotal</label>
 
-            <label id="l2">Rs {this.state.Total}</label>
+            <label id="l2">Rs {this.props.bodyObject.Total}</label>
           </span>
           <br />
           <span>
@@ -216,7 +168,7 @@ class Header extends React.Component {
           <br />
 
           <div className="dd1">
-            {this.state.myCartList.map((items, index) => {
+            {this.props.bodyObject.myCartList.map((items, index) => {
               return (
                 <div>
                   <div key={index} id="cartdiv">

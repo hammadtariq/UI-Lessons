@@ -5,11 +5,18 @@ import Menu from "../components/Menu"
 
 
 function Mobile(props) {
-   
+    console.log(props)
+    debugger
+  
      
   return (
     <div >
-      <Header />
+      <Header 
+      
+       changeStateOfDrawer={props.changeStateOfDrawer}
+       bodyObject={props.bodyObject}
+      
+      />
       <Menu CardImages={props.CardImages} MenuList={props.MenuList} />
       <Footer />
     </div>

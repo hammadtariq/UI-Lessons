@@ -5,24 +5,12 @@ import "../css/Menu.css";
 import { Menu } from "antd";
 import m2 from "../images/m1.jpg";
 import { Pagination } from "antd";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 
 class MyMenu extends React.Component {
-  state = {
-    // CardImages: [m2, m2, m2, m2, m2, m2, m2, m2],
-    // Menulist: [
-    //   "Mobiles",
-    //   "Nokia",
-    //   "Xiaomi",
-    //   "Samsung",
-    //   "Huawei",
-    //   "Infinity",
-    //   "Tecno",
-    //   "Motorola"
-    // ]
-  };
-
+ 
   render() {
     return (
       <div>
@@ -30,7 +18,7 @@ class MyMenu extends React.Component {
       </div>
     );
   }
-
+ 
   Sider = () => {
     return (
       <div
@@ -69,7 +57,9 @@ class MyMenu extends React.Component {
                   width: "200px"
                 }}
               >
-                <Card
+                  <Link to="/">
+                    {" "}
+                  <Card
                   hoverable
                   style={{ width: "100%" }}
                   cover={<img src={item.img} />}
@@ -88,6 +78,7 @@ class MyMenu extends React.Component {
                     </Button>
                   </span>
                 </Card>
+                </Link>
               </div>
             ))}
           </div>

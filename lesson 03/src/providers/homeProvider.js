@@ -5,18 +5,20 @@ import Home from "../containers/Home";
 
 const mapStateToProps = state => {
   return {
-      myList:state.SliderImages
-      ,leftImages:state.leftImages,
+      myList:state.SliderImages,
+      leftImages:state.leftImages,
       bodyObject:state.bodyObject,
-      // productImages:state.productImages,
-      // categoriesdiv:state.categoriesdiv
+      
 
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-     changeCount:(count)=>{dispatch({type:"changeCount",payload:count})}
+     changeCount:(count,Total)=>{dispatch({type:"changeCount",payload:{count,Total}})},
+     changeStateOfDrawer:(visible)=>{dispatch({type:"changeStateOfDrawer",payload:visible})},
+     updateCartList:(myList)=>{dispatch({type:"updateCartList",payload:myList})}
+
   };
 };
 
