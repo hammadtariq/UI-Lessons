@@ -106,14 +106,14 @@ class Home extends Component {
         <Slider />
         <Delivery />
 
-        <Item mobiles={this.props.mobile} offers={this.props.offer} />
+        <Item addCart={this.props.addCart} mobiles={this.props.mobile} offers={this.props.offer} />
         <Categories />
         <Description />
         <Drawerr
           total={this.props.total}
           onClose={this.props.onClose}
           visible={this.props.visible}
-          index={this.state.index}
+          index={this.props.index}
           minus={this.minus}
           plus={this.plus}
         />

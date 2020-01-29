@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card, Button } from "antd";
-import Cart from "../components/cart";
 const { Meta } = Card;
 
 class Item extends Component {
@@ -26,7 +25,7 @@ class Item extends Component {
                     <Meta title={item.title} description={item.description} />
                     <div className="card-button">
                       <strong>{item.price}</strong>
-                      <Button onClick={() => ""} shape="round" type="danger">
+                      <Button onClick={()=>this.props.addCart(index,"mobiles")} shape="round" type="danger">
                         Add to Cart
                       </Button>
                     </div>
@@ -51,7 +50,7 @@ class Item extends Component {
                     <div className="card-button">
                       <strong>{item.price}</strong>
                       <Button
-                        onClick={() => this.props.Cart(index, "offers")}
+                        onClick={()=>this.props.addCart(index,"offers")}
                         shape="round"
                         type="danger"
                       >

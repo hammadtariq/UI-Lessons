@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge } from "antd";
+import {Icon } from "antd";
 import "../css/footer.css"
 
 class Footer extends React.Component {

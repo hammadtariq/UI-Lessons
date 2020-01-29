@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
-import Mobiles from "../container/categoriesmobiles";
+import Specific from "../container/specificPage";
 import { CartOpen, CartClose, addSpecific } from "../actions/actions";
 
+
 const mapDispatchtoProps = dispatch => {
-  return {
-    display: () => dispatch(CartOpen()),
-    onClose: () => dispatch(CartClose()),
-    addCart: (index, name) => dispatch(addSpecific(index))
+    return {
+      display: () => dispatch(CartOpen()),
+      onClose: () => dispatch(CartClose()),
+      addCart: (index, name) => dispatch(addSpecific(index))
+    };
   };
-};
 
 const mapStatetoProps = state => {
   return {
@@ -21,5 +22,5 @@ const mapStatetoProps = state => {
   };
 };
 
-const mobileProvider = connect(mapStatetoProps, mapDispatchtoProps)(Mobiles);
-export default mobileProvider;
+const specificProvider = connect(mapStatetoProps,mapDispatchtoProps)(Specific);
+export default specificProvider;

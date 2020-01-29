@@ -149,6 +149,7 @@ const initialstate = {
     showZero: true,
     count: 0,
     total: 0,
+    index:[],
     visible: false
   }
 };

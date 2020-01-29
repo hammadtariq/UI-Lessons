@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Home from "../container/home";
-import { openCart, closeCart } from "../actions/actions";
+import { CartOpen, CartClose,addCart } from "../actions/actions";
 
 const mapDispatchtoProps = dispatch => {
   return {
-    display: () => dispatch(openCart()),
-    onClose: () => dispatch(closeCart())
+    display: () => dispatch(CartOpen()),
+    onClose: () => dispatch(CartClose()),
+    addCart: (index,name) => dispatch(addCart(index,name))
   };
 };
 
@@ -16,7 +17,8 @@ const mapStatetoProps = state => {
     count: state.cart.count,
     showZero: state.cart.showZero,
     total: state.cart.total,
-    visible: state.cart.visible
+    visible: state.cart.visible,
+    index:state.cart.index
   };
 };
 

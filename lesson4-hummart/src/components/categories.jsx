@@ -17,6 +17,8 @@ import c14 from "../pictures/c14.jpg";
 import { Link  } from "react-router-dom";
 
 class Categories extends Component {
+
+
   render() {
     return (
       <div className="category-parent">
@@ -36,11 +38,11 @@ class Categories extends Component {
                     <br />
                     <small>Mobile Phones</small>
                   </strong>
-                    <Link to='/mobiles'>
+                  <Link to='mobiles'>
                       <Button>
                         <Icon type="right" />
                       </Button>
-                    </Link>
+                      </Link> 
                 </div>
               </Card>
             </div>

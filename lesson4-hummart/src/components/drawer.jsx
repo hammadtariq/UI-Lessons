@@ -3,7 +3,6 @@ import { Button, Icon, Drawer } from "antd";
 
 class Drawerr extends Component {
   render() {
-    console.log(">>>", this.props);
     debugger;
     return (
       <Drawer

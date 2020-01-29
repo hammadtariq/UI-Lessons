@@ -1,24 +1,28 @@
 import Drawerr from "../components/drawer";
-import Description from "../components/description";
-import Categories from "../components/categories";
-import Delivery from "../components/delivery";
-import Slider from "../components/slider";
 import Nav from "../components/nav";
 import Top from "../components/top";
 import Header from "../components/header";
 import React, { Component } from "react";
 import Footer from "../components/footer";
 import "../App.css";
+
+import { Link } from "react-router-dom";
 import { Breadcrumb, Menu, Icon, Dropdown, Button, Card } from "antd";
 import "../css/categoriesMobile.css";
 import "../App.css";
-
 const { Meta } = Card;
 
 class Mobiles extends Component {
   state = {
     style: "nav-div"
   };
+
+  Link(id) {
+    this.props.history.push({
+      pathname: `/mobiles/${id}`,
+      state: { state: id }
+    });
+  }
 
   render() {
     console.log(this.props);
@@ -78,19 +82,23 @@ class Mobiles extends Component {
                   this.props.mobile.map((item, index) => {
                     return (
                       <Card
+                        bordered="true"
                         key={index}
                         hoverable
                         style={{ width: "25%", height: "50%" }}
                         cover={<img src={item.picture} alt="pic" />}
                       >
                         <Meta
+                          onClick={() => {
+                            this.Link(index);
+                          }}
                           title={item.title}
                           description={item.description}
                         />
                         <div className="card-button">
                           <strong>{item.price}</strong>
                           <Button
-                            onClick={() => ""}
+                            onClick={() => this.props.addCart(index)}
                             shape="round"
                             type="danger"
                           >
@@ -108,7 +116,7 @@ class Mobiles extends Component {
           total={this.props.total}
           onClose={this.props.onClose}
           visible={this.props.visible}
-          index={0}
+          index={this.props.index}
           minus={this.minus}
           plus={this.plus}
         />
