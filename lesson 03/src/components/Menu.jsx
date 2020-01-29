@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const { Meta } = Card;
 
 class MyMenu extends React.Component {
- 
   render() {
     return (
       <div>
@@ -18,7 +17,7 @@ class MyMenu extends React.Component {
       </div>
     );
   }
- 
+
   Sider = () => {
     return (
       <div
@@ -57,27 +56,27 @@ class MyMenu extends React.Component {
                   width: "200px"
                 }}
               >
-                  <Link to="/">
-                    {" "}
+                <Link to="/description">
+                  {" "}
                   <Card
-                  hoverable
-                  style={{ width: "100%" }}
-                  cover={<img src={item.img} />}
-                >
-                  <Meta title="Price" description="40$" />
-                  <span>
-                    <label>{item.text}</label>
-                    <br />
-                    <label id="mylabel">{item.price}</label>
-                    <Button
-                      // onClick={() => this.updateCount(index)}
-                      id="btn"
-                      type="danger"
-                    >
-                      Add To Cart
-                    </Button>
-                  </span>
-                </Card>
+                    hoverable
+                    style={{ width: "100%" }}
+                    cover={<img src={item.img} />}
+                  >
+                    <Meta title="Price" description="40$" />
+                    <span>
+                      <label>{item.text}</label>
+                      <br />
+                      <label id="mylabel">{item.price}</label>
+                      <Button
+                        // onClick={() => this.updateCount(index)}
+                        id="btn"
+                        type="danger"
+                      >
+                        Add To Cart
+                      </Button>
+                    </span>
+                  </Card>
                 </Link>
               </div>
             ))}
