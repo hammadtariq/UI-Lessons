@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
 import Specific from "../container/specificPage";
-import { CartOpen, CartClose, addSpecific } from "../actions/actions";
+import { CartOpen, CartClose, addSpecific,plus,minus } from "../actions/actions";
 
 
 const mapDispatchtoProps = dispatch => {
     return {
       display: () => dispatch(CartOpen()),
       onClose: () => dispatch(CartClose()),
-      addCart: (index, name) => dispatch(addSpecific(index))
+      addCart: (index, name) => dispatch(addSpecific(index)),
+      plus: (index, arr) => dispatch(plus(index, arr)),
+      minus: (index, arr) => dispatch(minus(index, arr))
     };
   };
 

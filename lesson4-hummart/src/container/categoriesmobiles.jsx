@@ -13,10 +13,6 @@ import "../App.css";
 const { Meta } = Card;
 
 class Mobiles extends Component {
-  state = {
-    style: "nav-div"
-  };
-
   Link(id) {
     this.props.history.push({
       pathname: `/mobiles/${id}`,
@@ -25,8 +21,6 @@ class Mobiles extends Component {
   }
 
   render() {
-    console.log(this.props);
-    debugger;
     return (
       <div className="main">
         <Top />
@@ -35,7 +29,7 @@ class Mobiles extends Component {
           count={this.props.count}
           showZero={this.props.showZero}
         />
-        <Nav style={this.state.style} />
+        <Nav style={this.props.nav} />
         <div className="parent">
           <div className="menu">
             <Menu>
@@ -113,12 +107,13 @@ class Mobiles extends Component {
           </div>
         </div>
         <Drawerr
+          checkout={this.props.checkout}
           total={this.props.total}
           onClose={this.props.onClose}
           visible={this.props.visible}
           index={this.props.index}
-          minus={this.minus}
-          plus={this.plus}
+          minus={this.props.minus}
+          plus={this.props.plus}
         />
         <Footer />
       </div>

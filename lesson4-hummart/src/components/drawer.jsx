@@ -21,7 +21,7 @@ class Drawerr extends Component {
                   <div className="cart-object">
                     <Button
                       onClick={() => {
-                        this.props.minus(index);
+                        this.props.minus(index, this.props.index);
                       }}
                       type="danger"
                       shape="circle"
@@ -31,7 +31,7 @@ class Drawerr extends Component {
                     <b>{item.quantity}</b>
                     <Button
                       onClick={() => {
-                        this.props.plus(index);
+                        this.props.plus(index, this.props.index);
                       }}
                       type="danger"
                       shape="circle"
@@ -44,7 +44,12 @@ class Drawerr extends Component {
               );
             })}
             <div style={{ width: 250 }}>
-              <Button style={{ marginTop: 300 }} type="danger" block>
+              <Button
+                onClick={() => this.props.checkout(this.props.index)}
+                style={{ marginTop: 300 }}
+                type="danger"
+                block
+              >
                 Proceed to CheckOut Rs-{this.props.total}
               </Button>
             </div>

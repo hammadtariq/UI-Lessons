@@ -148,8 +148,8 @@ class Specific extends Component {
           onClose={this.props.onClose}
           visible={this.props.visible}
           index={this.props.index}
-          minus={this.minus}
-          plus={this.plus}
+          minus={this.props.minus}
+          plus={this.props.plus}
         />
         <Footer />
       </div>

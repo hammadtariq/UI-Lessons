@@ -13,6 +13,7 @@ const initialstate = {
   items: {
     Mobiledata: [
       {
+        key: 1,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 12000,
@@ -20,6 +21,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 2,
         title: "Nokia",
         description: "Lorem Ipsem",
         price: 12000,
@@ -27,6 +29,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 3,
         title: "Iphone",
         description: "Lorem Ipsem",
         price: 12000,
@@ -34,6 +37,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 4,
         title: "Motorola",
         description: "Lorem Ipsem",
         price: 12000,
@@ -41,6 +45,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 5,
         title: "Oppo",
         description: "Lorem Ipsem",
         price: 12000,
@@ -48,8 +53,10 @@ const initialstate = {
         quantity: 1
       }
     ],
+
     offers: [
       {
+        key: 6,
         title: "ABC",
         description: "asfasgasfasfasfas",
         price: 10212,
@@ -57,6 +64,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 7,
         title: "ABC",
         description: "asfasgasfasfasfas",
         price: 10212,
@@ -64,6 +72,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 8,
         title: "ABC",
         description: "asfasgasfasfasfas",
         price: 10212,
@@ -71,6 +80,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 9,
         title: "ABC",
         description: "asfasgasfasfasfas",
         price: 10212,
@@ -78,6 +88,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key: 10,
         title: "ABC",
         description: "asfasgasfasfasfas",
         price: 10212,
@@ -85,8 +96,10 @@ const initialstate = {
         quantity: 1
       }
     ],
+
     mobilesCategory: [
       {
+        key:11,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 12000,
@@ -94,6 +107,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:12,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 12000,
@@ -101,6 +115,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:13,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 12000,
@@ -108,6 +123,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:14,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 12000,
@@ -115,6 +131,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:15,
         title: "Nokia",
         description: "Lorem Ipsem",
         price: 12000,
@@ -122,6 +139,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:16,
         title: "Iphone",
         description: "Lorem Ipsem",
         price: 12000,
@@ -129,6 +147,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:17,
         title: "Motorola",
         description: "Lorem Ipsem",
         price: 12000,
@@ -136,6 +155,7 @@ const initialstate = {
         quantity: 1
       },
       {
+        key:18,
         title: "Oppo",
         description: "Lorem Ipsem",
         price: 12000,
@@ -149,8 +169,21 @@ const initialstate = {
     showZero: true,
     count: 0,
     total: 0,
-    index:[],
+    index: [],
     visible: false
+  },
+  nav: {
+    style: "nav-div"
+  },
+  checkOut:{
+    order:[{
+      key: 1,
+      title: "Samsung",
+      description: "Lorem Ipsem",
+      price: 12000,
+      picture: m1,
+      quantity: 1
+    }]
   }
 };
 export default initialstate;
