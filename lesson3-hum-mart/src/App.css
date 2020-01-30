@@ -253,7 +253,7 @@ h3{
   width: 100% !important;
 }
 .card-inner{
-  width: 164px;
+  /* width: 164px; */
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
@@ -291,7 +291,31 @@ h3{
 }
 .ant-drawer-body{
   padding: 1px !important;
+  height: 537px;
+  
+  display: flex;
+  flex-direction: column;
+ 
 }
 .abc{
   background-color: #7bae23;
+}
+.ant-drawer-content-wrapper{
+  width: 380px !important;
+}
+.drawer-button{
+  /* margin-top: 29rem; */
+  width: 90% !important;
+  margin-left: 1rem;
+  /* margin-bottom: 1rem; */
+}
+.ant-drawer-header{
+  background-color: #7bae23 !important;
+ 
+}
+.ant-drawer-title{
+  color: white !important;
+}
+.adb{
+  margin-left: 2.5rem !important;
 }

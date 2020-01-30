@@ -1,22 +1,23 @@
-import {connect} from "react-redux";
-import Cart from '../components/card';
+import { connect } from "react-redux";
+import Cart from "../components/card";
 import { withRouter } from "react-router-dom";
 
-const mapStateToProps= (state)=>{
-    console.log(state,"cart state")
-    return{
-        
-     data:state.data
+const mapStateToProps = state => {
+  console.log(state, "cart state");
+  return {
+    data: state.data,
+    cartItem:state.cartItem
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    addtocart:(id,price) => {
+      dispatch({ type: "ADD_CART", id: id,price:price });
     }
-   }
-   const mapDispatchToProps = dispatch =>{
-  
-    return {
-      
-        addtocart:(id)=>{dispatch({type:'ADD_CART',id:id})}
+  };
+};
 
-    }
-}
-
-const CardProvider = withRouter(connect(mapStateToProps,mapDispatchToProps)(Cart));
+const CardProvider = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Cart)
+);
 export default CardProvider;

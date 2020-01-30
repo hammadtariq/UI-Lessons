@@ -2,9 +2,9 @@ import React from "react";
 import { List, Card, Button } from "antd";
 import Header from "./Header";
 class Cart extends React.Component {
-  handleClick = (Id)=>{
+  handleClick = (Id,Price)=>{
    
-    this.props.addtocart(this.props.data[Id].id);
+    this.props.addtocart(this.props.data[Id].id,this.props.data[Id].price);
    }
   render(){
  
@@ -32,7 +32,7 @@ class Cart extends React.Component {
                     <div className="card-inner">
                       <p>Rs:{item.price}</p>
                       <Button
-                      onClick={()=>this.handleClick(item.id)} 
+                      onClick={()=>this.handleClick(item.id,item.price)} 
                       //  onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
                       type="danger">{item.content}</Button>
                     </div>

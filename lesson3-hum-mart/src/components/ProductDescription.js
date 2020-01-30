@@ -8,6 +8,7 @@ import { Icon, Button, Tabs, Form, Input } from "antd";
 import "../css/product-description.css";
 import ShowCardProvider from '../providers/show-card-provider'
 import Footer from "./Footer";
+import {addToCart} from '../actions/add-to-cart'
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
@@ -167,7 +168,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch)=>{
   return{
-    addtocart:(id)=>{dispatch({type:'ADD_CART',id:id})}
+    addtocart:(id)=>{dispatch(addToCart(id))}
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ProductDescription);

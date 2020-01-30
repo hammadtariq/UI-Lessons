@@ -2,10 +2,27 @@ import React from "react";
 import { Icon, Input, Badge } from "antd";
 import { Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
+import '../App.css';
 class Header extends React.Component {
-  handleShowDrawer = ()=>{
+  
+  static getDerivedStateFromProps(nextProps,prevState=this.props.plusCounter(this.props)){
     debugger;
+    
+    console.log(nextProps,"nextProps")
+    console.log(prevState,"prev stete cart");
+
+  //  if(nextProps.cartItem[Id].counter==prevState.cartItem[Id].counter){
+  //    return { cartItem: nextProps.cartItem[Id].counter};
+  // }
+  // else return null;
+}
+  handleShowDrawer = ()=>{
+ 
     this.props.showVisibility(this.props.visible)
+  }
+  handleAddToCounter = (Id) =>{
+   this.props.plusCounter(this.props.cartItem[Id].id)
+ 
   }
  
   onClose = () => {
@@ -60,7 +77,7 @@ class Header extends React.Component {
           <div className="total-bill">
             <div className="totalOne">
               <p >SubTotal</p>
-              {/* <p>Rs:{this.props.cartItem}</p> */}
+    <p>Rs:{this.props.sum}</p>
             </div>
             <div className="totalOne">
               <p>Delivery Charges?</p>
@@ -82,12 +99,16 @@ class Header extends React.Component {
                         onClick={() => this.props.sendMinus(elt.id)}
                       />
                       <p>{elt.counter}</p>
-
+                     
                       <Icon
                         type="plus-circle"
-                        onClick={() => this.props.sendAdd(elt.id)}
+                        // onClick={() => this.props.sendAdd(elt.id)}
+                        onClick={()=>this.handleAddToCounter(elt.id)}
                       />
-                      <p>{elt.price}</p>
+                      <p>*</p>
+                     
+            <p>{elt.price}</p>
+            <p className="adb">{elt.price}</p>
                     </span>
                   </div>{" "}
                 </div>
@@ -95,8 +116,8 @@ class Header extends React.Component {
             );
           })}
 
-          <Button type="danger" block>
-            Proceed To Checkout
+          <Button type="danger" block className="drawer-button">
+            Proceed To Checkout : {this.props.sum}
           </Button>
         </Drawer>
       </div>
@@ -104,4 +125,5 @@ class Header extends React.Component {
     );
   }
 }
+
 export default Header;

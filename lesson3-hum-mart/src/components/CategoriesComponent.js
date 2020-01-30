@@ -11,11 +11,16 @@ import Sider from "./SideMenu";
 import "../css/categories-components.css";
 import ShowCardProvider from '../providers/show-card-provider'
 import { Icon, Select, Tabs, List, Card, Button } from "antd";
+
 class CategoriesComponent extends React.Component {
+ handleClick = (Id)=>{
+   console.log(this.props.addtocart(this.props.data[Id].id));
+  //  this.props.addtocart(this.props)
+ }
   goToDescriptionPage = Id => {
-    console.log(this.props, Id, this.props.data[Id].id - 1);
+    console.log(this.props, Id, this.props.data[Id].id );
     this.props.history.push({
-      pathname: `/description/${this.props.data[Id].id - 1}`,
+      pathname: `/description/${this.props.data[Id].id }`,
       data: this.props.data
     });
   };
@@ -78,27 +83,29 @@ class CategoriesComponent extends React.Component {
                     dataSource={this.props.data}
                     renderItem={item => (
                       <List.Item
-                        onClick={() => this.goToDescriptionPage(item.id)}
+                        
                         key={item.id}
                       >
                         <div className="cards">
                           <Card
+                         
                             hoverable
-                            style={{ width: 200 }}
-                            cover={<img alt="example" src={item.Img} />}
+                            style={{ width: 170 }}
+                            cover={<img alt="example" src={item.Img}  onClick={() => this.goToDescriptionPage(item.id)}/>}
                           >
                             <Meta title={item.title} />
                             <div className="card-inner">
                               <p>Rs:{item.price}</p>
                               <Button
                                 onClick={() =>
-                                  this.props.sendShowData(
-                                    item.id,
-                                    item.title,
-                                    item.price,
-                                    item.counter,
-                                    item.Img
-                                  )
+                                  // this.props.sendShowData(
+                                  //   item.id,
+                                  //   item.title,
+                                  //   item.price,
+                                  //   item.counter,
+                                  //   item.Img
+                                  // )
+                                  this.handleClick(item.id)
                                 }
                                 type="danger"
                               >

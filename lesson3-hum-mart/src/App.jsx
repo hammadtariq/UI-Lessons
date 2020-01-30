@@ -24,28 +24,16 @@ class App extends React.Component {
    
     };
   }
-  // showDrawer = () => {
-  //   this.setState({
-  //     visible: true
-  //   });
-  //   console.log(this.state.visible,"show drawer")
+  // showdata = (id, title, price, counter, Img) => {
+  //   console.log(id, price, title);
+  //   console.log("helo");
+  //   const updateCartItem = [
+  //     ...this.state.cartItem,
+  //     { id: id, price: price, title: title, counter: counter, Img: Img }
+  //   ];
+  //   this.setState({ cartItem: updateCartItem });
+  //   console.log(this.state.cartItem);
   // };
-
-  // onClose = () => {
-  //   this.setState({
-  //     visible: false
-  //   });
-  // };
-  showdata = (id, title, price, counter, Img) => {
-    console.log(id, price, title);
-    console.log("helo");
-    const updateCartItem = [
-      ...this.state.cartItem,
-      { id: id, price: price, title: title, counter: counter, Img: Img }
-    ];
-    this.setState({ cartItem: updateCartItem });
-    console.log(this.state.cartItem);
-  };
   add = id => {
     console.log(id);
     const stateCopy = [...this.state.cartItem];
@@ -81,6 +69,16 @@ class App extends React.Component {
       console.log(this.state.cartItem);
     });
   };
+  // handleScroll =()=>{
+  //   const NavBar= document.querySelector("#NavBar");
+  //        var scrollPosY = window.pageYOffset | document.body.scrollTop;
+  //        if(scrollPosY > 100) {
+  //            NavBar.className = ('navC navX');
+  //      } else if(scrollPosY <= 100) {
+  //        NavBar.className =  ('navC');
+  //      }
+  //    }
+  
   render() {
     return (
       <section>
@@ -102,7 +100,7 @@ class App extends React.Component {
         //  sendAdd={this.add}
         //  sendMinus={this.delete}
         /> */}
-        <nav>
+       <nav className="navC" id="NavBar" onScroll={this.handleScroll}>
           <Navbar />
         </nav>
         <div className="sliderP">

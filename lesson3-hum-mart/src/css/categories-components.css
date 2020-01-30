@@ -42,3 +42,6 @@
 .tab-pane{
     width: 90%;
 }
+.ant-card-body{
+    padding: 10px !important;
+}
