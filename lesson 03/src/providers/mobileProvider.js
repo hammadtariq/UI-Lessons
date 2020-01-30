@@ -16,7 +16,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
      changeCount:(count,Total)=>{dispatch({type:"changeCount",payload:{count,Total}})},
-     changeStateOfDrawer:(visible)=>{dispatch({type:"changeStateOfDrawer",payload:visible})}
+     changeStateOfDrawer:(visible)=>{dispatch({type:"changeStateOfDrawer",payload:visible})},
+     updateCartList:(myList)=>{dispatch({type:"updateCartList",payload:myList})}
+
   };
 };
 

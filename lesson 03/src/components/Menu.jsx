@@ -6,6 +6,7 @@ import { Menu } from "antd";
 import m2 from "../images/m1.jpg";
 import { Pagination } from "antd";
 import { Link } from "react-router-dom";
+import updateCount from "../action/Action";
 
 const { Meta } = Card;
 
@@ -17,6 +18,10 @@ class MyMenu extends React.Component {
       </div>
     );
   }
+
+  updateCount = index => {
+    new updateCount().updateCount(index, this.props);
+  };
 
   Sider = () => {
     return (
@@ -50,34 +55,37 @@ class MyMenu extends React.Component {
               justifyContent: "space-between"
             }}
           >
-            {this.props.CardImages.map(item => (
+            {this.props.CardImages.map((item, index) => (
               <div
                 style={{
                   width: "200px"
                 }}
               >
-                <Link to="/description">
-                  {" "}
-                  <Card
-                    hoverable
-                    style={{ width: "100%" }}
-                    cover={<img src={item.img} />}
+                <Card
+                  hoverable
+                  style={{ width: "100%" }}
+                  cover={<img src={item.img} />}
+                >
+                  <Link
+                    to={{
+                      pathname: "/description",
+                      // search: "?query=abc",
+                      state: {index}
+                    }}
                   >
-                    <Meta title="Price" description="40$" />
-                    <span>
-                      <label>{item.text}</label>
-                      <br />
-                      <label id="mylabel">{item.price}</label>
-                      <Button
-                        // onClick={() => this.updateCount(index)}
-                        id="btn"
-                        type="danger"
-                      >
-                        Add To Cart
-                      </Button>
-                    </span>
-                  </Card>
-                </Link>
+                    <label>{item.text}</label>
+                    <br />
+                    <Meta title="Price" />
+                    <label id="mylabel">{item.price}</label>
+                  </Link>
+                  <Button
+                    onClick={() => this.updateCount(index)}
+                    id="btn"
+                    type="danger"
+                  >
+                    Add To Cart
+                  </Button>
+                </Card>
               </div>
             ))}
           </div>

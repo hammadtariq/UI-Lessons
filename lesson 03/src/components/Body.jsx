@@ -2,7 +2,7 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Drawer, Input, Button, Icon, Badge } from "antd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import updateCount from "../action/Action"
 
 
 import "../css/Mobilediv.css";
@@ -10,15 +10,12 @@ import "../css/Product.css";
 import "../css/Product.css";
 import "../css/Content.css";
 
+
+  
+
+
 class Body extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      // myCartList: [],
-    };
-  }
-
+  
   Product = () => {
     return (
       <div className="p1">
@@ -113,41 +110,44 @@ class Body extends React.Component {
     );
   };
 
-  updateCount = index => {
-    let count = this.props.bodyObject.count;
-    debugger;
-    let mytotal = this.props.bodyObject.Total + this.props.bodyObject.productImages[index].price;
-    count = count + 1;
-    debugger;
-    {this.props.changeCount(count,mytotal)}
-    debugger;
-    console.log(this.props.bodyObject.count);
+ 
+ updateCount = index => {
+     new updateCount().updateCount(index,this.props)
 
-    let list = this.props.bodyObject.productImages[index];
-    list.counter += 1;
-    if (this.props.bodyObject.myCartList.length === 0) {
-      let list2 = this.props.bodyObject.myCartList;
-      list2.push(list);
-      this.props.updateCartList(list2)
-    } else {
-      let myVar = false;
-      let p =this.props.bodyObject.productImages[index].key;
-      for (let i = 0; i < this.props.bodyObject.myCartList.length; i++) {
-        if (this.props.bodyObject.myCartList[i].key === p) {
-          this.setState({
-            counter: list.counter
-          });
-          myVar = true;
-          return;
-        }
-      }
-      if (myVar === false) {
-        let list2 = this.props.bodyObject.myCartList;
-        list2.push(list);
-        this.props.updateCartList(list2)
+    // let count = this.props.bodyObject.count;
+    // debugger;
+    // let mytotal = this.props.bodyObject.Total + this.props.bodyObject.productImages[index].price;
+    // count = count + 1;
+    // debugger;
+    // {this.props.changeCount(count,mytotal)}
+    // debugger;
+    // console.log(this.props.bodyObject.count);
 
-      }
-    }
+    // let list = this.props.bodyObject.productImages[index];
+    // list.counter += 1;
+    // if (this.props.bodyObject.myCartList.length === 0) {
+    //   let list2 = this.props.bodyObject.myCartList;
+    //   list2.push(list);
+    //   this.props.updateCartList(list2)
+    // } else {
+    //   let myVar = false;
+    //   let p =this.props.bodyObject.productImages[index].key;
+    //   for (let i = 0; i < this.props.bodyObject.myCartList.length; i++) {
+    //     if (this.props.bodyObject.myCartList[i].key === p) {
+    //       this.setState({
+    //         counter: list.counter
+    //       });
+    //       myVar = true;
+    //       return;
+    //     }
+    //   }
+    //   if (myVar === false) {
+    //     let list2 = this.props.bodyObject.myCartList;
+    //     list2.push(list);
+    //     this.props.updateCartList(list2)
+
+    //   }
+    // }
   };
 
   Body = () => {
@@ -170,6 +170,7 @@ class Body extends React.Component {
                     <label id="mylabel">{item.price}</label>
                     <Button
                       onClick={() => this.updateCount(index)}
+                      
                       id="btn"
                       type="danger"
                     >

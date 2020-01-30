@@ -7,9 +7,9 @@ import "../css/LoginHeader.css";
 import "../css/Category.css";
 import "../css/Header.css";
 import "../css/App.css";
+import updateCount from "../action/Action"
 
 class Header extends React.Component {
-  
     state = {
       categoryItem: [
         "MOBILES TABLETS & LAPTOPS",
@@ -105,41 +105,11 @@ class Header extends React.Component {
   };
 
   CartMinus = index => {
-    let count = this.props.bodyObject.count;
-    count = count - 1;
-
-    let mytotal = this.props.bodyObject.Total - this.props.bodyObject.myCartList[index].price;
-
-    let list =this.props.bodyObject.myCartList;
-
-    list[index].counter -= 1;
-    if (list[index].counter === 0) {
-      list.splice(index, 1);
-    {this.props.changeCount(count,mytotal)}
-         //////////////////        
-      // this.setState({
-      //   myCartList: list,
-      //   count: count,
-      //   Total: mytotal
-      // });
-    } else {
-      {this.props.changeCount(count,mytotal)}
-      
-      // this.setState({
-      //   myCartList: list,
-      //   count: count,
-      //   Total: mytotal
-      // });
-    }
+    new updateCount().CartMinus(index,this.props)
   };
   Cartadd = index => {
-    let count = this.props.bodyObject.count;
-    count = count + 1;
-    let mytotal = this.props.bodyObject.Total + this.props.bodyObject.myCartList[index].price;
-    {this.props.changeCount(count,mytotal)}
-    
-    let list = this.props.bodyObject.myCartList[index];
-    list.counter += 1;
+    new updateCount().Cartadd(index,this.props)
+
   };
 
   Drawer = () => {

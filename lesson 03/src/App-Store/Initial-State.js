@@ -79,7 +79,7 @@ const appInitialState = {
   CardImages: [
     {
       key: 1,
-      img: m2,
+      img: m1,
       price: 10,
       text: "Samsung A7 (2018) | Blue | With Official Warranty",
       counter: 0
