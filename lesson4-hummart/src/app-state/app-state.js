@@ -176,14 +176,16 @@ const initialstate = {
     style: "nav-div"
   },
   checkOut:{
-    order:[{
-      key: 1,
-      title: "Samsung",
-      description: "Lorem Ipsem",
-      price: 12000,
-      picture: m1,
-      quantity: 1
-    }]
+     order:[
+    //  {
+    //   key: 1,
+    //   title: "Samsung",
+    //   description: "Lorem Ipsem",
+    //   price: 12000,
+    //   picture: m1,
+    //   quantity: 1
+    // }
+  ]
   }
 };
 export default initialstate;

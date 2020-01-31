@@ -5,8 +5,6 @@ import Header from "../components/header";
 import React, { Component } from "react";
 import Footer from "../components/footer";
 import "../App.css";
-
-import { Link } from "react-router-dom";
 import { Breadcrumb, Menu, Icon, Dropdown, Button, Card } from "antd";
 import "../css/categoriesMobile.css";
 import "../App.css";

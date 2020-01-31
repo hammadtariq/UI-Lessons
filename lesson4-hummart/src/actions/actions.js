@@ -104,14 +104,18 @@ export function addCart(index, name) {
 //     }
 //   };
 
+export function Delete(index,data) {
+  data.splice(index,1)
+  localStorage.setItem("orders", JSON.stringify(data));
+  message.success('Item Deleted!')
+  return { type: "delete" };
+}
+
 export function checkOut(totall) {
-  // this.props.history.push({
-  //   pathname: `/dashboard`
-  // })
-  debugger;
-  data = [] 
-  total = 0 
-  flag = false
+  localStorage.setItem("orders", JSON.stringify(totall));
+  data = [];
+  total = 0;
+  flag = false;
   message.success("Succesfully Checked Out !");
   return { type: "checkOut", totall };
 }

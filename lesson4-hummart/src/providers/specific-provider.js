@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import Specific from "../container/specificPage";
-import { CartOpen, CartClose, addSpecific,plus,minus } from "../actions/actions";
+import { CartOpen, CartClose, addSpecific,plus,minus,checkOut } from "../actions/actions";
 
 
 const mapDispatchtoProps = dispatch => {
     return {
+      checkout : (arr) => dispatch(checkOut(arr)),
       display: () => dispatch(CartOpen()),
       onClose: () => dispatch(CartClose()),
       addCart: (index, name) => dispatch(addSpecific(index)),
@@ -20,7 +21,8 @@ const mapStatetoProps = state => {
     showZero: state.cart.showZero,
     total: state.cart.total,
     visible: state.cart.visible,
-    index: state.cart.index
+    index: state.cart.index,
+    nav:state.nav.style
   };
 };
 

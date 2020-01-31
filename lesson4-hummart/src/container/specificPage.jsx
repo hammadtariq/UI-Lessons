@@ -17,7 +17,7 @@ class Specific extends Component {
           count={this.props.count}
           showZero={this.props.showZero}
         />
-        <Nav style="nav-div" />
+        <Nav style={this.props.nav} />
         <div style={{ marginLeft: "7rem" }} className="breadcrumb">
           <Breadcrumb separator=">">
             <Breadcrumb.Item>
@@ -144,6 +144,7 @@ class Specific extends Component {
           </Tabs>
         </div>
         <Drawerr
+          checkout={this.props.checkout}
           total={this.props.total}
           onClose={this.props.onClose}
           visible={this.props.visible}

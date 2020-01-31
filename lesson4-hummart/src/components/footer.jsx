@@ -51,7 +51,7 @@ class Footer extends React.Component {
                 {item.list.map(mylist => (
                   <li>
                     <Icon type="caret-right" style={{ color: "white" }} />
-                    <a href="#">{mylist}</a>
+                    <a href="abc">{mylist}</a>
                   </li>
                 ))}
               </ul>

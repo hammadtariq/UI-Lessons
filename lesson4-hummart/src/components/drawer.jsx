@@ -6,6 +6,7 @@ class Drawerr extends Component {
     debugger;
     return (
       <Drawer
+      width='20%'
         title="MY CART"
         placement="right"
         onClose={this.props.onClose}
@@ -17,12 +18,23 @@ class Drawerr extends Component {
             {this.props.index.map((item, index) => {
               return (
                 <div key={index}>
-                  <div>{item.title + " " + item.description + " "}</div>
+                  <span>
+                    {
+                      <img
+                        src={item.picture}
+                        alt="pic"
+                        width="50px"
+                        height="50px"
+                      />
+                    }
+                  </span>
+                  <span>{item.title + " " + item.description + " "}</span>
                   <div className="cart-object">
                     <Button
                       onClick={() => {
                         this.props.minus(index, this.props.index);
                       }}
+                      size='small'
                       type="danger"
                       shape="circle"
                     >
@@ -33,12 +45,13 @@ class Drawerr extends Component {
                       onClick={() => {
                         this.props.plus(index, this.props.index);
                       }}
+                      size='small'
                       type="danger"
                       shape="circle"
                     >
                       <Icon type="plus" />
                     </Button>
-                    <strong>{item.price}</strong>
+                    <strong>Rs - {item.price}</strong>
                   </div>
                 </div>
               );

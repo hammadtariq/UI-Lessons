@@ -5,8 +5,8 @@ export default function reducer(state = initialstate, action) {
   return {
     cart: cart(state.cart, action),
     items: cart(state.items, action),
-    nav: cart(state.nav,action),
-    checkOut:cart(state.checkOut,action)
+    nav: cart(state.nav, action),
+    checkOut: cart(state.checkOut, action)
   };
 }
 
@@ -34,11 +34,14 @@ const cart = produce((draft, action) => {
       draft.total = action.total;
       draft.count -= 1;
       return;
-    case 'checkOut':
-      draft.order=action.totall
-      draft.index=[]
-      draft.count=0
-      draft.total=0
+    case "checkOut":
+      draft.order = action.totall;
+      draft.index = [];
+      draft.count = 0;
+      draft.total = 0;
+      return;
+    case "delete":
+      draft.order = [];
       return;
     // case 'changeStyle':
     //   draft.nav="nav-again"
