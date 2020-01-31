@@ -9,7 +9,8 @@ import Navbar from "./Navbar";
 import Drawers from "./Drawer";
 import Sider from "./SideMenu";
 import "../css/categories-components.css";
-import ShowCardProvider from '../providers/show-card-provider'
+import ShowCardProvider from '../providers/show-card-provider';
+import DrawerProvider from '../providers/drawer-provider';
 import { Icon, Select, Tabs, List, Card, Button } from "antd";
 
 class CategoriesComponent extends React.Component {
@@ -38,7 +39,7 @@ class CategoriesComponent extends React.Component {
           <ExtraContentTwo />
         </div>
         <ShowCardProvider/>
-
+        <DrawerProvider/>
         {/* <Drawers
              visible={this.state.visible}
              onClose={this.onClose}
@@ -47,9 +48,9 @@ class CategoriesComponent extends React.Component {
              sendAdd={this.add}
              sendMinus={this.delete}
             /> */}
-        <nav>
+      
           <Navbar />
-        </nav>
+            
 
         <div className="cate-page">
           <div className="side-nav">

@@ -1,19 +1,23 @@
 
 import React from 'react';
+import '../App.css';
 class Navbar extends React.Component{
-  // handleScroll =()=>{
-  //   const NavBar= document.querySelector("#NavBar");
-  //        var scrollPosY = window.pageYOffset | document.body.scrollTop;
-  //        if(scrollPosY > 100) {
-  //            NavBar.className = ('navC navX');
-  //      } else if(scrollPosY <= 100) {
-  //        NavBar.className =  ('navC');
-  //      }
-  //    }
+  scrollFunction=e=> {
+    let element = e.target
+    console.log(element.scrollTop,"sdhsah")
+    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+      document.getElementById("navbar").style.backgroundColor = "red";
+      
+    } else {
+      document.getElementById("navbar").style.backgroundColor = "yellow";
+    
+  }
+}
     render(){
    return(
    
-    <div >
+    <nav >
+      <div className="navC" id="navbar" onScroll={()=>this.scrollFunction()}>
     <a href="#">mobile tablets & laptops</a>
     <a href="#">electronic accessories</a>
     <a href="#">pharmacy</a>
@@ -22,6 +26,7 @@ class Navbar extends React.Component{
     <a href="#">baby & kids</a>
     <a href="#">more</a>
     </div>
+    </nav>
    
    )
    }

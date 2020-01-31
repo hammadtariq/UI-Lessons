@@ -228,7 +228,8 @@ const initState = {
     }
   ],
   visible: false,
-  sum:0
+  sum:0,
+  count:0
 };
 
 export default initState;

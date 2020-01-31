@@ -5,6 +5,7 @@ class Cart extends React.Component {
   handleClick = (Id,Price)=>{
    
     this.props.addtocart(this.props.data[Id].id,this.props.data[Id].price);
+   console.log(this.props.addtocartcounter(),"add to cart counter")
    }
   render(){
  

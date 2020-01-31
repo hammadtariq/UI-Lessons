@@ -8,7 +8,8 @@ import { Icon, Button, Tabs, Form, Input } from "antd";
 import "../css/product-description.css";
 import ShowCardProvider from '../providers/show-card-provider'
 import Footer from "./Footer";
-import {addToCart} from '../actions/add-to-cart'
+import {addToCart} from '../actions/add-to-cart';
+import DrawerProvider from '../providers/drawer-provider';
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
@@ -42,9 +43,10 @@ class ProductDescription extends React.Component {
              sendAdd={this.add}
              sendMinus={this.delete}
             /> */}
-        <nav>
+              <DrawerProvider/>
+      
           <Navbar />
-        </nav>
+       
         <div className="des-page">
           <Icon type="home" />
           <Icon type="right" />

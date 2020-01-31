@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { a, closeDrawer } from "../actions/showdrawersaction.js";
 import {addToCounter} from '../actions/add-to-cart'
 import { withRouter } from "react-router-dom";
+import { Drawer } from "antd";
 
 
 const mapStateToProps = state => {
@@ -15,21 +16,22 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => {
-  debugger;
+ 
   return {
     showVisibility: visibleState => {
       dispatch(a(visibleState));
     },
-    hidevisibility: visibleState => {
-      dispatch(closeDrawer(visibleState));
-    },
-    plusCounter:(id)=>{
-      dispatch(addToCounter(id))
-  }
+    // hidevisibility: visibleState => {
+    //   dispatch(closeDrawer(visibleState));
+    // },
+  //   plusCounter:(id)=>{
+  //     dispatch(addToCounter(id))
+  // }
    
   };
 };
 const ShowCardProvider = withRouter(
   connect(mapStateToProps, mapDispatchToProps)(Header)
 );
+
 export default ShowCardProvider;

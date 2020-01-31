@@ -10,39 +10,26 @@ import Delivery from "./components/Delivery";
 import OnlineSuper from "./components/OnlineSuper";
 import ExtraContentThree from "./components/ExtraContentThree";
 import Footer from "./components/Footer";
-import CardProvider from './providers/cardProvider';
-import CategoriesProvider from './providers/categories-provider';
-import Drawers from './components/Drawer'
-import ShowCardProvider from './providers/show-card-provider';
-import a from './actions/showdrawersaction.js'
+import CardProvider from "./providers/card-provider";
+import CategoriesProvider from "./providers/categories-provider";
+import Drawers from "./components/Drawer";
+import ShowCardProvider from "./providers/show-card-provider";
+import a from "./actions/showdrawersaction.js";
+import DrawerProvider from "./providers/drawer-provider";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-  
-      count: 0,
-   
+      count: 0
     };
   }
-  // showdata = (id, title, price, counter, Img) => {
-  //   console.log(id, price, title);
-  //   console.log("helo");
-  //   const updateCartItem = [
-  //     ...this.state.cartItem,
-  //     { id: id, price: price, title: title, counter: counter, Img: Img }
-  //   ];
-  //   this.setState({ cartItem: updateCartItem });
-  //   console.log(this.state.cartItem);
-  // };
   add = id => {
     console.log(id);
     const stateCopy = [...this.state.cartItem];
     stateCopy.map((item, index) => {
       if (item.id == id) {
         console.log(item.id == id);
-        //  let a= item.counter;
-        //  this.setState((state)=>console.log(state.cartItem[index].counter+=1))
-        // this.setState((state)=> console.log(({cartItem:state.cartItem[index].counter+=1})))
+
         const a = (item.counter += 1);
         const b = (item.price *= a);
         const cartItem = [...this.state.cartItem, { price: b, counter: a }];
@@ -69,16 +56,7 @@ class App extends React.Component {
       console.log(this.state.cartItem);
     });
   };
-  // handleScroll =()=>{
-  //   const NavBar= document.querySelector("#NavBar");
-  //        var scrollPosY = window.pageYOffset | document.body.scrollTop;
-  //        if(scrollPosY > 100) {
-  //            NavBar.className = ('navC navX');
-  //      } else if(scrollPosY <= 100) {
-  //        NavBar.className =  ('navC');
-  //      }
-  //    }
-  
+
   render() {
     return (
       <section>
@@ -88,32 +66,22 @@ class App extends React.Component {
         <div className="customcare">
           <ExtraContentTwo />
         </div>
-        {/* <Header
-          showDrawer={this.showDrawer}
-        /> */}
+
         <ShowCardProvider />
-        {/* <Drawers
-         visible={this.props.visible}
-        //  onClose={this.onClose}
-        //  showCartData={this.state.cartItem}
-        //  sendCount={this.state.count}
-        //  sendAdd={this.add}
-        //  sendMinus={this.delete}
-        /> */}
-       <nav className="navC" id="NavBar" onScroll={this.handleScroll}>
-          <Navbar />
-        </nav>
+
+        <DrawerProvider />
+
+        <Navbar />
+
         <div className="sliderP">
           <Slider />
         </div>
         <div className="deliveryP">
           <Delivery />
         </div>
-      
-        <CardProvider 
-        // sendShowData={this.showdata}
-        />
-       <CategoriesProvider/>
+
+        <CardProvider />
+        <CategoriesProvider />
         <OnlineSuper />
         <ExtraContentThree />
         <Footer />
