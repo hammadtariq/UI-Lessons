@@ -8,14 +8,8 @@ function Mobile(props) {
   console.log(props)
   debugger
 
-
   return (
     <div >
-
-
-
-  
-
       <Header
 
         changeStateOfDrawer={props.changeStateOfDrawer}

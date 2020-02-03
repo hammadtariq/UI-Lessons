@@ -73,6 +73,8 @@ class mycl extends React.Component {
 
         let list = props.bodyObject.myCartList[index];
         list.counter += 1;
+
     };
+    
 }
 export default mycl;

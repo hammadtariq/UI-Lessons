@@ -21,11 +21,10 @@ class decriptionBody extends React.Component {
           justifyContent: "center",
           marginLeft: "7%",
           width: "85%",
-          backgroundColor: "Black",
           height: "800px"
         }}
       >
-        <div style={{ width: "40%", backgroundColor: "blue", height: "75%" }}>
+        <div style={{ width: "40%", height: "75%" }}>
           <div
             style={{
               width: "100%"
@@ -43,7 +42,7 @@ class decriptionBody extends React.Component {
             </Card>
           </div>
         </div>
-        <div style={{ width: "35%", backgroundColor: "red", height: "75%" }}>
+        <div style={{ width: "35%", height: "75%" }}>
           <h2 style={{ margin: "45px" }}>
             {this.props.bodyObject.productImages[this.props.index].text}
           </h2>

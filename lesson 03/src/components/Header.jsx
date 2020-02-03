@@ -177,7 +177,9 @@ class Header extends React.Component {
               <div>
                 {/* <Link to={"/Header"}> */}
                 <Button style={{ width: "100%" }} type="danger">
-                  Submit
+                  {this.props.bodyObject.myCartList.length===0 ? "Shop Now" : "Submit"}
+                  {/* Submit */}
+
                 </Button>
                 {/* </Link> */}
               </div>

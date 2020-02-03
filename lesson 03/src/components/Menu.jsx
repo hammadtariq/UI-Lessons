@@ -69,7 +69,38 @@ class MyMenu extends React.Component {
                   <Link
                     to={{
                       pathname: "/description",
-                      // search: "?query=abc",
+                      state: {index}
+                    }}
+                  >
+                    <label>{item.text}</label>
+                    <br />
+                    <Meta title="Price" />
+                    <label id="mylabel">{item.price}</label>
+                  </Link>
+                  <Button
+                    onClick={() => this.updateCount(index)}
+                    id="btn"
+                    type="danger"
+                  >
+                    Add To Cart
+                  </Button>
+                </Card>
+              </div>
+            ))}
+             {this.props.CardImages.map((item, index) => (
+              <div
+                style={{
+                  width: "200px"
+                }}
+              >
+                <Card
+                  hoverable
+                  style={{ width: "100%" }}
+                  cover={<img src={item.img} />}
+                >
+                  <Link
+                    to={{
+                      pathname: "/description",
                       state: {index}
                     }}
                   >

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import updateCount from "../action/Action"
 
 
+
 import "../css/Mobilediv.css";
 import "../css/Product.css";
 import "../css/Product.css";
@@ -28,7 +29,7 @@ class Body extends React.Component {
                   <img id="p4img" src={item.img}></img>
                 </div>
                 <div className="p41">
-                  <h1 id="p4h1">{item.text}</h1>
+                  <h3 id="p4h1">{item.text}</h3>
                 </div>
                 <div className="p41" >
                   <Link   to="/mobiles">
@@ -50,7 +51,7 @@ class Body extends React.Component {
                   <img id="p4img" src={item.img}></img>
                 </div>
                 <div className="p41">
-                  <h1 id="p4h1">{item.text}</h1>
+                <h3 id="p4h1">{item.text}</h3>
                 </div>
                 <div className="p41">
                   <Icon
