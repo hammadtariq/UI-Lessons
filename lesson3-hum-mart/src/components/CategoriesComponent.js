@@ -11,10 +11,11 @@ import Sider from "./SideMenu";
 import "../css/categories-components.css";
 import ShowCardProvider from '../providers/show-card-provider';
 import DrawerProvider from '../providers/drawer-provider';
-import { Icon, Select, Tabs, List, Card, Button } from "antd";
+import { Icon, Select, Tabs, List, Card, Button ,Pagination,message} from "antd";
 
 class CategoriesComponent extends React.Component {
  handleClick = (Id)=>{
+   message.success('item added')
    console.log(this.props.addtocart(this.props.data[Id].id));
   //  this.props.addtocart(this.props)
  }
@@ -76,7 +77,9 @@ class CategoriesComponent extends React.Component {
                 <Icon type="arrow-up" />
               </p>
             </div>
+            <Pagination defaultCurrent={1} total={20} />
             <div className="tab-pane">
+           
               <Tabs defaultActiveKey="1">
                 <TabPane tab="ALL PRODUCTS" key="1">
                   <List
@@ -118,13 +121,16 @@ class CategoriesComponent extends React.Component {
                       </List.Item>
                     )}
                   />
-                  <Icon type="car" />
+                  
                 </TabPane>
                 <TabPane tab="EXPRESS" key="2">
                   Content of Tab Pane 2
                 </TabPane>
+              
               </Tabs>
+            
             </div>
+           
           </div>
         </div>
 

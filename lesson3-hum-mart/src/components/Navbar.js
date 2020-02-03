@@ -13,12 +13,18 @@ class Navbar extends React.Component{
     
   }
 }
+handleClick = ()=>{
+  // this.props.history.push({
+  //   pathname:`/category/${this.props}`
+  // })
+ 
+}
     render(){
    return(
    
     <nav >
-      <div className="navC" id="navbar" onScroll={()=>this.scrollFunction()}>
-    <a href="#">mobile tablets & laptops</a>
+      <div className="navC" id="navbar" onScroll={()=>this.scrollFunction}>
+    <a href="#" onClick={this.handleClick}>mobile tablets & laptops</a>
     <a href="#">electronic accessories</a>
     <a href="#">pharmacy</a>
     <a href="#">noodles sauces & frozen foods</a>

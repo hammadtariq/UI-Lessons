@@ -7,7 +7,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
       price: 100,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 1,
@@ -16,7 +17,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg",
       price: 825,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 2,
@@ -25,7 +27,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/r33cud1576791081.jpg",
       price: 854,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 3,
@@ -34,7 +37,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
       price: 455,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 4,
@@ -43,7 +47,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
       price: 484,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     }
   ],
   categoriesData: [
@@ -54,7 +59,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
       price: 100,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 1,
@@ -63,7 +69,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg",
       price: 825,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 2,
@@ -72,7 +79,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/r33cud1576791081.jpg",
       price: 854,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 3,
@@ -81,7 +89,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
       price: 455,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 4,
@@ -90,7 +99,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
       price: 484,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 5,
@@ -99,7 +109,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/r33cud1576791081.jpg",
       price: 854,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 6,
@@ -108,7 +119,8 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
       price: 455,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
       id: 7,
@@ -117,13 +129,56 @@ const initState = {
       Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
       price: 484,
       counter: 1,
-      flg: false
+      flg: false,
+      sum:0,
     },
     {
-      id: 8
+      id: 8,
+      title: "Ant Design Title 8",
+      content: "ADD TO CART",
+      Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
+      price: 484,
+      counter: 1,
+      flg: false,
+      sum:0,
+    }
+    ,{
+      id: 9,
+      title: "Ant Design Title 8",
+      content: "ADD TO CART",
+      Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
+      price: 484,
+      counter: 1,
+      flg: false,
+      sum:0,
+    }
+    ,{
+      id: 10,
+      title: "Ant Design Title 8",
+      content: "ADD TO CART",
+      Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
+      price: 484,
+      counter: 1,
+      flg: false,
+      sum:0,
+    }
+    ,{
+      id: 11,
+      title: "Ant Design Title 8",
+      content: "ADD TO CART",
+      Img: "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
+      price: 484,
+      counter: 1,
+      flg: false,
+      sum:0,
     }
   ],
-  cartItem: [],
+  cartItem: [
+    {
+  
+
+    }
+  ],
   categories: [
     {
       id: 1,
@@ -227,9 +282,16 @@ const initState = {
         "https://www.themealdb.com/images/ingredients/Vegetable%20Stock%20Cube.png"
     }
   ],
-  visible: false,
-  sum:0,
-  count:0
+  visible:{
+    visi:false,
+  },
+  sum:{
+      sum:0
+    },
+    count:{
+  count:0},
+  flg:{
+  flg:false},
 };
 
 export default initState;

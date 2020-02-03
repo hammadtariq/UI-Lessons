@@ -1,4 +1,4 @@
-export const a =( visibleState)=>{
+export const showDrawer =( visibleState)=>{
  return{
     type:'SHOW_DRAWER',
     visible:visibleState

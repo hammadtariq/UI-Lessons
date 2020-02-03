@@ -2,36 +2,26 @@ import React from "react";
 import { Icon, Input, Badge } from "antd";
 import { Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 class Header extends React.Component {
-  
-  static getDerivedStateFromProps(nextProps,prevState=this.props.plusCounter(this.props)){
-    
-    
-    console.log(nextProps,"nextProps")
-    console.log(prevState,"prev stete cart");
-
-  //  if(nextProps.cartItem[Id].counter==prevState.cartItem[Id].counter){
-  //    return { cartItem: nextProps.cartItem[Id].counter};
-  // }
-  // else return null;
-}
-  handleShowDrawer = ()=>{
- 
-    this.props.showVisibility(this.props.visible)
+  static getDerivedStateFromProps(
+    nextProps,
+    prevState = this.props.plusCounter(this.props)
+  ) {
+    console.log(nextProps, "nextProps");
+    console.log(prevState, "prev stete cart");
   }
-  handleAddToCounter = (Id) =>{
-   this.props.plusCounter(this.props.cartItem[Id])
- 
-  }
- 
- 
-  
+  handleShowDrawer = () => {
+    this.props.showVisibility(this.props.visible);
+  };
+  handleAddToCounter = Id => {
+    this.props.plusCounter(this.props.cartItem[Id]);
+  };
   render() {
-    console.log(this.props.cartItem,"show-card-provider")
+    console.log(this.props.cartItem, "show-card-provider");
     const { Search } = Input;
     return (
-      <div className="logHeader" handleClose={this.onClose}> 
+      <div className="logHeader" handleClose={this.onClose}>
         <p>
           <span className="logoOne">
             H<span className="logoSizeOne">um</span>
@@ -47,26 +37,21 @@ class Header extends React.Component {
           onSearch={value => console.log(value)}
           className="searchInput"
         />
-        <Link to="/descriptionmeal">
         <p>Zero 5 </p>
-        </Link>
-       
-
         <div>
           {/* <Button type="primary" > */}
-          <Badge count={this.props.count} showZero
-          onClick={this.handleShowDrawer}
-          //  onClick={this.props.showDrawer}
-           >
+          <Badge
+            count={this.props.count}
+            showZero
+            onClick={this.handleShowDrawer}
+            //  onClick={this.props.showDrawer}
+          >
             <a href="#" className="head-example" />
             <Icon type="shopping-cart" />
           </Badge>
           {/* </Button> */}
-         
         </div>
-        <div>
-        
-      </div>
+        <div></div>
       </div>
     );
   }

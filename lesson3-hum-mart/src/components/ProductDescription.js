@@ -6,20 +6,17 @@ import ExtraComtentTwo from "./ExtraContentTwo";
 import Navbar from "./Navbar";
 import { Icon, Button, Tabs, Form, Input } from "antd";
 import "../css/product-description.css";
-import ShowCardProvider from '../providers/show-card-provider'
+import ShowCardProvider from "../providers/show-card-provider";
 import Footer from "./Footer";
-import {addToCart} from '../actions/add-to-cart';
-import DrawerProvider from '../providers/drawer-provider';
+import { addToCart } from "../actions/add-to-cart";
+import DrawerProvider from "../providers/drawer-provider";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
   }
-  handleClick = ()=>{
-   
-   console.log(this.props.addtocart(this.props.post.id));
-   
-   
-   }
+  handleClick = () => {
+    console.log(this.props.addtocart(this.props.post.id));
+  };
   render() {
     console.log(this.props.post, "sk");
     const { post } = this.props;
@@ -33,20 +30,9 @@ class ProductDescription extends React.Component {
         <div className="customcare">
           <ExtraComtentTwo />
         </div>
-        <ShowCardProvider/>
-        {/* <Header showDrawer={this.showDrawer} /> */}
-        {/* <Drawers
-             visible={this.state.visible}
-             onClose={this.onClose}
-             showCartData={this.state.cartItem}
-             sendCount={this.state.count}
-             sendAdd={this.add}
-             sendMinus={this.delete}
-            /> */}
-              <DrawerProvider/>
-      
-          <Navbar />
-       
+        <ShowCardProvider />
+        <DrawerProvider />
+        <Navbar />
         <div className="des-page">
           <Icon type="home" />
           <Icon type="right" />
@@ -78,9 +64,12 @@ class ProductDescription extends React.Component {
             </div>
             <div className="des-cart-down">
               <p>Rs:{post.price}</p>
-              <Button 
-               onClick={this.handleClick} 
-              type="danger" icon="shopping" block>
+              <Button
+                onClick={this.handleClick}
+                type="danger"
+                icon="shopping"
+                block
+              >
                 ADD TO CART
               </Button>
             </div>
@@ -168,9 +157,11 @@ const mapStateToProps = (state, ownProps) => {
     post: state.categoriesData.find(post => post.id == id)
   };
 };
-const mapDispatchToProps = (dispatch)=>{
-  return{
-    addtocart:(id)=>{dispatch(addToCart(id))}
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ProductDescription);
+const mapDispatchToProps = dispatch => {
+  return {
+    addtocart: id => {
+      dispatch(addToCart(id));
+    }
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDescription);
