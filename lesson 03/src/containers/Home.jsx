@@ -14,10 +14,13 @@ function Home(props) {
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}
-        
       />
       <Slider SliderImages={props.myList} leftImages={props.leftImages} />
-      <Body updateCartList={props.updateCartList} changeCount={props.changeCount} bodyObject={props.bodyObject} />
+      <Body
+        updateCartList={props.updateCartList}
+        changeCount={props.changeCount}
+        bodyObject={props.bodyObject}
+      />
       <Footer />
     </div>
   );

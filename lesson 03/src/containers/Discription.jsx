@@ -7,7 +7,7 @@ import { Rate } from "antd";
 import DecriptionBody from "../components/descriptionBody";
 
 function Discription(props) {
-  debugger
+  debugger;
   return (
     <div className="app">
       <Header
@@ -36,11 +36,11 @@ function Discription(props) {
       </div>
 
       <DecriptionBody
-       index={props.location.state.index}
-      changeStateOfDrawer={props.changeStateOfDrawer}
-      bodyObject={props.bodyObject}
-      changeCount={props.changeCount}
-      updateCartList={props.updateCartList}
+        index={props.location.state.index}
+        changeStateOfDrawer={props.changeStateOfDrawer}
+        bodyObject={props.bodyObject}
+        changeCount={props.changeCount}
+        updateCartList={props.updateCartList}
       />
       <Footer />
     </div>

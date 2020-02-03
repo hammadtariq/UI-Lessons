@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge, Card } from "antd";
+import { Drawer, Input, Button, Icon, Badge, Card, message } from "antd";
 import "../css/Menu.css";
 import { Menu } from "antd";
 import m2 from "../images/m1.jpg";
@@ -21,6 +21,9 @@ class MyMenu extends React.Component {
 
   updateCount = index => {
     new updateCount().updateCount(index, this.props);
+    {
+      message.success("Item Added");
+    }
   };
 
   Sider = () => {
@@ -69,15 +72,21 @@ class MyMenu extends React.Component {
                   <Link
                     to={{
                       pathname: "/description",
-                      state: {index}
+                      state: { index }
                     }}
                   >
                     <label>{item.text}</label>
                     <br />
-                    <Meta title="Price" />
+                    {/* <Meta title="RS" /> */}
+                    <label>RS </label>
                     <label id="mylabel">{item.price}</label>
                   </Link>
                   <Button
+                    style={{
+                      backgroundColor: "#e96125",
+                      borderRadius: "20px",
+                      float: "right"
+                    }}
                     onClick={() => this.updateCount(index)}
                     id="btn"
                     type="danger"
@@ -87,7 +96,7 @@ class MyMenu extends React.Component {
                 </Card>
               </div>
             ))}
-             {this.props.CardImages.map((item, index) => (
+            {this.props.CardImages.map((item, index) => (
               <div
                 style={{
                   width: "200px"
@@ -101,15 +110,21 @@ class MyMenu extends React.Component {
                   <Link
                     to={{
                       pathname: "/description",
-                      state: {index}
+                      state: { index }
                     }}
                   >
                     <label>{item.text}</label>
                     <br />
-                    <Meta title="Price" />
+                    <label>RS </label>
+                    {/* <Meta title="Price" /> */}
                     <label id="mylabel">{item.price}</label>
                   </Link>
                   <Button
+                    style={{
+                      backgroundColor: "#e96125",
+                      borderRadius: "20px",
+                      float: "right"
+                    }}
                     onClick={() => this.updateCount(index)}
                     id="btn"
                     type="danger"

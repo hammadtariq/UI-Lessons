@@ -1,22 +1,15 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge } from "antd";
+import { Drawer, Input, Button, Icon, Badge, message } from "antd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import updateCount from "../action/Action"
-
-
+import updateCount from "../action/Action";
 
 import "../css/Mobilediv.css";
 import "../css/Product.css";
 import "../css/Product.css";
 import "../css/Content.css";
 
-
-  
-
-
 class Body extends React.Component {
-  
   Product = () => {
     return (
       <div className="p1">
@@ -31,8 +24,8 @@ class Body extends React.Component {
                 <div className="p41">
                   <h3 id="p4h1">{item.text}</h3>
                 </div>
-                <div className="p41" >
-                  <Link   to="/mobiles">
+                <div className="p41">
+                  <Link to="/mobiles">
                     {" "}
                     <Icon
                       type="caret-right"
@@ -43,7 +36,7 @@ class Body extends React.Component {
                         marginLeft: "40px"
                       }}
                     />
-                  </Link >
+                  </Link>
                 </div>
               </div>
               <div className="p4">
@@ -51,7 +44,7 @@ class Body extends React.Component {
                   <img id="p4img" src={item.img}></img>
                 </div>
                 <div className="p41">
-                <h3 id="p4h1">{item.text}</h3>
+                  <h3 id="p4h1">{item.text}</h3>
                 </div>
                 <div className="p41">
                   <Icon
@@ -111,44 +104,10 @@ class Body extends React.Component {
     );
   };
 
- 
- updateCount = index => {
-     new updateCount().updateCount(index,this.props)
+  updateCount = index => {
+    new updateCount().updateCount(index, this.props);
+    {message.success('Item Added')}
 
-    // let count = this.props.bodyObject.count;
-    // debugger;
-    // let mytotal = this.props.bodyObject.Total + this.props.bodyObject.productImages[index].price;
-    // count = count + 1;
-    // debugger;
-    // {this.props.changeCount(count,mytotal)}
-    // debugger;
-    // console.log(this.props.bodyObject.count);
-
-    // let list = this.props.bodyObject.productImages[index];
-    // list.counter += 1;
-    // if (this.props.bodyObject.myCartList.length === 0) {
-    //   let list2 = this.props.bodyObject.myCartList;
-    //   list2.push(list);
-    //   this.props.updateCartList(list2)
-    // } else {
-    //   let myVar = false;
-    //   let p =this.props.bodyObject.productImages[index].key;
-    //   for (let i = 0; i < this.props.bodyObject.myCartList.length; i++) {
-    //     if (this.props.bodyObject.myCartList[i].key === p) {
-    //       this.setState({
-    //         counter: list.counter
-    //       });
-    //       myVar = true;
-    //       return;
-    //     }
-    //   }
-    //   if (myVar === false) {
-    //     let list2 = this.props.bodyObject.myCartList;
-    //     list2.push(list);
-    //     this.props.updateCartList(list2)
-
-    //   }
-    // }
   };
 
   Body = () => {
@@ -164,23 +123,29 @@ class Body extends React.Component {
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
+                  <Link to="/mobiles">
+
                   <img className="mobileimg" src={item.img}></img>
-                  <span>
+                  {/* <span> */}
                     <label>{item.text}</label>
                     <br />
+                    <label style={{fontSize:"20px", color:"black"}}>RS </label>
                     <label id="mylabel">{item.price}</label>
+                  </Link>
                     <Button
+                      style={{ float:"right",borderRadius:"20px", backgroundColor: "#e96125" }}
                       onClick={() => this.updateCount(index)}
-                      
                       id="btn"
                       type="danger"
                     >
                       Add To Cart
                     </Button>
-                  </span>
+
+                  {/* </span> */}
                 </div>
               );
             })}
+
           </div>
           <div id="nd">
             <h1 className="mob">Mobile Phone</h1>
@@ -191,19 +156,23 @@ class Body extends React.Component {
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
+                  <Link to="/mobiles">
                   <img className="mobileimg" src={item.img}></img>
-                  <span>
+                  {/* <span> */}
                     <label>{item.text}</label>
                     <br />
+                    <label style={{fontSize:"20px", color:"black"}}>RS </label>
                     <label id="mylabel">{item.price}</label>
+                    </Link>
                     <Button
+                      style={{float:"right",borderRadius:"20px", backgroundColor: "#e96125" }}
                       onClick={() => this.updateCount(index)}
                       id="btn"
                       type="danger"
                     >
                       Add To Cart
                     </Button>
-                  </span>
+                  {/* </span> */}
                 </div>
               );
             })}
@@ -213,11 +182,11 @@ class Body extends React.Component {
     );
   };
 
-  
   render() {
     return (
       <div>
         <this.Body />
+        <br />
         <this.Product />
         <this.Content />
       </div>

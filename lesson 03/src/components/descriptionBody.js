@@ -1,19 +1,21 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge, Rate, Card } from "antd";
+import { Drawer, Input, Button, Icon, Badge, Rate, Card,message } from "antd";
 import { Link } from "react-router-dom";
 import updateCount from "../action/Action";
 
 class decriptionBody extends React.Component {
   updateCount = index => {
     new updateCount().updateCount(index, this.props);
+    {message.success('Item Added')}
+
   };
 
   render() {
     //   console.log(this.props.match.params)
-      console.log(this.props.index)
+    console.log(this.props.index);
 
-      debugger
+    debugger;
     return (
       <div
         style={{
@@ -33,10 +35,18 @@ class decriptionBody extends React.Component {
             <Card
               hoverable
               style={{ width: "100%", height: "10%" }}
-              cover={<img src={this.props.bodyObject.productImages[this.props.index].img} />}
+              cover={
+                <img
+                  src={
+                    this.props.bodyObject.productImages[this.props.index].img
+                  }
+                />
+              }
             >
               <Link to="/description">
-                <label>{this.props.bodyObject.productImages[this.props.index].text}</label>
+                <label>
+                  {this.props.bodyObject.productImages[this.props.index].text}
+                </label>
                 <br />
               </Link>
             </Card>
@@ -54,7 +64,8 @@ class decriptionBody extends React.Component {
           </h1>
           <Button
             onClick={() => this.updateCount(this.props.index)}
-            style={{ marginLeft: "45px", width: "70%" }}
+            style={{backgroundColor:"#e96125", marginLeft: "45px", width: "70%" }}
+
           >
             Add To Cart
           </Button>

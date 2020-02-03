@@ -11,13 +11,10 @@ import s4 from "../images/s4.jpg";
 import s5 from "../images/s5.jpg";
 import s6 from "../images/s6.jpg";
 
-
-
-
-
 const appInitialState = {
   SliderImages: [imgdiv3, imgdiv3, imgdiv3, imgdiv3],
   leftImages: [imgdiv1, imgdiv2],
+  finalList:[],
   bodyObject: {
     myCartList: [],
     visible: false,
@@ -59,8 +56,7 @@ const appInitialState = {
     categoriesdiv: [
       {
         img: m1,
-        text: "Samsung A7 (2018) | Blue | With Official Warranty",
-
+        text: "Samsung A7 (2018) | Blue | With Official Warranty"
       },
       {
         img: s2,
@@ -114,8 +110,7 @@ const appInitialState = {
       price: 40,
       text: "Samsung A7 (2018) | Blue | With Official Warranty",
       counter: 0
-    },
-  
+    }
   ]
 };
 

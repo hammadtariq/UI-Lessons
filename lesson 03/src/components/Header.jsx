@@ -2,30 +2,44 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Drawer, Input, Button, Icon, Badge } from "antd";
 import myimg from "../images/Mylogo.png";
+import { Link } from "react-router-dom";
 import "../css/Logodiv.css";
 import "../css/LoginHeader.css";
 import "../css/Category.css";
 import "../css/Header.css";
 import "../css/App.css";
-import updateCount from "../action/Action"
+import updateCount from "../action/Action";
 
 class Header extends React.Component {
-    state = {
-      categoryItem: [
-        "MOBILES TABLETS & LAPTOPS",
-        "ELECTRONIC ACCESSORIESPHARMACY",
-        "NOODLES SAUCES & FROZEN FOODS",
-        "HOUSEHOLD NEEDSBABY & KIDSMORE"
-      ]
-
-  }
+  state = {
+    categoryItem: [
+      {
+        myLink: "MOBILES TABLETS & LAPTOPS",
+        myLinkTo: "/mobiles"
+      },
+      {
+        myLink: "ELECTRONIC ACCESSORIESPHARMACY",
+        myLinkTo: "/"
+      },
+      {
+        myLink: "NOODLES SAUCES & FROZEN FOODS",
+        myLinkTo: "/"
+      },
+      { myLink: "HOUSEHOLD NEEDSBABY & KIDSMORE", myLinkTo: "/" }
+    ]
+  };
+  submitted = () => {};
 
   showDrawer = () => {
-    {this.props.changeStateOfDrawer(true)}
+    {
+      this.props.changeStateOfDrawer(true);
+    }
   };
 
   onClose = () => {
-    {this.props.changeStateOfDrawer(false)}
+    {
+      this.props.changeStateOfDrawer(false);
+    }
   };
 
   Header = () => {
@@ -40,11 +54,13 @@ class Header extends React.Component {
 
   LoginHeader = () => {
     return (
-      <div className="MyLoginheader">
+      <div style={{ backgroundColor: "#f9f9f9" }} className="MyLoginheader">
         <span>
           <label>090078601</label>
-          <label>Customer Care</label>
-          <label>Login</label>
+          <Link to="/">
+            <label style={{ color: "black" }}>Customer Care</label>
+          </Link>
+          {/* <label>Login</label> */}
         </span>
       </div>
     );
@@ -56,9 +72,9 @@ class Header extends React.Component {
         <div className="Category">
           <span className="mylist">
             {this.state.categoryItem.map(item => (
-              <a href="#">
-                <li>{item}</li>
-              </a>
+              <Link to={item.myLinkTo}>
+                <li>{item.myLink}</li>
+              </Link>
             ))}
           </span>
         </div>
@@ -66,19 +82,24 @@ class Header extends React.Component {
     );
   };
 
- 
   LogoDiv = () => {
     return (
       <div className="Logodiv">
         <div>
           <span className="items">
             <div>
-              <img src={myimg}></img>
+              <Link to="/">
+                <img src={myimg}></img>
+              </Link>
             </div>
             <div>
               <span>
-                <Input id="abc" placeholder="Basic usage" />
-                <Button id="bcd" type="danger">
+                <Input
+                  style={{ backgroundColor: "#f9f9f9", width: "500px" }}
+                  id="abc"
+                  placeholder="Basic usage"
+                />
+                <Button  id="bcd" type="danger">
                   Search
                 </Button>
               </span>
@@ -96,7 +117,6 @@ class Header extends React.Component {
                   type="shopping-cart"
                 />
               </Badge>
-              
             </div>
           </span>
         </div>
@@ -105,11 +125,10 @@ class Header extends React.Component {
   };
 
   CartMinus = index => {
-    new updateCount().CartMinus(index,this.props)
+    new updateCount().CartMinus(index, this.props);
   };
   Cartadd = index => {
-    new updateCount().Cartadd(index,this.props)
-
+    new updateCount().Cartadd(index, this.props);
   };
 
   Drawer = () => {
@@ -149,7 +168,7 @@ class Header extends React.Component {
                       <label>src={items.text}</label>
                     </div>
                     <div className="p41">
-                      <label>Rs {items.price} </label>
+                      <label>Rs {items.price * items.counter} </label>
                     </div>
                   </div>
 
@@ -176,10 +195,15 @@ class Header extends React.Component {
             <div className="Drawarbtn">
               <div>
                 {/* <Link to={"/Header"}> */}
-                <Button style={{ width: "100%" }} type="danger">
-                  {this.props.bodyObject.myCartList.length===0 ? "Shop Now" : "Submit"}
+                <Button
+                  onClick={this.submitted}
+                  style={{ width: "100%" }}
+                  type="danger"
+                >
+                  {this.props.bodyObject.myCartList.length === 0
+                    ? "Shop Now"
+                    : "Submit"}
                   {/* Submit */}
-
                 </Button>
                 {/* </Link> */}
               </div>
