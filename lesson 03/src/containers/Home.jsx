@@ -14,6 +14,8 @@ function Home(props) {
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}
+        updateCartList={props.updateCartList}
+
       />
       <Slider SliderImages={props.myList} leftImages={props.leftImages} />
       <Body

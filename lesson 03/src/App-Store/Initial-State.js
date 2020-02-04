@@ -25,7 +25,7 @@ const appInitialState = {
         key: 1,
         img: m1,
         price: 10,
-        text: "Samsung A7 (2018) | Blue | With Official Warranty",
+        text: "Samsung A1 (2018) | Blue | With Official Warranty",
         counter: 0
       },
       {
@@ -33,7 +33,7 @@ const appInitialState = {
 
         img: m2,
         price: 20,
-        text: "Samsung A7 (2018) | Blue | With Official Warranty",
+        text: "Samsung A2 (2018) | Blue | With Official Warranty",
         counter: 0
       },
       {
@@ -41,7 +41,7 @@ const appInitialState = {
 
         img: m3,
         price: 30,
-        text: "Samsung A7 (2018) | Blue | With Official Warranty",
+        text: "Samsung A3 (2018) | Blue | With Official Warranty",
         counter: 0
       },
       {
@@ -49,7 +49,7 @@ const appInitialState = {
 
         img: m4,
         price: 40,
-        text: "Samsung A7 (2018) | Blue | With Official Warranty",
+        text: "Samsung A4 (2018) | Blue | With Official Warranty",
         counter: 0
       }
     ],

@@ -1,14 +1,39 @@
 .Cat{
-    position: sticky !important;
-    top:1px;
-    z-index: 1;
+
+    position: sticky !important ;
     height: 80px ;
     width: 100%;
-    background-color:white;
     display: flex;
-    justify-content: center;
-    margin-bottom: -12px;
+    
+
+    overflow: hidden;
+    z-index: 1;
+    background-color: white;
+    top: 0px;
+    display: flex;
+    justify-content: space-around;
+
+
+
 }
+
+.navbar {
+
+    overflow: hidden;
+    z-index: 1;
+    height: 40px ;
+    background-color: white;
+    position: fixed;
+    margin-top:20px;
+    top: 0;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 100px;
+
+  }
+
+
 .Category{
    
     margin: 14px auto;

@@ -13,7 +13,10 @@ const ReducerList = produce((draft, action) => {
       return;
     case MYACTION.updateCartList:
       debugger;
+
       draft.myList = action.payload;
+      console.log(draft.myList)
+      draft.myCartList=action.payload;
       return;
 
     default:

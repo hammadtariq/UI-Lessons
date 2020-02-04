@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => {
       dispatch({ type: "changeStateOfDrawer", payload: visible });
     },
     updateCartList: myList => {
+      debugger
       dispatch({ type: "updateCartList", payload: myList });
     }
   };

@@ -17,7 +17,8 @@ class mycl extends React.Component {
     let list = props.bodyObject.productImages[index];
     list.counter += 1;
     if (props.bodyObject.myCartList.length === 0) {
-      let list2 = props.bodyObject.myCartList;
+      let list2 = [...props.bodyObject.myCartList];
+      debugger;
       list2.push(list);
       props.updateCartList(list2);
     } else {

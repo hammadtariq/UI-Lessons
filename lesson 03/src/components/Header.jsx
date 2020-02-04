@@ -1,8 +1,17 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge } from "antd";
+import {
+  Drawer,
+  Input,
+  Button,
+  Icon,
+  Badge,
+  Affix,
+  AutoComplete,
+  message
+} from "antd";
 import myimg from "../images/Mylogo.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../css/Logodiv.css";
 import "../css/LoginHeader.css";
 import "../css/Category.css";
@@ -12,6 +21,10 @@ import updateCount from "../action/Action";
 
 class Header extends React.Component {
   state = {
+    redirect: "",
+    inputValue: "",
+    myIndex: 0,
+
     categoryItem: [
       {
         myLink: "MOBILES TABLETS & LAPTOPS",
@@ -28,7 +41,33 @@ class Header extends React.Component {
       { myLink: "HOUSEHOLD NEEDSBABY & KIDSMORE", myLinkTo: "/" }
     ]
   };
-  submitted = () => {};
+
+  updateInput = e => {
+    this.state = { inputValue: e.target.value };
+  };
+  handleClick = () => {
+    for (
+      let index = 0;
+      index < this.props.bodyObject.productImages.length;
+      index++
+    ) {
+      if (
+        this.state.inputValue ===
+        this.props.bodyObject.productImages[index].text
+      ) {
+        this.setState({
+          myIndex: index
+        });
+      }
+    }
+  };
+
+  submitted = () => {
+    const list = [];
+    this.props.updateCartList(list);
+    this.props.changeCount(0, 0);
+    message.success("Order Dispatch");
+  };
 
   showDrawer = () => {
     {
@@ -66,6 +105,18 @@ class Header extends React.Component {
     );
   };
 
+  // Cat = () => {
+  //   return (
+  //     <div class="navbar">
+  //       {this.state.categoryItem.map(item => (
+  //         <Link to={item.myLinkTo}>
+  //           <li>{item.myLink}</li>
+  //         </Link>
+  //       ))}
+  //     </div>
+  //   );
+  // };
+
   Category = () => {
     return (
       <div className="Cat">
@@ -83,8 +134,16 @@ class Header extends React.Component {
   };
 
   LogoDiv = () => {
+    let dataSource = [{}];
+    this.props.bodyObject.productImages.forEach(element => {
+      dataSource.push(element);
+    });
+    debugger;
+    console.log(dataSource);
     return (
       <div className="Logodiv">
+        
+
         <div>
           <span className="items">
             <div>
@@ -94,12 +153,21 @@ class Header extends React.Component {
             </div>
             <div>
               <span>
+                <datalist id="myOptions">
+                  {dataSource.map(item => (
+                    <option value={item.text} />
+                  ))}
+                </datalist>
                 <Input
-                  style={{ backgroundColor: "#f9f9f9", width: "500px" }}
+                  style={{ backgroundColor: "#f9f9f9" }}
                   id="abc"
                   placeholder="Basic usage"
+                  autoComplete="on"
+                  list="myOptions"
+                  onChange={this.updateInput}
                 />
-                <Button  id="bcd" type="danger">
+
+                <Button onClick={this.handleClick} id="bcd" type="danger">
                   Search
                 </Button>
               </span>
@@ -132,6 +200,8 @@ class Header extends React.Component {
   };
 
   Drawer = () => {
+    debugger;
+    let mybtn1 = this.state.mybtn;
     return (
       <Drawer
         width={500}
@@ -199,11 +269,12 @@ class Header extends React.Component {
                   onClick={this.submitted}
                   style={{ width: "100%" }}
                   type="danger"
+                  // disabled={mybtn1}
                 >
                   {this.props.bodyObject.myCartList.length === 0
                     ? "Shop Now"
-                    : "Submit"}
-                  {/* Submit */}
+                    : // : (mybtn1=false,"Submit")
+                      "Submit"}
                 </Button>
                 {/* </Link> */}
               </div>
@@ -227,3 +298,5 @@ class Header extends React.Component {
   }
 }
 export default Header;
+
+// }
