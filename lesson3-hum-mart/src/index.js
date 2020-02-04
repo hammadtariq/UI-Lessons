@@ -6,8 +6,8 @@ import RouterComponents from './RouterComponents'
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import RootReducers from './reducers/RootReducers'
-const store = createStore(RootReducers)
+import reducer from './reducers/RootReducers'
+const store = createStore(reducer)
 
 ReactDOM.render(<Provider store={store}><RouterComponents /></Provider>, document.getElementById('root'));
 

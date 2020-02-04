@@ -8,8 +8,10 @@ class Drawers extends React.Component {
   };
   handleAddToCounter = Id => {
     console.log(this.props.cartItem, typeof Id, Id);
-    // this.props.plusCounter(this.props.cartItem[Id].id)
-    this.props.plusCounter(Id);
+    let counterItem =this.props.cartItem.value[Id] ;
+    let counter = counterItem.counter +=1
+    this.props.plusCounter(counter)
+    // this.props.plusCounter(Id);
     // this.props.addtocart(this.props.data[Id].id,this.props.data[Id].price);
   };
   handleSubToCounter = Id => {
@@ -36,8 +38,8 @@ class Drawers extends React.Component {
               <p>Free</p>
             </div>
           </div>
-          {this.props.cartItem.length > 0 ? (
-            this.props.cartItem.map((elt, index) => {
+          {this.props.cartItem.loading == true ? (
+            this.props.cartItem.value.map((elt, index) => {
               console.log(elt.id);
               return (
                 <div className="drawer" key={elt.id}>

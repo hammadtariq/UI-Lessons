@@ -10,3 +10,8 @@ return{
     visible:visibleState
 }
 }
+export const showData = ()=>{
+    return{
+        type:'SHOW_DATA',
+    }
+}

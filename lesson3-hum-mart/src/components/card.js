@@ -3,28 +3,40 @@ import { List, Card, Button, message } from "antd";
 import Header from "./Header";
 class Cart extends React.Component {
   handleClick = (Id, Price) => {
-     console.log(this.props.addToCart(this.props.data[Id].id, this.props.data[Id].price));
+    //  console.log(this.props.addToCart(this.props.data[Id].id, this.props.data[Id].price));
     
-     let cartCopy = [...this.props.data];
+     let cartCopy = this.props.data;
      console.log(cartCopy)
         //  let sumCopy = parseInt(this.props.sum);
         //  sumCopy = sumCopy + this.props.data[Id].price;
-         let cartItemCopy = [this.props.cartItem]
-          let newCartItem = cartCopy.find(ele => ele.id == Id);
+         let cartItemCopy = this.props.cartItem
+         console.log(cartItemCopy)
+          let newCartItem = cartCopy.value.find(ele => ele.id == Id);
         console.log(newCartItem,"newCartItem")
     //  console.log(cartItemCopy,"cartCopy");
-    // if(this.props.cartItemCopy.length >0){
-    //  cartItemCopy.map((newitem)=>{
-    //        if(newCartItem.id===newitem.id){
-    //          return alert("already exist")
-    //        }
-    //        else{
-    //          return newCartItem
-    //        }
-    //      })
-    //     }
-    cartItemCopy = [cartItemCopy,newCartItem]
-          this.props.addToCart(cartItemCopy);
+    if(this.props.cartItem.value.length >0){
+      let cartflg = false;
+        for(let i=0;i<cartItemCopy.value.length;i++){
+          if(newCartItem.id ===cartItemCopy.value[i].id){
+           cartflg=true     
+          }
+        }
+        if(cartflg ===false){
+          message.success("added")
+          this.props.addToCart(newCartItem,Id);
+        }
+        else{
+          cartflg=false;
+          message.success("exist")
+        }
+        }
+        else{
+          message.success("added")
+          this.props.addToCart(newCartItem,Id);
+        }
+  
+    console.log(cartItemCopy)
+       
          
           console.log(this.props.cartItem,cartItemCopy);
       
@@ -45,7 +57,7 @@ class Cart extends React.Component {
         <div className="cardslider">
           <List
             itemLayout="horizontal"
-            dataSource={this.props.data}
+            dataSource={this.props.data.value}
             renderItem={item => (
               <List.Item key={item.id}>
                 <div className="cards">

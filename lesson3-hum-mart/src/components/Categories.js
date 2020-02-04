@@ -19,24 +19,24 @@ class Categories extends React.Component {
         </div>
         <div className="categories">
           {
-          // this.props.categories.map(item => {
-          //   return (
-          //     <div className="categoriesC" onClick={() =>this.description(item.id)}>
-          //       <div className="caategoriesImg" >
-          //         <img src={item.imgUrl} width="120px"></img>
-          //       </div>
-          //       <div className="categoriesContent">
-          //         <h4>{item.content}</h4>
-          //         <p>{item.contentTwo}</p>
-          //       </div>
-          //       <div >
-          //       {/* <Link to={`/category/${item.id}}`}> */}
-          //       <Icon type="right" />
-          //       {/* </Link> */}
-          //       </div>
-          //     </div>
-          //   );
-          // })
+          this.props.categories.map(item => {
+            return (
+              <div className="categoriesC" onClick={() =>this.description(item.id)}>
+                <div className="caategoriesImg" >
+                  <img src={item.imgUrl} width="120px"></img>
+                </div>
+                <div className="categoriesContent">
+                  <h4>{item.content}</h4>
+                  <p>{item.contentTwo}</p>
+                </div>
+                <div >
+                {/* <Link to={`/category/${item.id}}`}> */}
+                <Icon type="right" />
+                {/* </Link> */}
+                </div>
+              </div>
+            );
+          })
           }
         </div>
       </div>

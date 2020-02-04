@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import Cart from "../components/card";
 import { withRouter } from "react-router-dom";
 import { addToCart, addToCartCounter } from "../actions/add-to-cart";
-
 const mapStateToProps = state => {
   console.log(state, "cart state");
   return {
@@ -13,7 +12,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    addToCart: (id) => dispatch(addToCart(id)),
+
+    addToCart: (id,index) => dispatch(addToCart(id,index)),
     addtocartcounter: () =>dispatch(addToCartCounter())
     
   };
