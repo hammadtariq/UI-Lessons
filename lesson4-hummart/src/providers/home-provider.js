@@ -22,6 +22,7 @@ const mapDispatchtoProps = dispatch => {
 
 const mapStatetoProps = state => {
   return {
+    mobilecat:state.items.mobilesCategory,
     mobile: state.items.Mobiledata,
     offer: state.items.offers,
     count: state.cart.count,

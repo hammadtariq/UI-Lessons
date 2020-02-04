@@ -8,9 +8,9 @@ class Top extends Component{
           <div className="karachi">Delivering Only in Karachi</div>
           <div className="contact">
             <p>
-              <Icon type="phone" />
-              (021)111116278 <a href="https://">Costumer Care</a>
-              <a href="https://">Login</a>
+            <span><Icon type="phone" />
+              (021)111116278</span> <a href="/blank">Costumer Care</a>
+              <a href="/blank">Login</a>
             </p>
           </div>
         </div>

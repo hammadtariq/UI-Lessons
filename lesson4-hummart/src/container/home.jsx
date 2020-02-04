@@ -28,6 +28,7 @@ class Home extends Component {
       <div className="main">
         <Top />
         <Header
+          props={this.props}
           Display={this.props.display}
           count={this.props.count}
           showZero={this.props.showZero}

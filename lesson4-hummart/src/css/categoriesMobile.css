@@ -1,4 +1,6 @@
 .menu {
+  position: sticky;
+  top:0;
   width: 15%;
   margin-left: 9rem;
 }
@@ -24,13 +26,14 @@
 }
 
 .bdmenu {
+  margin-top: 1rem;
   height: 5%;
   width: 90%;
   display: flex;
   justify-content: space-between;
 }
 .bdparent {
-  width: 100%;
+  width: 85%;
   height: 900px;
 }
 .card-div {

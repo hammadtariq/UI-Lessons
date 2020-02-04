@@ -11,7 +11,6 @@ export default function reducer(state = initialstate, action) {
 }
 
 const cart = produce((draft, action) => {
-  debugger;
   switch (action.type) {
     case "cartopen":
       draft.visible = true;
@@ -42,6 +41,9 @@ const cart = produce((draft, action) => {
       return;
     case "delete":
       draft.order = [];
+      return;
+    case "sort":
+      draft.mobilesCategory = action.list;
       return;
     // case 'changeStyle':
     //   draft.nav="nav-again"

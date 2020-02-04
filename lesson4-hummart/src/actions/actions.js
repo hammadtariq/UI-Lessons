@@ -16,7 +16,7 @@ export function addtoCart(data, total) {
 }
 
 export function addSpecific(index) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const state = getState();
     for (let i = 0; i < data.length; i++) {
       if (state.items.mobilesCategory[index].key === data[i].key) {
@@ -60,8 +60,14 @@ export function minus(index, arr) {
   return { type: "minus", list, total };
 }
 
+export function sort(arr){
+  let list=[...arr]
+  list.sort((a,b)=>(a.price>b.price)?1:-1)
+  return{type:'sort',list}
+}
+
 export function addCart(index, name) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const state = getState();
     if (name === "mobiles") {
       for (let i = 0; i < data.length; i++) {
@@ -105,8 +111,9 @@ export function addCart(index, name) {
 //   };
 
 export function Delete(index,data) {
-  data.splice(index,1)
-  localStorage.setItem("orders", JSON.stringify(data));
+  let arr=[...data]
+  arr.splice(index,1)
+  localStorage.setItem("orders", JSON.stringify(arr));
   message.success('Item Deleted!')
   return { type: "delete" };
 }

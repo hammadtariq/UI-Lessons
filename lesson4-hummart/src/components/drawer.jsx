@@ -63,7 +63,7 @@ class Drawerr extends Component {
                 type="danger"
                 block
               >
-                Proceed to CheckOut Rs-{this.props.total}
+                Proceed to CheckOut Rs : {this.props.total}
               </Button>
             </div>
           </div>

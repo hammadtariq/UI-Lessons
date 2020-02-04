@@ -16,7 +16,7 @@ const initialstate = {
         key: 1,
         title: "Samsung",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 3000,
         picture: m1,
         quantity: 1
       },
@@ -24,7 +24,7 @@ const initialstate = {
         key: 2,
         title: "Nokia",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 20000,
         picture: m2,
         quantity: 1
       },
@@ -32,7 +32,7 @@ const initialstate = {
         key: 3,
         title: "Iphone",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 50000,
         picture: m3,
         quantity: 1
       },
@@ -40,7 +40,7 @@ const initialstate = {
         key: 4,
         title: "Motorola",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 8000,
         picture: m4,
         quantity: 1
       },
@@ -48,13 +48,15 @@ const initialstate = {
         key: 5,
         title: "Oppo",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 18000,
         picture: m5,
         quantity: 1
       }
     ],
 
+   
     offers: [
+
       {
         key: 6,
         title: "ABC",
@@ -67,7 +69,7 @@ const initialstate = {
         key: 7,
         title: "ABC",
         description: "asfasgasfasfasfas",
-        price: 10212,
+        price: 300,
         picture: of2,
         quantity: 1
       },
@@ -75,7 +77,7 @@ const initialstate = {
         key: 8,
         title: "ABC",
         description: "asfasgasfasfasfas",
-        price: 10212,
+        price: 500,
         picture: of3,
         quantity: 1
       },
@@ -83,7 +85,7 @@ const initialstate = {
         key: 9,
         title: "ABC",
         description: "asfasgasfasfasfas",
-        price: 10212,
+        price: 900,
         picture: of4,
         quantity: 1
       },
@@ -91,24 +93,26 @@ const initialstate = {
         key: 10,
         title: "ABC",
         description: "asfasgasfasfasfas",
-        price: 10212,
+        price: 3500,
         picture: of5,
         quantity: 1
       }
     ],
 
+
     mobilesCategory: [
+
       {
         key:11,
         title: "Samsung",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 4000,
         picture: m1,
         quantity: 1
       },
       {
         key:12,
-        title: "Samsung",
+        title: "Samsung A8",
         description: "Lorem Ipsem",
         price: 12000,
         picture: m1,
@@ -116,17 +120,17 @@ const initialstate = {
       },
       {
         key:13,
-        title: "Samsung",
+        title: "Samsung Infinity",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 8000,
         picture: m1,
         quantity: 1
       },
       {
         key:14,
-        title: "Samsung",
+        title: "Samsung Note 5",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 8900,
         picture: m1,
         quantity: 1
       },
@@ -134,7 +138,7 @@ const initialstate = {
         key:15,
         title: "Nokia",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 20000,
         picture: m2,
         quantity: 1
       },
@@ -142,7 +146,7 @@ const initialstate = {
         key:16,
         title: "Iphone",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 25000,
         picture: m3,
         quantity: 1
       },
@@ -150,7 +154,7 @@ const initialstate = {
         key:17,
         title: "Motorola",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 21000,
         picture: m4,
         quantity: 1
       },
@@ -158,7 +162,7 @@ const initialstate = {
         key:18,
         title: "Oppo",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 19000,
         picture: m5,
         quantity: 1
       }

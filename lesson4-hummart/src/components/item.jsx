@@ -19,7 +19,7 @@ class Item extends Component {
                   <Card
                     key={index}
                     hoverable
-                    style={{ width: 250 }}
+                    style={{ width: 250,height:100 }}
                     cover={<img src={item.picture} alt='pic'/>}
                   >
                     <Meta title={item.title} description={item.description} />

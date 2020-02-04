@@ -9,10 +9,12 @@ const { TabPane } = Tabs;
 
 class Specific extends Component {
   render() {
+    debugger;
     return (
       <div>
         <Top />
         <Header
+          props={this.props}
           Display={this.props.display}
           count={this.props.count}
           showZero={this.props.showZero}
@@ -21,13 +23,15 @@ class Specific extends Component {
         <div style={{ marginLeft: "7rem" }} className="breadcrumb">
           <Breadcrumb separator=">">
             <Breadcrumb.Item>
-              <Icon type="home" />
+              <a href="/">
+                <Icon type="home" />
+              </a>
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="mobiles">
-              Mobiles Tablets & Laptops
+            <Breadcrumb.Item>
+              <a href="/mobiles">Mobiles Tablets & Laptops</a>
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="mobiles">
-              {this.props.location.state.state}
+            <Breadcrumb.Item>
+              <a href="/mobiles">{this.props.match.params.id}</a>
             </Breadcrumb.Item>
           </Breadcrumb>
         </div>
@@ -48,7 +52,7 @@ class Specific extends Component {
             }}
             cover={
               <img
-                src={this.props.mobile[this.props.location.state.state].picture}
+                src={this.props.mobile[this.props.match.params.id].picture}
                 alt="pic"
                 width="5%"
                 height="50%%"
@@ -65,16 +69,16 @@ class Specific extends Component {
             }}
           >
             <h2 style={{ marginLeft: "3rem" }}>
-              {this.props.mobile[this.props.location.state.state].description}
+              {this.props.mobile[this.props.match.params.id].description}
             </h2>
             <div style={{ marginBottom: "2rem" }}>
               <h1 style={{ marginLeft: "3rem", color: "green" }}>
-                Rs-{this.props.mobile[this.props.location.state.state].price}
+                Rs-{this.props.mobile[this.props.match.params.id].price}
               </h1>
               <Button
                 style={{ width: "80%", height: "50%", marginLeft: "3rem" }}
                 onClick={() =>
-                  this.props.addCart(this.props.location.state.state)
+                  this.props.addCart(this.props.match.params.id)
                 }
                 type="danger"
               >
@@ -108,7 +112,7 @@ class Specific extends Component {
                 Express Shipping
               </strong>
               <p style={{ width: "50%" }}>
-                {this.props.mobile[this.props.location.state.state].title}
+                {this.props.mobile[this.props.match.params.id].title}
                 <br />
                 {"XYZ"}
                 <br />
@@ -118,7 +122,7 @@ class Specific extends Component {
                 <br />
                 {"Not Applicable"}
                 <br />
-                {this.props.mobile[this.props.location.state.state].description}
+                {this.props.mobile[this.props.match.params.id].description}
                 <br />
                 {"No"}
                 <br />

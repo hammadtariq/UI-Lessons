@@ -16,6 +16,7 @@ const mapDispatchtoProps = dispatch => {
 
 const mapStatetoProps = state => {
   return {
+    mobilecat:state.items.mobilesCategory,
     mobile: state.items.mobilesCategory,
     count: state.cart.count,
     showZero: state.cart.showZero,
