@@ -1,31 +1,29 @@
-import { addToCart } from "../actions/add-to-cart";
 import { produce } from "immer";
-import {addToCounter} from '../actions/counter-actions'
 const cartItem = produce((draft, action) => {
   switch (action.type) {
-   
     case 'ADD_CART':
-         console.log(draft.value[action.index],action.index,action.id,"add tp")
-      draft.loading = true;
-      draft.error = null;
-     draft.value[action.index] = action.id;
-      return;
+     console.log(draft.value[action.index],action.index,action.id,action.price,"add tp")
+     draft.loading = true;
+     draft.error = null;
+     draft.value = action.id;
+     draft.sum=action.price;
+     return;
     case 'ADD_TO_COUNTER':
-        console.log(action.id)
+      console.log(action.id,action.count)
       draft.loading = true;
       draft.error =null;
-//   draft.value[action.index].counter+=1;
+      draft.value = action.count
+      // draft.value[action.id].sum+=action.count;
+      // draft.sum+=action.count;
    return;
-    // case ACTIONS.SET_SELECTED_AUDIO_URL:
-    //   draft.selectedAudioUrl = action.response;
-    //   return;
-    // case ACTIONS.SET_SELECTED_AUDIO_ID:
-    //   draft.selectedAudioId = action.response;
-    //   return;
-    // case ACTIONS.SET_AUDIOS_INFO:
-    //   draft.audiosInfo = action.response;
-    //   return;
-
+   case 'SUB_TO_COUNTER':
+       console.log(action.id,action.count)
+       draft.loading = true;
+       draft.error =null;
+       draft.value[action.id].counter-=1;
+       draft.value[action.id].sum-=action.count;
+       draft.sum-=action.count;
+   return;
     default:
       return draft;
   }

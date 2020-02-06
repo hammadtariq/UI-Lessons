@@ -1,15 +1,15 @@
 import { connect } from "react-redux";
 import Header from "../components/Header";
-// import Drawer from '../components/'
-import { showDrawer, closeDrawer } from "../actions/showdrawersaction.js";
-import {addToCounter,addToCartCounter} from '../actions/add-to-cart'
+import { showDrawer, closeDrawer ,showData} from "../actions/showdrawersaction.js";
+import {addToCartCounter} from '../actions/add-to-cart'
 import { withRouter } from "react-router-dom";
-import { Drawer } from "antd";
+
 
 
 const mapStateToProps = state => {
   console.log(state, "cart state in header");
   return {
+    data:state.data.value,
     visible: state.visible,
     cartItem: state.cartItem,
     sum:state.sum,
@@ -24,6 +24,9 @@ const mapDispatchToProps = dispatch => {
     },
     addtocartcounter:()=>{
       dispatch(addToCartCounter())
+  },
+  showdata:(state)=>{
+    dispatch(showData(state))
   }
    
   };

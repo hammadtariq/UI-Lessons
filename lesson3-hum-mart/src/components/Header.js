@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon, Input, Badge } from "antd";
+import { Form, message, Select } from "antd";
 import { Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -17,9 +18,13 @@ class Header extends React.Component {
   handleAddToCounter = Id => {
     this.props.plusCounter(this.props.cartItem[Id]);
   };
+  handleSearch = (val)=>{
+    console.log(val)
+  }
   render() {
     console.log(this.props.cartItem, "show-card-provider");
     const { Search } = Input;
+    const { Option } = Select;
     return (
       <div className="logHeader" handleClose={this.onClose}>
         <p>
@@ -30,13 +35,29 @@ class Header extends React.Component {
             M<span className="logoSizeTwo">art</span>
           </span>
         </p>
-        <Search
+        {/* <Search
           size="large"
-          placeholder="input search text"
+          placeholder="enter"
           enterButton="Search"
-          onSearch={value => console.log(value)}
+          onSearch={this.props.data.value.map(ele=>ele.title)}
           className="searchInput"
-        />
+       
+        >
+          
+        </Search> */}
+         <Form.Item
+          // className="searchInput"
+          // validateStatus={recipients.validateStatus}
+          // help={recipients.errorMsg}
+        >
+          
+            <Select mode="tags" tokenSeparators={[","]} placeholder="Email an">
+              {this.props.data.map((d, i) => <Option key={i}>{d.title}</Option>)}       
+              {console.log(this.props.data.map (ele=>ele.title))}
+            </Select>
+         
+        </Form.Item>
+       
         <p>Zero 5 </p>
         <div>
           {/* <Button type="primary" > */}

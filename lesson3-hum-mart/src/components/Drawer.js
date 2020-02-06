@@ -1,4 +1,4 @@
-import { Drawer, Button } from "antd";
+import { Drawer, Button,message } from "antd";
 import React from "react";
 import { Icon } from "antd";
 class Drawers extends React.Component {
@@ -6,16 +6,25 @@ class Drawers extends React.Component {
     console.log(this.props);
     this.props.hidevisibility(this.props.visible);
   };
-  handleAddToCounter = Id => {
-    console.log(this.props.cartItem, typeof Id, Id);
-    let counterItem =this.props.cartItem.value[Id] ;
-    let counter = counterItem.counter +=1
-    this.props.plusCounter(counter)
-    // this.props.plusCounter(Id);
-    // this.props.addtocart(this.props.data[Id].id,this.props.data[Id].price);
+  handleAddToCounter = (Id,count) => {
+    let a,b;
+   let updateCartItem = this.props.cartItem.value;
+   const element = updateCartItem[Id];
+   updateCartItem[Id] = {...element, counter: element.counter + 1}
+//  a =  updateCartItem[Id].counter+1
+// b=[...updateCartItem,{counter:a}]
+//  console.log(b);
+this.plusCOunter
+      
   };
   handleSubToCounter = Id => {
-    this.props.minusCounter(Id);
+    let counterItem =this.props.cartItem.value[Id] ;
+    if(counterItem.counter >0){
+    this.props.minusCounter(Id,counterItem.price);
+    }
+    else{
+      message.warning("Kindly increase quantity")
+    }
   };
   render() {
     console.log(this.props.visible);
@@ -31,7 +40,7 @@ class Drawers extends React.Component {
           <div className="total-bill">
             <div className="totalOne">
               <p>SubTotal</p>
-              <p>Rs:{this.props.sum}</p>
+              <p>Rs:{this.props.cartItem.sum}</p>
             </div>
             <div className="totalOne">
               <p>Delivery Charges?</p>
@@ -60,7 +69,7 @@ class Drawers extends React.Component {
                         <Icon
                           type="plus-circle"
                           // onClick={() => this.props.sendAdd(elt.id)}
-                          onClick={() => this.handleAddToCounter(index)}
+                          onClick={() => this.handleAddToCounter(index,this.props.cartItem.value)}
                         />
                         <p>*</p>
 
@@ -77,7 +86,7 @@ class Drawers extends React.Component {
           )}
 
           <Button type="danger" block className="drawer-button">
-            Proceed To Checkout : {this.props.sum}
+            Proceed To Checkout : {this.props.cartItem.sum}
           </Button>
         </Drawer>
       </div>

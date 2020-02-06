@@ -3,27 +3,37 @@ import { List, Card, Button, message } from "antd";
 import Header from "./Header";
 class Cart extends React.Component {
   handleClick = (Id, Price) => {
-    //  console.log(this.props.addToCart(this.props.data[Id].id, this.props.data[Id].price));
-    
+ 
+    let ownIndex ;let newPrice;let newSum;
+    let newvalue
      let cartCopy = this.props.data;
      console.log(cartCopy)
         //  let sumCopy = parseInt(this.props.sum);
         //  sumCopy = sumCopy + this.props.data[Id].price;
-         let cartItemCopy = this.props.cartItem
+         let cartItemCopy = this.props.cartItem;
          console.log(cartItemCopy)
           let newCartItem = cartCopy.value.find(ele => ele.id == Id);
         console.log(newCartItem,"newCartItem")
     //  console.log(cartItemCopy,"cartCopy");
     if(this.props.cartItem.value.length >0){
-      let cartflg = false;
-        for(let i=0;i<cartItemCopy.value.length;i++){
+      let cartflg = false; let i; 
+        for( i=0;i<cartItemCopy.value.length;i++){
           if(newCartItem.id ===cartItemCopy.value[i].id){
+          
            cartflg=true     
           }
+          // nIndex =cartItemCopy.value.length;
         }
         if(cartflg ===false){
-          message.success("added")
-          this.props.addToCart(newCartItem,Id);
+         
+          // nIndex=ownIndex;
+          // ownIndex=parseInt(nIndex) ;
+         
+          message.success("added");
+          newvalue=[...cartItemCopy.value,newCartItem];
+          newSum=cartItemCopy.sum+Price
+          this.props.addToCart(newvalue,newSum);
+         
         }
         else{
           cartflg=false;
@@ -31,8 +41,12 @@ class Cart extends React.Component {
         }
         }
         else{
+         
+           newvalue=[...cartItemCopy.value,newCartItem];
+           newSum=cartItemCopy.sum+Price
+          
           message.success("added")
-          this.props.addToCart(newCartItem,Id);
+          this.props.addToCart(newvalue,newSum);
         }
   
     console.log(cartItemCopy)
@@ -70,7 +84,7 @@ class Cart extends React.Component {
                     <div className="card-inner">
                       <p>Rs:{item.price}</p>
                       <Button
-                        onClick={() => this.handleClick(item.id)}
+                        onClick={() => this.handleClick(item.id,item.price)}
                         //  onClick={()=>this.props.sendShowData(item.id,item.title,item.price,item.counter,item.Img)}
                         type="danger"
                       >

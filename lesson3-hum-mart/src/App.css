@@ -320,3 +320,6 @@ h3{
 .adb{
   margin-left: 2.5rem !important;
 }
+.ant-select-selection--multiple {
+  width: 200px;
+}

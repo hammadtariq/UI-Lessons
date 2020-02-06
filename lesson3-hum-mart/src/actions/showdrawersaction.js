@@ -10,8 +10,9 @@ return{
     visible:visibleState
 }
 }
-export const showData = ()=>{
+export const showData = (state)=>{
     return{
         type:'SHOW_DATA',
+        state:state,
     }
 }

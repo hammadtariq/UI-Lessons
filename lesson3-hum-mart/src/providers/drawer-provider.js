@@ -20,11 +20,11 @@ const mapDispatchToProps = dispatch => {
     hidevisibility: visibleState => {
       dispatch(closeDrawer(visibleState));
     },
-    plusCounter:(index)=>{
-      dispatch(addToCounter(index))
+    plusCounter:(index,counter)=>{
+      dispatch(addToCounter(index,counter))
   },
-    minusCounter:(id)=>{
-        dispatch(subtractToCounter(id))
+    minusCounter:(index,counter)=>{
+        dispatch(subtractToCounter(index,counter))
     }
    
   };

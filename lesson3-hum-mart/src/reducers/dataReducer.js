@@ -1,16 +1,11 @@
 import {produce} from 'immer';
 const data = produce((draft,action)=>{
-  
+  switch(action.type){
+    // case 'SHOW_DATA':
+    //     return draft.value;
+    default:
     return draft
-    // switch(action.type){
-    //     case "SHOW_DRAWER":
-    //         draft.visi = true;
-           
-    //         return;
-    
-    //       case 'CLOSE_DRAWER':
-    //         draft.visi = false;
-    //         return; 
-    // }
+  }
+   
 })
 export default data
