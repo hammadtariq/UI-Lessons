@@ -11,6 +11,12 @@ export function CartClose() {
   return { type: "cartclose" };
 }
 
+export function Submit(list) {
+  debugger;
+  message.success("Review Submitted!");
+  return { type: "review",list};
+}
+
 export function addtoCart(data, total) {
   return { type: "addCart", data, total };
 }
@@ -60,10 +66,15 @@ export function minus(index, arr) {
   return { type: "minus", list, total };
 }
 
-export function sort(arr){
-  let list=[...arr]
-  list.sort((a,b)=>(a.price>b.price)?1:-1)
-  return{type:'sort',list}
+export function sort(arr) {
+  let list = [...arr];
+  list.sort((a, b) => (a.price > b.price ? 1 : -1));
+  return { type: "sort", list };
+}
+export function sortName(arr) {
+  let list = [...arr];
+  list.sort((a, b) => (a.title > b.title ? 1 : -1));
+  return { type: "sort", list };
 }
 
 export function addCart(index, name) {
@@ -110,16 +121,18 @@ export function addCart(index, name) {
 //     }
 //   };
 
-export function Delete(index,data) {
-  let arr=[...data]
-  arr.splice(index,1)
+export function Delete(index, data) {
+  let arr = [...data];
+  arr.splice(index, 1);
   localStorage.setItem("orders", JSON.stringify(arr));
-  message.success('Item Deleted!')
+  message.success("Item Deleted!");
   return { type: "delete" };
 }
 
 export function checkOut(totall) {
-  localStorage.setItem("orders", JSON.stringify(totall));
+  let b=Math.round(Math.random() * 100)
+  let order=[{id:b,totall}]
+  localStorage.setItem("orders", JSON.stringify(order));
   data = [];
   total = 0;
   flag = false;

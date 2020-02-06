@@ -65,7 +65,7 @@ class Mobiles extends Component {
                       >
                         Price
                       </Menu.Item>
-                      <Menu.Item key="2">Product Name</Menu.Item>
+                      <Menu.Item onClick={() => this.props.sortName(this.props.mobile)} key="2">Product Name</Menu.Item>
                       <Menu.Item key="3">Position</Menu.Item>
                     </Menu>
                   }
@@ -87,10 +87,9 @@ class Mobiles extends Component {
                           onClick={() => {
                             this.Link(index);
                           }}
-                          bordered="true"
                           key={index}
                           hoverable
-                          style={{ width: "50%%", height: "50%" }}
+                          style={{ width: "100%", height: "50%" }}
                           cover={<img src={item.picture} alt="pic" />}
                         >
                           <Meta
@@ -98,13 +97,20 @@ class Mobiles extends Component {
                             description={item.description}
                           />
                           <div className="card-button">
-                            <strong>{item.price}</strong>
+                            <strong style={{ fontSize: "20px" }}>
+                              {"Rs " + item.price}
+                            </strong>
                           </div>
                         </Card>
                         <Button
                           onClick={() => this.props.addCart(index)}
                           shape="round"
                           type="danger"
+                          style={{
+                            marginLeft: "7rem",
+                            marginTop: "5rem",
+                            backgroundColor: "#e96125"
+                          }}
                         >
                           Add to Cart
                         </Button>

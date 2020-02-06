@@ -7,12 +7,14 @@ import {
   plus,
   minus,
   checkOut,
-  sort
+  sort,
+  sortName
 } from "../actions/actions";
 
 const mapDispatchtoProps = dispatch => {
   return {
     sort: list => dispatch(sort(list)),
+    sortName : list =>dispatch(sortName(list)),
     checkout: arr => dispatch(checkOut(arr)),
     display: () => dispatch(CartOpen()),
     onClose: () => dispatch(CartClose()),

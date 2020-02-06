@@ -15,19 +15,14 @@ class Admin extends Component {
         key: "orderid"
       },
       {
-        title: "Title",
-        dataIndex: "title",
-        key: "title"
+        title: "Name",
+        dataIndex: "name",
+        key: "name"
       },
       {
-        title: "Description",
-        dataIndex: "description",
-        key: "description"
-      },
-      {
-        title: "Quantity",
-        dataIndex: "quantity",
-        key: "quantity"
+        title: "Address",
+        dataIndex: "address",
+        key: "address"
       },
       {
         title: "Delete",
@@ -39,13 +34,12 @@ class Admin extends Component {
     let dataSource = [];
     let a = localStorage.getItem("orders");
     a = JSON.parse(a);
-
+    debugger;
     a.map((item, index) =>
       dataSource.push({
-        orderid: b,
-        title: item.title,
-        description: item.description,
-        quantity: item.quantity,
+        orderid: item.id,
+        name: "Abc",
+        address:'L-10/16',
         delete: (
           <Button onClick={() => this.props.delete(index, a)} type="danger">
             <Icon type="delete" />

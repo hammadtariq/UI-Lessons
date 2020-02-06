@@ -24,7 +24,7 @@ const initialstate = {
         key: 2,
         title: "Nokia",
         description: "Lorem Ipsem",
-        price: 20000,
+        price: 2000,
         picture: m2,
         quantity: 1
       },
@@ -32,7 +32,7 @@ const initialstate = {
         key: 3,
         title: "Iphone",
         description: "Lorem Ipsem",
-        price: 50000,
+        price: 5000,
         picture: m3,
         quantity: 1
       },
@@ -48,7 +48,7 @@ const initialstate = {
         key: 5,
         title: "Oppo",
         description: "Lorem Ipsem",
-        price: 18000,
+        price: 1800,
         picture: m5,
         quantity: 1
       }
@@ -61,7 +61,7 @@ const initialstate = {
         key: 6,
         title: "ABC",
         description: "asfasgasfasfasfas",
-        price: 10212,
+        price: 1022,
         picture: of1,
         quantity: 1
       },
@@ -108,15 +108,17 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 4000,
         picture: m1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:12,
         title: "Samsung A8",
         description: "Lorem Ipsem",
-        price: 12000,
+        price: 1200,
         picture: m1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:13,
@@ -124,7 +126,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 8000,
         picture: m1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:14,
@@ -132,39 +135,44 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 8900,
         picture: m1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:15,
         title: "Nokia",
         description: "Lorem Ipsem",
-        price: 20000,
+        price: 2000,
         picture: m2,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:16,
         title: "Iphone",
         description: "Lorem Ipsem",
-        price: 25000,
+        price: 2500,
         picture: m3,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:17,
         title: "Motorola",
         description: "Lorem Ipsem",
-        price: 21000,
+        price: 2100,
         picture: m4,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key:18,
         title: "Oppo",
         description: "Lorem Ipsem",
-        price: 19000,
+        price: 1900,
         picture: m5,
-        quantity: 1
+        quantity: 1,
+        stars:5
       }
     ]
   },

@@ -6,7 +6,7 @@ class Item extends Component {
   CartCall = (index, str) => {};
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     debugger;
     return (
       <div className="item-parent">
@@ -19,13 +19,22 @@ class Item extends Component {
                   <Card
                     key={index}
                     hoverable
-                    style={{ width: 250,height:100 }}
-                    cover={<img src={item.picture} alt='pic'/>}
+                    style={{ width: 250, height: 100 }}
+                    cover={<img src={item.picture} alt="pic" />}
                   >
                     <Meta title={item.title} description={item.description} />
                     <div className="card-button">
-                      <strong>{item.price}</strong>
-                      <Button onClick={()=>this.props.addCart(index,"mobiles")} shape="round" type="danger">
+                      <strong style={{ fontSize: "20px" }}>
+                        {"Rs  " + item.price}
+                      </strong>
+                      <Button
+                        onClick={() => this.props.addCart(index, "mobiles")}
+                        shape="round"
+                        type="danger"
+                        style={{
+                          backgroundColor: "#e96125"
+                        }}
+                      >
                         Add to Cart
                       </Button>
                     </div>
@@ -43,16 +52,21 @@ class Item extends Component {
                   <Card
                     key={index}
                     hoverable
-                    style={{ width: 250 }}
-                    cover={<img src={item.picture} alt='pic'/>}
+                    style={{ width: 250, height: 100 }}
+                    cover={<img src={item.picture} alt="pic" />}
                   >
                     <Meta title={item.title} description={item.description} />
                     <div className="card-button">
-                      <strong>{item.price}</strong>
+                      <strong style={{ fontSize: "20px" }}>
+                        {"Rs  " + item.price}
+                      </strong>
                       <Button
-                        onClick={()=>this.props.addCart(index,"offers")}
+                        onClick={() => this.props.addCart(index, "offers")}
                         shape="round"
                         type="danger"
+                        style={{
+                          backgroundColor: "#e96125"
+                        }}
                       >
                         Add to Cart
                       </Button>

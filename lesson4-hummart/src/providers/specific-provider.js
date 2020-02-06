@@ -1,10 +1,12 @@
 import { connect } from "react-redux";
 import Specific from "../container/specificPage";
-import { CartOpen, CartClose, addSpecific,plus,minus,checkOut } from "../actions/actions";
+import { CartOpen, CartClose, addSpecific,plus,minus,checkOut,Submit } from "../actions/actions";
 
 
 const mapDispatchtoProps = dispatch => {
+    
     return {
+      onSubmit:(list)=>dispatch(Submit(list)),
       checkout : (arr) => dispatch(checkOut(arr)),
       display: () => dispatch(CartOpen()),
       onClose: () => dispatch(CartClose()),
@@ -15,6 +17,7 @@ const mapDispatchtoProps = dispatch => {
   };
 
 const mapStatetoProps = state => {
+  debugger;
   return {
     mobilecat:state.items.mobilesCategory,
     mobile: state.items.mobilesCategory,
