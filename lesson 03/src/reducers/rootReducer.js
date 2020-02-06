@@ -13,10 +13,17 @@ const ReducerList = produce((draft, action) => {
       return;
     case MYACTION.updateCartList:
       debugger;
+      draft.myCartList = action.payload;
+      return;
+    case MYACTION.GetSortedList:
+      debugger;
+      draft.productImages = action.payload.List;
 
-      draft.myList = action.payload;
-      console.log(draft.myList)
-      draft.myCartList=action.payload;
+      return;
+    case MYACTION.updateProductImagesCounter:
+      debugger;
+      draft.productImages[action.payload.index].counter =action.payload.a ;
+
       return;
 
     default:

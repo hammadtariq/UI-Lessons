@@ -1,15 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import {
-  Drawer,
-  Input,
-  Button,
-  Icon,
-  Badge,
-  Affix,
-  AutoComplete,
-  message
-} from "antd";
+import { Drawer, Input, Button, Icon, Badge, message } from "antd";
 import myimg from "../images/Mylogo.png";
 import { Link, Redirect } from "react-router-dom";
 import "../css/Logodiv.css";
@@ -21,10 +12,9 @@ import updateCount from "../action/Action";
 
 class Header extends React.Component {
   state = {
-    redirect: "",
+    redirect: false,
     inputValue: "",
     myIndex: 0,
-
     categoryItem: [
       {
         myLink: "MOBILES TABLETS & LAPTOPS",
@@ -56,17 +46,29 @@ class Header extends React.Component {
         this.props.bodyObject.productImages[index].text
       ) {
         this.setState({
-          myIndex: index
+          myIndex: index,
+          redirect: true
         });
+        break;
       }
     }
+    // location.replace("/mobiles");
   };
 
   submitted = () => {
-    const list = [];
-    this.props.updateCartList(list);
-    this.props.changeCount(0, 0);
-    message.success("Order Dispatch");
+    let myOrderId=Math.floor(Math.random() * Math.floor(100000))
+    let jsonString = JSON.stringify({ ...this.props.bodyObject.myCartList })
+    localStorage.setItem("myOrderId", myOrderId);
+
+    localStorage.setItem("testJSON", jsonString);
+
+
+    // const list = [];
+    // this.props.updateCartList(list);
+    // this.props.changeCount(0, 0);
+    // new updateCount().updateProductImagesCounter(this.props);
+
+    message.success("Order Dispatch YOur Id is" + myOrderId );
   };
 
   showDrawer = () => {
@@ -105,18 +107,6 @@ class Header extends React.Component {
     );
   };
 
-  // Cat = () => {
-  //   return (
-  //     <div class="navbar">
-  //       {this.state.categoryItem.map(item => (
-  //         <Link to={item.myLinkTo}>
-  //           <li>{item.myLink}</li>
-  //         </Link>
-  //       ))}
-  //     </div>
-  //   );
-  // };
-
   Category = () => {
     return (
       <div className="Cat">
@@ -142,8 +132,6 @@ class Header extends React.Component {
     console.log(dataSource);
     return (
       <div className="Logodiv">
-        
-
         <div>
           <span className="items">
             <div>
@@ -235,7 +223,7 @@ class Header extends React.Component {
                       <img id="p4img" src={items.img} />
                     </div>
                     <div className="p41">
-                      <label>src={items.text}</label>
+                      <label>{items.text}</label>
                     </div>
                     <div className="p41">
                       <label>Rs {items.price * items.counter} </label>
@@ -288,11 +276,23 @@ class Header extends React.Component {
   render() {
     return (
       <div>
+        {this.state.redirect ? (
+          <Redirect
+            to={{
+              pathname: "/description",
+              state: this.state.myIndex
+            }}
+          />
+        ) : (
+          false
+        )}
+
         <this.Header />
         <this.LoginHeader />
         <this.LogoDiv />
         <this.Drawer />
         <this.Category />
+        <Button className="pointer">Add</Button>
       </div>
     );
   }

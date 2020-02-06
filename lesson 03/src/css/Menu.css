@@ -1,6 +1,12 @@
-.menuDiv{
-    top:2px;
-     z-index:1;
-     position: sticky;
-     width: "25%"
+.menuDiv {
+  top: 2px;
+  z-index: 1;
+  position: sticky;
+  width: "25%";
+}
+.text-ellipse {
+  white-space: nowrap;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

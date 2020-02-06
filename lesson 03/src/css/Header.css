@@ -8,6 +8,10 @@
     background-color: black;
 
 }
+.pointer{
+    cursor: pointer;
+    color: black;
+}
 
 .Myheader p{
     color: white;

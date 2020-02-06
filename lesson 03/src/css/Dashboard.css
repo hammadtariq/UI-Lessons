@@ -1,0 +1,12 @@
+header.header {
+    display: flex;
+}
+header.header a {
+    color: #FFF;
+    margin-right: 20px;
+}
+header .dashboard__title {
+    color: #FFF;
+    text-align: center;
+    flex: 1;
+}

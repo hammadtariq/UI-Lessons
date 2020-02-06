@@ -20,7 +20,16 @@ const mapDispatchToProps = dispatch => {
     },
     updateCartList: myList => {
       dispatch({ type: "updateCartList", payload: myList });
+    },
+    GetSortedList:(myList,List) => {
+      debugger
+      dispatch({ type: "GetSortedList", payload: {myList,List} });
+    },
+    updateProductImagesCounter: (index,a) => {
+      debugger
+      dispatch({ type: "updateProductImagesCounter", payload: {index,a} });
     }
+
   };
 };
 

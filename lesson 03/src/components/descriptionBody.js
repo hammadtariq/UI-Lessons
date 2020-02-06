@@ -1,8 +1,10 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge, Rate, Card,message } from "antd";
+import {  Input, Button,  Rate, Card,message,Tabs,Form } from "antd";
 import { Link } from "react-router-dom";
 import updateCount from "../action/Action";
+const { TabPane } = Tabs;
+
 
 class decriptionBody extends React.Component {
   updateCount = index => {
@@ -11,21 +13,97 @@ class decriptionBody extends React.Component {
 
   };
 
-  render() {
-    //   console.log(this.props.match.params)
-    console.log(this.props.index);
+  ReviewComponent=()=>{
+    return(
 
-    debugger;
+<div
+          style={{
+            marginLeft: "8rem",
+            marginTop: "3rem",
+            marginBottom: "5rem"
+          }}
+        >
+          <Tabs>
+            <TabPane style={{ display: "flex" }} tab="MORE INFORMATION" key="1" >
+              <strong style={{ width: "20%" }}>
+                Brand
+                <br />
+                Sold By
+                <br />
+                Return Policy
+                <br />
+                Country of Manufacture
+                <br />
+                Warranty
+                <br />
+                Option
+                <br />
+                Express Shipping
+              </strong>
+              <p style={{ width: "50%" }}>
+                { this.props.bodyObject.productImages[this.props.index].text}
+                <br />
+                Hummart
+                <br />
+                3 Days Return and Exchange
+                <br />
+                N/A
+                <br />
+                Not Applicable
+                <br />
+                32GB | 32GB
+                <br />
+                {"No"}
+                <br />
+              </p>
+            </TabPane>
+            <TabPane tab="REVIEWS" key="2">
+              <h1 style={{color:"blue"}}>You Are Reviewing</h1>
+              <h2 style={{color:"blue"}}>{this.props.bodyObject.productImages[this.props.index].text}</h2>
+              <Form>
+                <Form.Item required label="Rating">
+                  <Rate />
+                </Form.Item>
+                <Form.Item required label="NickName">
+                  <Input style={{ width: "60%" }} />
+                </Form.Item>
+                <Form.Item required label="Summary">
+                  <Input style={{ width: "60%" }} />
+                </Form.Item>
+                <Form.Item required label="Review">
+                  <Input style={{ width: "60%", height: "80px" }} />
+                </Form.Item>
+                <Button onClick={()=>message.success("Review Submit")} type="danger">SUBMIT REVIEW</Button>
+              </Form>
+            </TabPane>
+          </Tabs>
+        </div>
+
+    )
+  }
+
+
+
+  render() {
+    debugger
     return (
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
+        
           marginLeft: "7%",
           width: "85%",
-          height: "800px"
+          minheight: "800px"
         }}
       >
+        <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop:"20px",
+          width: "100%",
+          height: "100%"
+        }}
+        >
         <div style={{ width: "40%", height: "75%" }}>
           <div
             style={{
@@ -44,7 +122,7 @@ class decriptionBody extends React.Component {
               }
             >
               <Link to="/description">
-                <label>
+                <label style={{cursor: "pointer"}}>
                   {this.props.bodyObject.productImages[this.props.index].text}
                 </label>
                 <br />
@@ -70,6 +148,9 @@ class decriptionBody extends React.Component {
             Add To Cart
           </Button>
         </div>
+        </div>
+        <this.ReviewComponent/>
+
       </div>
     );
   }

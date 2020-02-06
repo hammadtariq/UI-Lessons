@@ -5,19 +5,23 @@ import { Breadcrumb, Icon, Button, Card } from "antd";
 import { Link } from "react-router-dom";
 import { Rate } from "antd";
 import DecriptionBody from "../components/descriptionBody";
+import { findByLabelText } from "@testing-library/react";
 
 function Discription(props) {
   debugger;
   return (
     <div className="app">
       <Header
+        updateProductImagesCounter={props.updateProductImagesCounter}
+      
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}
       />
       <br />
-      <div style={{ marginLeft: "7%" }}>
-        <Breadcrumb>
+      <div style={{ display:"flex",justifyContent:"space-between",marginLeft: "7%" }}>
+        <div>
+          <Breadcrumb>
           <Breadcrumb.Item>
             <Link to="/">
               <Icon type="home" />
@@ -29,14 +33,17 @@ function Discription(props) {
               <span>Mobile</span>
             </Link>
           </Breadcrumb.Item>
-          <Link to="/description">
-            <Breadcrumb.Item>Descriptiom</Breadcrumb.Item>
-          </Link>
+          {/* <Link to="/description"> */}
+            <Breadcrumb.Item>Description</Breadcrumb.Item>
+          {/* </Link> */}
         </Breadcrumb>
+        </div>
+        {/* <div style={{ marginRight:"100px"}}><Button >Add</Button></div> */}
       </div>
 
       <DecriptionBody
-        index={props.location.state.index}
+    
+        index={props.location.state}
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}

@@ -24,13 +24,7 @@
 
 
 }
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+
 input::-webkit-calendar-picker-indicator {
     display: none;
   }
@@ -45,5 +39,6 @@ input::-webkit-calendar-picker-indicator {
     padding: 20px ;
     display: flex;
     justify-content:space-around;
+    cursor: pointer;
 
 }

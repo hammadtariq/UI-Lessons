@@ -13,9 +13,11 @@ function Mobile(props) {
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}
+        updateProductImagesCounter={props.updateProductImagesCounter}
       />
 
       <Menu
+        GetSortedList={props.GetSortedList}
         CardImages={props.CardImages}
         MenuList={props.MenuList}
         updateCartList={props.updateCartList}

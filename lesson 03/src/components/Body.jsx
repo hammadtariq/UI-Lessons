@@ -1,71 +1,133 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Drawer, Input, Button, Icon, Badge, message } from "antd";
+import { Button, Icon, message, Card } from "antd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import updateCount from "../action/Action";
 
 import "../css/Mobilediv.css";
 import "../css/Product.css";
-import "../css/Product.css";
 import "../css/Content.css";
-
 class Body extends React.Component {
+  // Product = () => {
+  //   return (
+  //     <div className="p1">
+  //       <div className="p2">
+  //         <br />
+  //         {this.props.bodyObject.categoriesdiv.map(item => (
+  //           <div className="p3">
+  //             <div className="p4">
+  //               <Card>
+  //                 <div className="p41">
+  //                   <img id="p4img" src={item.img}></img>
+  //                 </div>
+  //                 <div className="p41">
+  //                   <h3 id="p4h1">{item.text}</h3>
+  //                 </div>
+  //                 <div className="p41">
+  //                   <Link to="/mobiles">
+  //                     {" "}
+  //                     <Icon
+  //                       type="caret-right"
+  //                       style={{
+  //                         color: "black",
+  //                         fontSize: "20px",
+  //                         marginTop: "55px",
+  //                         marginLeft: "40px"
+  //                       }}
+  //                     />
+  //                   </Link>
+  //                 </div>
+  //               </Card>
+  //             </div>
+  //             <div className="p4">
+  //               <Card>
+  //               <div className="p41">
+  //                 <img id="p4img" src={item.img}></img>
+  //               </div>
+  //               <div className="p41">
+  //                 <h3 id="p4h1">{item.text}</h3>
+  //               </div>
+  //               <div className="p41">
+  //                 <Icon
+  //                   type="caret-right"
+  //                   style={{
+  //                     color: "black",
+  //                     fontSize: "20px",
+  //                     marginTop: "55px",
+  //                     marginLeft: "40px"
+  //                   }}
+  //                 />
+  //               </div>
+  //               </Card>
+
+  //             </div>
+
+  //           </div>
+  //         ))}
+  //         <br />
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
   Product = () => {
     return (
-      <div className="p1">
-        <div className="p2">
-          <br />
+      <div className="category-parent">
+        <div className="category-child">
+          <h1 style={{ color: "black", marginLeft: "50px" }}>Categories</h1>
+          <hr style={{marginLeft:"60px"}} className="myline" /><br/>
+
+
           {this.props.bodyObject.categoriesdiv.map(item => (
-            <div className="p3">
-              <div className="p4">
-                <div className="p41">
-                  <img id="p4img" src={item.img}></img>
-                </div>
-                <div className="p41">
-                  <h3 id="p4h1">{item.text}</h3>
-                </div>
-                <div className="p41">
-                  <Link to="/mobiles">
-                    {" "}
-                    <Icon
-                      type="caret-right"
-                      style={{
-                        color: "black",
-                        fontSize: "20px",
-                        marginTop: "55px",
-                        marginLeft: "40px"
-                      }}
-                    />
-                  </Link>
-                </div>
-              
+            <div className="row1">
+              <div className="row1-child1">
+                <Link to="/mobiles">
+                  <Card
+                    className="card-row1"
+                    hoverable
+                    style={{   width: 450, display: "flex", height: 150 }}
+                    cover={<img src={item.img} alt="pic" width="50%" height="100%" />}
+
+                  >
+                    <div className="abc">
+                      <strong>
+                        {item.text}
+                        <br />
+                      </strong>
+                      <Button>
+                        <Icon type="right" />
+                      </Button>
+                    </div>
+                  </Card>
+                </Link>
               </div>
-              <div className="p4">
-                <div className="p41">
-                  <img id="p4img" src={item.img}></img>
-                </div>
-                <div className="p41">
-                  <h3 id="p4h1">{item.text}</h3>
-                </div>
-                <div className="p41">
-                  <Icon
-                    type="caret-right"
-                    style={{
-                      color: "black",
-                      fontSize: "20px",
-                      marginTop: "55px",
-                      marginLeft: "40px"
-                    }}
-                  />
-                </div>
+              <div className="row1-child2">
+                <Link to="/blank">
+                  <Card
+                    className="card-row1"
+                    hoverable
+                    style={{  width: 450, height: 150 , marginBottom:"10px"}}
+                    cover={<img src={item.img} alt="pic" width="50%" height="100%" />}
+                  >
+                    <div className="abc">
+                      <strong>
+                        {item.text}
+                        <br />
+                      </strong>
+                      <Button>
+                        <Icon type="right" />
+                      </Button>
+                    </div>
+                  </Card>
+                </Link>
               </div>
             </div>
           ))}
-          <br />
         </div>
       </div>
     );
-  };
+  }
+
 
   Content = () => {
     return (
@@ -107,7 +169,7 @@ class Body extends React.Component {
 
   updateCount = index => {
     new updateCount().updateCount(index, this.props);
-    {message.success('Item Added')}
+    { message.success('Item Added') }
 
   };
 
@@ -117,29 +179,29 @@ class Body extends React.Component {
         <div className="parentdiv">
           <div id="nd">
             <h1 className="mob">Mobile Phone</h1>
-            <hr id="myline" />
+            <hr className="myline" />
           </div>
 
           <div className="Mobilediv">
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
-                  <Link to="/mobiles">
+                  <Link style={{ }} to="/mobiles">
 
-                  <img className="mobileimg" src={item.img}></img>
-                  {/* <span> */}
+                    <img className="mobileimg" src={item.img}></img>
+                    {/* <span> */}
                     <label>{item.text}</label>
                     <br />
-                    <label style={{fontSize:"20px", color:"black"}}>RS </label>
+                    <label style={{ fontSize: "20px", color: "black" }}>RS </label>
                     <label id="mylabel">{item.price}</label>
                   </Link>
-                    <Button
-                      style={{ float:"right",borderRadius:"20px", backgroundColor: "#e96125" }}
-                      onClick={() => this.updateCount(index)}
-                      id="btn"
-                      type="danger"
-                    >
-                      Add To Cart
+                  <Button
+                    style={{ float: "right", borderRadius: "20px", backgroundColor: "#e96125" }}
+                    onClick={() => this.updateCount(index)}
+                    id="btn"
+                    type="danger"
+                  >
+                    Add To Cart
                     </Button>
 
                   {/* </span> */}
@@ -150,28 +212,28 @@ class Body extends React.Component {
           </div>
           <div id="nd">
             <h1 className="mob">Mobile Phone</h1>
-            <hr id="myline" />
+            <hr className="myline" />
           </div>
 
           <div className="Mobilediv">
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
-                  <Link to="/mobiles">
-                  <img className="mobileimg" src={item.img}></img>
-                  {/* <span> */}
+                  <Link style={{cursor: "pointer"}} to="/mobiles">
+                    <img className="mobileimg" src={item.img}></img>
+                    {/* <span> */}
                     <label>{item.text}</label>
                     <br />
-                    <label style={{fontSize:"20px", color:"black"}}>RS </label>
+                    <label style={{ fontSize: "20px", color: "black" }}>RS </label>
                     <label id="mylabel">{item.price}</label>
-                    </Link>
-                    <Button
-                      style={{float:"right",borderRadius:"20px", backgroundColor: "#e96125" }}
-                      onClick={() => this.updateCount(index)}
-                      id="btn"
-                      type="danger"
-                    >
-                      Add To Cart
+                  </Link>
+                  <Button
+                    style={{ float: "right", borderRadius: "20px", backgroundColor: "#e96125" }}
+                    onClick={() => this.updateCount(index)}
+                    id="btn"
+                    type="danger"
+                  >
+                    Add To Cart
                     </Button>
                   {/* </span> */}
                 </div>
