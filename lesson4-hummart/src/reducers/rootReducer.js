@@ -11,7 +11,6 @@ export default function reducer(state = initialstate, action) {
 }
 
 const cart = produce((draft, action) => {
-  
   debugger;
   switch (action.type) {
     case "cartopen":
@@ -36,7 +35,7 @@ const cart = produce((draft, action) => {
       draft.count -= 1;
       return;
     case "checkOut":
-      draft.order = action.totall;
+      draft.order = action.order;
       draft.index = [];
       draft.count = 0;
       draft.total = 0;
@@ -47,11 +46,8 @@ const cart = produce((draft, action) => {
     case "sort":
       draft.mobilesCategory = action.list;
       return;
-    // case 'changeStyle':
-    //   draft.nav="nav-again"
-    //   return;
     case "review":
-      draft.mobilesCategory=action.list
+      draft.mobilesCategory = action.list;
       debugger;
       return;
     default:

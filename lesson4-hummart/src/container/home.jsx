@@ -14,15 +14,6 @@ import "antd/dist/antd.css";
 
 class Home extends Component {
 
-  // componentDidMount() {debugger
-  //   window.addEventListener("scroll", this.props.scroll(window.scrollY));
-  // }
-
-  // componentWillMount() {
-  //   window.removeEventListener("scroll", this.props.scroll(window.scrollY));
-  // }
-  
-
   render() {
     return (
       <div className="main">
@@ -37,7 +28,11 @@ class Home extends Component {
         <Slider />
         <Delivery />
 
-        <Item addCart={this.props.addCart} mobiles={this.props.mobile} offers={this.props.offer} />
+        <Item
+          addCart={this.props.addCart}
+          mobiles={this.props.mobile}
+          offers={this.props.offer}
+        />
         <Categories />
         <Description />
         <Drawerr

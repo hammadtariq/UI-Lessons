@@ -66,7 +66,6 @@ class Mobiles extends Component {
                         Price
                       </Menu.Item>
                       <Menu.Item onClick={() => this.props.sortName(this.props.mobile)} key="2">Product Name</Menu.Item>
-                      <Menu.Item key="3">Position</Menu.Item>
                     </Menu>
                   }
                   trigger={["click"]}

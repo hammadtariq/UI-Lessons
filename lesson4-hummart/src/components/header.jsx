@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Icon, Badge, AutoComplete, Input, Button } from "antd";
 import { Link, Redirect } from "react-router-dom";
 
-const { Search } = Input;
 
 class Header extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class Header extends Component {
           filterOption={(inputValue, option) =>
             option.props.children
               .toUpperCase()
-              .indexOf(inputValue.toUpperCase()) !==-1
+              .indexOf(inputValue.toUpperCase()) !== -1
           }
         >
           <Input
@@ -71,7 +70,7 @@ class Header extends Component {
             }
           />
         </AutoComplete>
-   
+
         <p>Infinix</p>
         <Badge
           onClick={this.props.Display}

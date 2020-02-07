@@ -14,7 +14,7 @@ export function CartClose() {
 export function Submit(list) {
   debugger;
   message.success("Review Submitted!");
-  return { type: "review",list};
+  return { type: "review", list };
 }
 
 export function addtoCart(data, total) {
@@ -129,9 +129,10 @@ export function Delete(index, data) {
   return { type: "delete" };
 }
 
-export function checkOut(totall) {
-  let b=Math.round(Math.random() * 100)
-  let order=[{id:b,totall}]
+export function checkOut(arr) {
+  let totall=arr[0]
+  let b=arr[1]
+  let order = [{ id: b, totall }];
   localStorage.setItem("orders", JSON.stringify(order));
   data = [];
   total = 0;

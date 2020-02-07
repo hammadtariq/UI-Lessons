@@ -12,37 +12,38 @@ class Specific extends Component {
     super(props);
     this.state = {
       stars: 0,
-      name:null,
-      Review:null
+      name: null,
+      Review: null
     };
     this.Rate = this.Rate.bind(this);
-    this.Name=this.Name.bind(this)
-    this.Review=this.Review.bind(this)
+    this.Name = this.Name.bind(this);
+    this.Review = this.Review.bind(this);
   }
 
   Rate(e) {
     this.setState({ stars: e });
   }
 
-  Name(e){
+  Name(e) {
     debugger;
-    this.setState({name:e.target.value})
+    this.setState({ name: e.target.value });
   }
 
-  onSubmit(e){
-    e.preventDefault()
-    let list=[...this.props.mobile]
-    list[this.props.match.params.id].stars=this.state.stars
-    let updated=[...list]
-    this.props.onSubmit(updated)
+  onSubmit(e) {
+    e.preventDefault();
+    let list = [...this.props.mobile];
+    list[this.props.match.params.id].stars = this.state.stars;
+    let updated = [...list];
+    this.props.onSubmit(updated);
   }
 
-  Review(e){
+  Review(e) {
     debugger;
-    this.setState({Review:e.target.value})
+    this.setState({ Review: e.target.value });
   }
 
   render() {
+    debugger;
     return (
       <div>
         <Top />
@@ -185,7 +186,15 @@ class Specific extends Component {
               </p>
             </TabPane>
             <TabPane tab="REVIEWS" key="2">
-              <Form onSubmit={(e)=>this.onSubmit(e,this.props.mobile,this.props.match.params.id)}>
+              <Form
+                onSubmit={e =>
+                  this.onSubmit(
+                    e,
+                    this.props.mobile,
+                    this.props.match.params.id
+                  )
+                }
+              >
                 <Form.Item required label="Rating">
                   <Rate onChange={this.Rate} />
                 </Form.Item>
@@ -196,7 +205,10 @@ class Specific extends Component {
                   <Input style={{ width: "40%" }} />
                 </Form.Item>
                 <Form.Item required label="Review">
-                  <Input onChange={this.Review} style={{ width: "40%", height: "80px" }} />
+                  <Input
+                    onChange={this.Review}
+                    style={{ width: "40%", height: "80px" }}
+                  />
                 </Form.Item>
                 <Button type="danger" htmlType="submit">
                   SUBMIT REVIEW

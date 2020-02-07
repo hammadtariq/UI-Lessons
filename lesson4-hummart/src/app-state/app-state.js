@@ -54,9 +54,7 @@ const initialstate = {
       }
     ],
 
-   
     offers: [
-
       {
         key: 6,
         title: "ABC",
@@ -99,80 +97,78 @@ const initialstate = {
       }
     ],
 
-
     mobilesCategory: [
-
       {
-        key:11,
+        key: 11,
         title: "Samsung",
         description: "Lorem Ipsem",
         price: 4000,
         picture: m1,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:12,
+        key: 12,
         title: "Samsung A8",
         description: "Lorem Ipsem",
         price: 1200,
         picture: m1,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:13,
+        key: 13,
         title: "Samsung Infinity",
         description: "Lorem Ipsem",
         price: 8000,
         picture: m1,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:14,
+        key: 14,
         title: "Samsung Note 5",
         description: "Lorem Ipsem",
         price: 8900,
         picture: m1,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:15,
+        key: 15,
         title: "Nokia",
         description: "Lorem Ipsem",
         price: 2000,
         picture: m2,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:16,
+        key: 16,
         title: "Iphone",
         description: "Lorem Ipsem",
         price: 2500,
         picture: m3,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:17,
+        key: 17,
         title: "Motorola",
         description: "Lorem Ipsem",
         price: 2100,
         picture: m4,
         quantity: 1,
-        stars:5
+        stars: 5
       },
       {
-        key:18,
+        key: 18,
         title: "Oppo",
         description: "Lorem Ipsem",
         price: 1900,
         picture: m5,
         quantity: 1,
-        stars:5
+        stars: 5
       }
     ]
   },
@@ -187,17 +183,8 @@ const initialstate = {
   nav: {
     style: "nav-div"
   },
-  checkOut:{
-     order:[
-    //  {
-    //   key: 1,
-    //   title: "Samsung",
-    //   description: "Lorem Ipsem",
-    //   price: 12000,
-    //   picture: m1,
-    //   quantity: 1
-    // }
-  ]
+  checkOut: {
+    order: []
   }
 };
 export default initialstate;

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Button, Icon, Drawer } from "antd";
+import { Link } from "react-router-dom";
 
 class Drawerr extends Component {
+
   render() {
     debugger;
     return (
       <Drawer
-      width='20%'
+        width="20%"
         title="MY CART"
         placement="right"
         onClose={this.props.onClose}
@@ -34,7 +36,7 @@ class Drawerr extends Component {
                       onClick={() => {
                         this.props.minus(index, this.props.index);
                       }}
-                      size='small'
+                      size="small"
                       type="danger"
                       shape="circle"
                     >
@@ -45,7 +47,7 @@ class Drawerr extends Component {
                       onClick={() => {
                         this.props.plus(index, this.props.index);
                       }}
-                      size='small'
+                      size="small"
                       type="danger"
                       shape="circle"
                     >
@@ -57,23 +59,33 @@ class Drawerr extends Component {
               );
             })}
             <div style={{ width: 250 }}>
-              <Button
-                onClick={() => this.props.checkout(this.props.index)}
-                style={{ marginTop: 300 }}
-                type="danger"
-                block
+              
+              <Link
+                to={{
+                  pathname: "/checkout",
+                  state: { data: this.props.index }
+                }}
               >
-                Proceed to CheckOut Rs : {this.props.total}
-              </Button>
+                <Button
+                  //onClick={() => this.props.checkout(this.props.index)}
+                  style={{ marginTop: 300 }}
+                  type="danger"
+                  block
+                >
+                  Proceed to CheckOut Rs : {this.props.total}
+                </Button>
+              </Link>
             </div>
           </div>
         ) : (
           <div>
             No Item on Cart
             <div style={{ marginTop: 500 }}>
-              <Button type="danger" block>
-                Start Shopping
-              </Button>
+              <Link to="/">
+                <Button type="danger" block>
+                  Start Shopping
+                </Button>
+              </Link>
             </div>
           </div>
         )}
