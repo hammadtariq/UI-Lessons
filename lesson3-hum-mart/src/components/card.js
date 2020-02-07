@@ -3,37 +3,27 @@ import { List, Card, Button, message } from "antd";
 import Header from "./Header";
 class Cart extends React.Component {
   handleClick = (Id, Price) => {
- 
-    let ownIndex ;let newPrice;let newSum;
-    let newvalue
+    let newSum, newvalue,cartCounter;
      let cartCopy = this.props.data;
+     cartCounter=this.props.cartItem.count;
      console.log(cartCopy)
-        //  let sumCopy = parseInt(this.props.sum);
-        //  sumCopy = sumCopy + this.props.data[Id].price;
-         let cartItemCopy = this.props.cartItem;
-         console.log(cartItemCopy)
+      let cartItemCopy = this.props.cartItem;
+      console.log(cartItemCopy)
           let newCartItem = cartCopy.value.find(ele => ele.id == Id);
         console.log(newCartItem,"newCartItem")
-    //  console.log(cartItemCopy,"cartCopy");
     if(this.props.cartItem.value.length >0){
       let cartflg = false; let i; 
         for( i=0;i<cartItemCopy.value.length;i++){
           if(newCartItem.id ===cartItemCopy.value[i].id){
-          
-           cartflg=true     
-          }
-          // nIndex =cartItemCopy.value.length;
+            cartflg=true     
+          }    
         }
-        if(cartflg ===false){
-         
-          // nIndex=ownIndex;
-          // ownIndex=parseInt(nIndex) ;
-         
+        if(cartflg ===false){ 
           message.success("added");
+          cartCounter +=1;
           newvalue=[...cartItemCopy.value,newCartItem];
           newSum=cartItemCopy.sum+Price
-          this.props.addToCart(newvalue,newSum);
-         
+          this.props.addToCart(newvalue,newSum,cartCounter);    
         }
         else{
           cartflg=false;
@@ -41,23 +31,12 @@ class Cart extends React.Component {
         }
         }
         else{
-         
+          cartCounter +=1;
            newvalue=[...cartItemCopy.value,newCartItem];
            newSum=cartItemCopy.sum+Price
-          
           message.success("added")
-          this.props.addToCart(newvalue,newSum);
+          this.props.addToCart(newvalue,newSum,cartCounter);
         }
-  
-    console.log(cartItemCopy)
-       
-         
-          console.log(this.props.cartItem,cartItemCopy);
-      
-     
-     
-    // console.log(this.props.addtocartcounter(), "add to cart counter");
-    console.log(this.props)
   };
   
   render() {

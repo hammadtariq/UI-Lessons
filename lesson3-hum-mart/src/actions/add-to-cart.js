@@ -1,9 +1,10 @@
-export const addToCart = (id,price)=>{
+export const addToCart = (id,price,cartcount)=>{
     
     return{
         type:'ADD_CART',
         id:id,
        price:price,
+       cartcount:cartcount,
      }
  }
  // export const addCart = (id)=>{

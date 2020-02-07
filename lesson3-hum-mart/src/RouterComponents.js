@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import App from './App';
-import CategoriesComponent from './components/CategoriesComponent';
+import Default from './components/Default'
 import Meal from './components/meal.js'
 import CategoriesPageData from './providers/categories-page-data';
 import ProductDescription from './components/ProductDescription';
@@ -15,7 +15,8 @@ class RouterComponents extends React.Component{
                     <Route path="/category/:id" component={CategoriesPageData} />
                     <Route path="/descriptionmeal" component={Meal}/>
                     <Route path = "/description/:descriptionId" component={ProductDescription}/>
-                </Switch>
+                    <Route path="/default" component={Default}/>
+                   </Switch>
                 </BrowserRouter>
             </div>
         )

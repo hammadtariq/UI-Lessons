@@ -6,21 +6,24 @@ class Drawers extends React.Component {
     console.log(this.props);
     this.props.hidevisibility(this.props.visible);
   };
-  handleAddToCounter = (Id,count) => {
-    let a,b;
-   let updateCartItem = this.props.cartItem.value;
+  handleAddToCounter = (Id,Price) => {
+   let newSum = this.props.cartItem.sum;
+   newSum +=Price
+   let updateCartItem = this.props.cartItem.value.slice();
    const element = updateCartItem[Id];
-   updateCartItem[Id] = {...element, counter: element.counter + 1}
-//  a =  updateCartItem[Id].counter+1
-// b=[...updateCartItem,{counter:a}]
-//  console.log(b);
-this.plusCOunter
+   updateCartItem[Id] = {...element, counter: element.counter + 1,sum:element.sum+Price}
+   this.props.plusCounter(updateCartItem,newSum)
       
   };
-  handleSubToCounter = Id => {
+  handleSubToCounter = (Id,Price) => {
+    let newSum = this.props.cartItem.sum;
+    newSum -=Price
     let counterItem =this.props.cartItem.value[Id] ;
     if(counterItem.counter >0){
-    this.props.minusCounter(Id,counterItem.price);
+      let updateCartItem = this.props.cartItem.value.slice();
+      const element = updateCartItem[Id];
+      updateCartItem[Id] = {...element, counter: element.counter - 1,sum:element.sum-Price}
+      this.props.minusCounter(updateCartItem,newSum)
     }
     else{
       message.warning("Kindly increase quantity")
@@ -62,14 +65,14 @@ this.plusCOunter
                         <Icon
                           type="minus-circle"
                           // onClick={() => this.props.sendMinus(elt.id)}
-                          onClick={() => this.handleSubToCounter(index)}
+                          onClick={() => this.handleSubToCounter(index,elt.price)}
                         />
                         <p>{elt.counter}</p>
 
                         <Icon
                           type="plus-circle"
                           // onClick={() => this.props.sendAdd(elt.id)}
-                          onClick={() => this.handleAddToCounter(index,this.props.cartItem.value)}
+                          onClick={() => this.handleAddToCounter(index,elt.price)}
                         />
                         <p>*</p>
 

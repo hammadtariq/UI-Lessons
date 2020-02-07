@@ -14,12 +14,12 @@ class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
   }
-  handleClick = () => {
-    console.log(this.props.addtocart(this.props.post.id));
-  };
-  render() {
-    console.log(this.props.post, "sk");
-    const { post } = this.props;
+  // handleClick = () => {
+  //   console.log(this.props.addtocart(this.props.post.id));
+  // };
+   render() {
+    console.log(this.props, "sk");
+    const { postd } = this.props;
     const { TabPane } = Tabs;
     const { TextArea } = Input;
     return (
@@ -47,11 +47,11 @@ class ProductDescription extends React.Component {
 
         <div className="des-body">
           <div className="des-img">
-            <img src={post.Img} height="400px"></img>
+            <img src={postd.Img} height="400px"></img>
           </div>
           <div className="des-cart">
             <div className="des-cart-up">
-              <h1>{post.title}</h1>
+              <h1>{postd.title}</h1>
               <p className="des-cart-p">4 GB | 64 GB</p>
               <span className="five-star">
                 <Icon type="star" />
@@ -63,9 +63,9 @@ class ProductDescription extends React.Component {
               </span>
             </div>
             <div className="des-cart-down">
-              <p>Rs:{post.price}</p>
+              <p>Rs:{postd.price}</p>
               <Button
-                onClick={this.handleClick}
+                // onClick={this.handleClick}
                 type="danger"
                 icon="shopping"
                 block
@@ -112,7 +112,7 @@ class ProductDescription extends React.Component {
             <TabPane tab="Tab 2" key="2">
               <div>
                 <p>YOU'RE REVIEWING:</p>
-                <h3>{post.title}</h3>
+                <h3>{postd.title}</h3>
                 <p>Your Rating</p>
                 <span>
                   <Icon type="star" />
@@ -152,16 +152,19 @@ class ProductDescription extends React.Component {
 }
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.descriptionId;
+
   console.log(ownProps, id, "hjshjdhasjdhj", state);
   return {
-    post: state.categoriesData.find(post => post.id == id)
+     postd:state.data.value.find(postd =>postd.id==id),
+    // post: state.categoriesData.find(post => post.id == id)
+  
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    addtocart: id => {
-      dispatch(addToCart(id));
-    }
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDescription);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addtocart: id => {
+//       dispatch(addToCart(id));
+//     }
+//   };
+// };
+export default connect(mapStateToProps)(ProductDescription);
