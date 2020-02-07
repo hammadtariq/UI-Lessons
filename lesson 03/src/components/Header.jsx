@@ -11,7 +11,9 @@ import "../css/App.css";
 import updateCount from "../action/Action";
 
 class Header extends React.Component {
+  
   state = {
+    
     redirect: false,
     inputValue: "",
     myIndex: 0,
@@ -59,14 +61,12 @@ class Header extends React.Component {
     let myOrderId=Math.floor(Math.random() * Math.floor(100000))
     let jsonString = JSON.stringify({ ...this.props.bodyObject.myCartList })
     localStorage.setItem("myOrderId", myOrderId);
-
     localStorage.setItem("testJSON", jsonString);
 
-
-    // const list = [];
-    // this.props.updateCartList(list);
-    // this.props.changeCount(0, 0);
-    // new updateCount().updateProductImagesCounter(this.props);
+    const list = [];
+    this.props.updateCartList(list);
+    this.props.changeCount(0, 0);
+    this.props.updateProductImagesCounter(this.props.ResetProductImage);
 
     message.success("Order Dispatch YOur Id is" + myOrderId );
   };
@@ -84,6 +84,7 @@ class Header extends React.Component {
   };
 
   Header = () => {
+
     return (
       <div className="Myheader">
         <p>Delivering Only in Karachi1</p>
@@ -162,7 +163,7 @@ class Header extends React.Component {
             </div>
             <div>
               {/* <h1>Infinity</h1>  */}
-              <label id="mylabel">Infinity</label>
+              <div className="mylabel"><label id="mylabel">Infinity</label></div>
             </div>
 
             <div className="cartdiv">
@@ -185,6 +186,8 @@ class Header extends React.Component {
   };
   Cartadd = index => {
     new updateCount().Cartadd(index, this.props);
+    // new updateCount().updateProductImagesCounter(index, this.props);
+
   };
 
   Drawer = () => {
@@ -292,7 +295,6 @@ class Header extends React.Component {
         <this.LogoDiv />
         <this.Drawer />
         <this.Category />
-        <Button className="pointer">Add</Button>
       </div>
     );
   }

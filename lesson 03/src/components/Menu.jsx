@@ -67,7 +67,7 @@ class MyMenu extends React.Component {
           </Breadcrumb.Item>
           <Breadcrumb.Item>
             <Link to="/mobiles">
-              <Icon type="user" />
+              {/* <Icon type="user" /> */}
               <span>Mobile</span>
             </Link>
           </Breadcrumb.Item>

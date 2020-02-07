@@ -10,6 +10,7 @@ function Mobile(props) {
   return (
     <div>
       <Header
+      ResetProductImage={props.ResetProductImages}
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}

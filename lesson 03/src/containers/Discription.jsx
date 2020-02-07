@@ -12,8 +12,8 @@ function Discription(props) {
   return (
     <div className="app">
       <Header
+        ResetProductImage={props.ResetProductImages}
         updateProductImagesCounter={props.updateProductImagesCounter}
-      
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}
         changeCount={props.changeCount}
@@ -29,7 +29,7 @@ function Discription(props) {
           </Breadcrumb.Item>
           <Breadcrumb.Item>
             <Link to="/mobiles">
-              <Icon type="user" />
+              {/* <Icon type="user" /> */}
               <span>Mobile</span>
             </Link>
           </Breadcrumb.Item>

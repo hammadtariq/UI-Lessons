@@ -10,6 +10,24 @@
     font-size: 35px;
     color:black
 }
+.mylabel{
+    width: 100px;
+    height: 30px;
+    position: relative;
+    /* background-color: red; */
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+@keyframes example {
+    0%   { left:0px; bottom:20px;}
+    25%  { left:0px; top:20px;}
+    50%  { left:0px; bottom:0px;}
+    75%  {left:0px; top:20px;}
+    100% { left:0px; bottom:0px;}
+
+  }
 .mycart{
     font-size: 40px;
     color: green;

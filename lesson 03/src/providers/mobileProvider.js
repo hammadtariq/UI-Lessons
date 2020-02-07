@@ -6,7 +6,9 @@ const mapStateToProps = state => {
   return {
     MenuList: state.MenuList,
     CardImages: state.CardImages,
-    bodyObject: state.bodyObject
+    bodyObject: state.bodyObject,
+    ResetProductImages:state.CardImages
+
   };
 };
 
@@ -25,9 +27,9 @@ const mapDispatchToProps = dispatch => {
       debugger
       dispatch({ type: "GetSortedList", payload: {myList,List} });
     },
-    updateProductImagesCounter: (index,a) => {
+    updateProductImagesCounter: (myList) => {
       debugger
-      dispatch({ type: "updateProductImagesCounter", payload: {index,a} });
+      dispatch({ type: "updateProductImagesCounter", payload:myList });
     }
 
   };

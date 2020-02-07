@@ -17,9 +17,9 @@ class Dashborad extends React.Component {
         key: "Title"
       },
       {
-        title: "Description",
-        dataIndex: "Description",
-        key: "Description"
+        title: "Details",
+        dataIndex: "Details",
+        key: "Details"
       },
       {
         title: "Quantity",
@@ -35,27 +35,9 @@ class Dashborad extends React.Component {
 
     
 
-    const data = [
-      {
-        key: "1",
-        orderId: "John Brown",
-        Title: 32,
-        Quantity: 1,
-        Description: "New York No. 1 Lake Park",
-        Status: ["nice", "developer"]
-      },
-      {
-        key: "2",
-        orderId: "John Brown",
-        Title: 32,
-        Quantity: 1,
-        Description: "New York No. 1 Lake Park",
-        Status: ["nice", "developer"]
-      }
-    ];
+  
 
     let mydata = localStorage.getItem("testJSON");
-    alert(mydata);
     mydata = JSON.parse(mydata);
     console.log(mydata);
     const mydataArray = Object.values(mydata);
@@ -70,19 +52,19 @@ class Dashborad extends React.Component {
     //     })
     //     )
     const orderId=localStorage.getItem("myOrderId")
-    const Title= "Mobile"
-     let Description= ""
+    const Title= Date.now()
+     let Details= ""
      let Quantity= []
      let Status= "Active"
 
     for (let index = 0; index < mydataArray.length; index++) {
-        Description+= mydataArray[index].text + " " 
+        Details+= mydataArray[index].text + " " 
         Quantity[index]= mydataArray[index].counter
     }
    
     debugger
 
-    const dataSource = [{orderId,Title,Description,Quantity,Status}];
+    const dataSource = [{orderId,Title,Details,Quantity,Status}];
 
     debugger;
 

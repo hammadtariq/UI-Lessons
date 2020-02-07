@@ -3,6 +3,9 @@ import "antd/dist/antd.css";
 import { Button, Icon, message, Card } from "antd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import updateCount from "../action/Action";
+import m1 from "../images/c1.jpg";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 import "../css/Mobilediv.css";
 import "../css/Product.css";
@@ -75,8 +78,8 @@ class Body extends React.Component {
       <div className="category-parent">
         <div className="category-child">
           <h1 style={{ color: "black", marginLeft: "50px" }}>Categories</h1>
-          <hr style={{marginLeft:"60px"}} className="myline" /><br/>
-
+          <hr style={{ marginLeft: "60px" }} className="myline" />
+          <br />
 
           {this.props.bodyObject.categoriesdiv.map(item => (
             <div className="row1">
@@ -85,9 +88,10 @@ class Body extends React.Component {
                   <Card
                     className="card-row1"
                     hoverable
-                    style={{   width: 450, display: "flex", height: 150 }}
-                    cover={<img src={item.img} alt="pic" width="50%" height="100%" />}
-
+                    style={{ width: 450, display: "flex", height: 150 }}
+                    cover={
+                      <img src={item.img} alt="pic" width="50%" height="100%" />
+                    }
                   >
                     <div className="abc">
                       <strong>
@@ -106,8 +110,10 @@ class Body extends React.Component {
                   <Card
                     className="card-row1"
                     hoverable
-                    style={{  width: 450, height: 150 , marginBottom:"10px"}}
-                    cover={<img src={item.img} alt="pic" width="50%" height="100%" />}
+                    style={{ width: 450, height: 150, marginBottom: "10px" }}
+                    cover={
+                      <img src={item.img} alt="pic" width="50%" height="100%" />
+                    }
                   >
                     <div className="abc">
                       <strong>
@@ -126,8 +132,7 @@ class Body extends React.Component {
         </div>
       </div>
     );
-  }
-
+  };
 
   Content = () => {
     return (
@@ -169,8 +174,9 @@ class Body extends React.Component {
 
   updateCount = index => {
     new updateCount().updateCount(index, this.props);
-    { message.success('Item Added') }
-
+    {
+      message.success("Item Added");
+    }
   };
 
   Body = () => {
@@ -186,29 +192,33 @@ class Body extends React.Component {
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
-                  <Link style={{ }} to="/mobiles">
-
+                  <Link style={{}} to="/mobiles">
                     <img className="mobileimg" src={item.img}></img>
                     {/* <span> */}
                     <label>{item.text}</label>
                     <br />
-                    <label style={{ fontSize: "20px", color: "black" }}>RS </label>
+                    <label style={{ fontSize: "20px", color: "black" }}>
+                      RS{" "}
+                    </label>
                     <label id="mylabel">{item.price}</label>
                   </Link>
                   <Button
-                    style={{ float: "right", borderRadius: "20px", backgroundColor: "#e96125" }}
+                    style={{
+                      float: "right",
+                      borderRadius: "20px",
+                      backgroundColor: "#e96125"
+                    }}
                     onClick={() => this.updateCount(index)}
                     id="btn"
                     type="danger"
                   >
                     Add To Cart
-                    </Button>
+                  </Button>
 
                   {/* </span> */}
                 </div>
               );
             })}
-
           </div>
           <div id="nd">
             <h1 className="mob">Mobile Phone</h1>
@@ -219,22 +229,28 @@ class Body extends React.Component {
             {this.props.bodyObject.productImages.map((item, index) => {
               return (
                 <div className="one">
-                  <Link style={{cursor: "pointer"}} to="/mobiles">
+                  <Link style={{ cursor: "pointer" }} to="/mobiles">
                     <img className="mobileimg" src={item.img}></img>
                     {/* <span> */}
                     <label>{item.text}</label>
                     <br />
-                    <label style={{ fontSize: "20px", color: "black" }}>RS </label>
+                    <label style={{ fontSize: "20px", color: "black" }}>
+                      RS{" "}
+                    </label>
                     <label id="mylabel">{item.price}</label>
                   </Link>
                   <Button
-                    style={{ float: "right", borderRadius: "20px", backgroundColor: "#e96125" }}
+                    style={{
+                      float: "right",
+                      borderRadius: "20px",
+                      backgroundColor: "#e96125"
+                    }}
                     onClick={() => this.updateCount(index)}
                     id="btn"
                     type="danger"
                   >
                     Add To Cart
-                    </Button>
+                  </Button>
                   {/* </span> */}
                 </div>
               );
@@ -242,6 +258,57 @@ class Body extends React.Component {
           </div>
         </div>
       </div>
+    );
+  };
+  Gallery = () => {
+    const handleOnDragStart = e => e.preventDefault();
+    return (
+      // mouseTrackingEnabled
+      <AliceCarousel autoPlayInterval={2000}    autoPlay={true}
+>
+         
+
+          <div className="Mobilediv">
+            {this.props.bodyObject.productImages.map((item, index) => {
+              return (
+                <div className="one">
+                  <Link style={{}} to="/mobiles">
+                    <img className="mobileimg" src={item.img}></img>
+                    {/* <span> */}
+                    <label>{item.text}</label>
+                    <br />
+                    <label style={{ fontSize: "20px", color: "black" }}>
+                      RS{" "}
+                    </label>
+                    <label id="mylabel">{item.price}</label>
+                  </Link>
+                  <Button
+                    style={{
+                      float: "right",
+                      borderRadius: "20px",
+                      backgroundColor: "#e96125"
+                    }}
+                    onClick={() => this.updateCount(index)}
+                    id="btn"
+                    type="danger"
+                  >
+                    Add To Cart
+                  </Button>
+
+                  {/* </span> */}
+                </div>
+              );
+            })}
+          </div>
+         
+
+         
+        <img
+          src={m1}
+          onDragStart={handleOnDragStart}
+          className="yours-custom-class"
+        />
+      </AliceCarousel>
     );
   };
 
@@ -252,6 +319,8 @@ class Body extends React.Component {
         <br />
         <this.Product />
         <this.Content />
+        <this.Gallery />
+      
       </div>
     );
   }

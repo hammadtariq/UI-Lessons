@@ -22,9 +22,9 @@ const ReducerList = produce((draft, action) => {
       return;
     case MYACTION.updateProductImagesCounter:
       debugger;
-      draft.productImages[action.payload.index].counter =action.payload.a ;
+      draft.productImages = action.payload;
 
-      return;
+      return ;
 
     default:
       return draft;

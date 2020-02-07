@@ -1,15 +1,18 @@
 .Cat{
-
+    /* margin-top: 150px; */
+    /* position:fixed; */
     position: sticky !important ;
+    position: -webkit-sticky;
+
     height: 80px ;
     width: 100%;
     display: flex;
     
 
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 1;
     background-color: white;
-    top: 0px;
+    top: 0;
     display: flex;
     justify-content: space-around;
 

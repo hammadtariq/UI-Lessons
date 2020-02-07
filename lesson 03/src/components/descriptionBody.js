@@ -53,7 +53,7 @@ class decriptionBody extends React.Component {
                 <br />
                 32GB | 32GB
                 <br />
-                {"No"}
+                No
                 <br />
               </p>
             </TabPane>
@@ -142,7 +142,7 @@ class decriptionBody extends React.Component {
           </h1>
           <Button
             onClick={() => this.updateCount(this.props.index)}
-            style={{backgroundColor:"#e96125", marginLeft: "45px", width: "70%" }}
+            style={{ color:"black",fontSize:"20px",backgroundColor:"#e96125", marginLeft: "45px", width: "80%"  ,height:"40px"}}
 
           >
             Add To Cart

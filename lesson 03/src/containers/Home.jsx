@@ -11,6 +11,7 @@ function Home(props) {
   return (
     <div className="app">
       <Header
+      ResetProductImage={props.ResetProductImages}
         updateProductImagesCounter={props.updateProductImagesCounter}
         changeStateOfDrawer={props.changeStateOfDrawer}
         bodyObject={props.bodyObject}

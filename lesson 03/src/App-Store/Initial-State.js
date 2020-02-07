@@ -89,7 +89,37 @@ const appInitialState = {
         img: s14,
         text: "something"
       }
-    ]
+    ],
+    // CardImages: [
+    //   {
+    //     key: 1,
+    //     img: m1,
+    //     price: 100,
+    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
+    //     counter: 0
+    //   },
+    //   {
+    //     key: 2,
+    //     img: m2,
+    //     price: 20,
+    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
+    //     counter: 0
+    //   },
+    //   {
+    //     key: 3,
+    //     img: m3,
+    //     price: 30,
+    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
+    //     counter: 0
+    //   },
+    //   {
+    //     key: 4,
+    //     img: m4,
+    //     price: 40,
+    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
+    //     counter: 0
+    //   }
+    // ]
   },
   MenuList: [
     "Mobiles",
