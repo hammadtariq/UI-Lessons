@@ -319,7 +319,7 @@ class Body extends React.Component {
         <br />
         <this.Product />
         <this.Content />
-        <this.Gallery />
+        {/* <this.Gallery /> */}
       
       </div>
     );

@@ -1,9 +1,58 @@
 import React from "react";
-import { Table, Divider, Tag } from "antd";
+import { Table, Modal, Button } from "antd";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 class Dashborad extends React.Component {
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  MyOrderDetails = props => {
+    debugger;
+
+    return (
+      <div>
+        <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          {props.mydataArray.map(item => {
+            return(
+            <div>
+              <span style ={{display:"flex", justifyContent:"space-around"}}>
+              <p>{item.text}</p>
+              <p>{item.counter}</p>
+              </span>
+            </div>);
+          })}
+        </Modal>
+      </div>
+    );
+  };
+
   render() {
     const columns = [
       {
@@ -12,7 +61,7 @@ class Dashborad extends React.Component {
         key: "OrderId"
       },
       {
-        title: "Title",
+        title: "Date",
         dataIndex: "Title",
         key: "Title"
       },
@@ -33,40 +82,27 @@ class Dashborad extends React.Component {
       }
     ];
 
-    
-
-  
-
     let mydata = localStorage.getItem("testJSON");
     mydata = JSON.parse(mydata);
     console.log(mydata);
     const mydataArray = Object.values(mydata);
 
-    //  mydataArray.map(item=>
-    //     dataSource.push({
-    //         orderId: item.key,
-    //         Title: "Mobile",
-    //         Description: item.text,
-    //         Quantity: item.counter,
-    //         Status:"Active"
-    //     })
-    //     )
-    const orderId=localStorage.getItem("myOrderId")
-    const Title= Date.now()
-     let Details= ""
-     let Quantity= []
-     let Status= "Active"
+    const orderId = localStorage.getItem("myOrderId");
+    const Title = Date();
+    let Details;
+    let Quantity = 0;
+    let Status = "Active";
 
     for (let index = 0; index < mydataArray.length; index++) {
-        Details+= mydataArray[index].text + " " 
-        Quantity[index]= mydataArray[index].counter
+      Details = (
+        <Button type="primary" onClick={this.showModal}>
+          Details
+        </Button>
+      );
+      Quantity += mydataArray[index].counter;
     }
-   
-    debugger
 
-    const dataSource = [{orderId,Title,Details,Quantity,Status}];
-
-    debugger;
+    const dataSource = [{ orderId, Title, Details, Quantity, Status }];
 
     return (
       <div>
@@ -76,6 +112,10 @@ class Dashborad extends React.Component {
           </div>
         </div>
         <Table dataSource={dataSource} columns={columns} />
+        {this.state.visible ? (
+          <this.MyOrderDetails mydataArray={mydataArray} />
+        ) : null}
+
         <Footer />
       </div>
     );

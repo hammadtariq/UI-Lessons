@@ -13,12 +13,17 @@ import s11 from "../images/c11.jpg";
 import s12 from "../images/c12.jpg";
 import s13 from "../images/c13.jpg";
 import s14 from "../images/c14.jpg";
+import Password from "antd/lib/input/Password";
 
 const appInitialState = {
   SliderImages: [imgdiv3, imgdiv3, imgdiv3, imgdiv3],
   leftImages: [imgdiv1, imgdiv2],
   finalList:[],
   bodyObject: {
+    AdminLogin:{
+      name:"Ahmed",
+      Password:"admin"
+    },
     myCartList: [],
     visible: false,
     Total: 0,
@@ -90,36 +95,7 @@ const appInitialState = {
         text: "something"
       }
     ],
-    // CardImages: [
-    //   {
-    //     key: 1,
-    //     img: m1,
-    //     price: 100,
-    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
-    //     counter: 0
-    //   },
-    //   {
-    //     key: 2,
-    //     img: m2,
-    //     price: 20,
-    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
-    //     counter: 0
-    //   },
-    //   {
-    //     key: 3,
-    //     img: m3,
-    //     price: 30,
-    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
-    //     counter: 0
-    //   },
-    //   {
-    //     key: 4,
-    //     img: m4,
-    //     price: 40,
-    //     text: "Samsung A7 (2018) | Blue | With Official Warranty",
-    //     counter: 0
-    //   }
-    // ]
+  
   },
   MenuList: [
     "Mobiles",

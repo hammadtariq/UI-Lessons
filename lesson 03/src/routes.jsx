@@ -7,6 +7,8 @@ import { Slider } from "antd";
 import mobileProvider from "./providers/mobileProvider";
 import descriptionProvider from "./providers/descriptionProvider";
 import DashboardProvider from "./providers/DashboardProvider";
+import LoginProvider from "./providers/LoginProvider";
+
 
 
 import mobile from "./containers/Mobile";
@@ -18,6 +20,8 @@ const Routes = () => {
         <Route exact path={"/"} component={homeProvider} />
         <Route exact path={ROUTES.MOBILE} component={mobileProvider} />
         <Route exact path={ROUTES.Dashboard} component={DashboardProvider} />
+        <Route exact path={ROUTES.Login} component={LoginProvider} />
+
 
         <Route
           exact
