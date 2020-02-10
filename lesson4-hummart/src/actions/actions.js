@@ -140,3 +140,7 @@ export function checkOut(arr) {
   message.success("Succesfully Checked Out !");
   return { type: "checkOut", totall };
 }
+
+export function store(arr){
+  return{type:"updatestore",arr}
+}

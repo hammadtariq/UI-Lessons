@@ -50,6 +50,9 @@ const cart = produce((draft, action) => {
       draft.mobilesCategory = action.list;
       debugger;
       return;
+    case "updatestore":
+      draft.items = action.arr;
+      return;
     default:
       return draft;
   }

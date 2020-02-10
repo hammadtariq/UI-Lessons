@@ -18,7 +18,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 3000,
         picture: m1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 2,
@@ -26,7 +27,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 2000,
         picture: m2,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 3,
@@ -34,7 +36,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 5000,
         picture: m3,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 4,
@@ -42,7 +45,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 8000,
         picture: m4,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 5,
@@ -50,7 +54,8 @@ const initialstate = {
         description: "Lorem Ipsem",
         price: 1800,
         picture: m5,
-        quantity: 1
+        quantity: 1,
+        stars:5
       }
     ],
 
@@ -61,7 +66,8 @@ const initialstate = {
         description: "asfasgasfasfasfas",
         price: 1022,
         picture: of1,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 7,
@@ -69,7 +75,8 @@ const initialstate = {
         description: "asfasgasfasfasfas",
         price: 300,
         picture: of2,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 8,
@@ -77,7 +84,8 @@ const initialstate = {
         description: "asfasgasfasfasfas",
         price: 500,
         picture: of3,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 9,
@@ -85,7 +93,8 @@ const initialstate = {
         description: "asfasgasfasfasfas",
         price: 900,
         picture: of4,
-        quantity: 1
+        quantity: 1,
+        stars:5
       },
       {
         key: 10,
@@ -93,7 +102,8 @@ const initialstate = {
         description: "asfasgasfasfasfas",
         price: 3500,
         picture: of5,
-        quantity: 1
+        quantity: 1,
+        stars:5
       }
     ],
 
