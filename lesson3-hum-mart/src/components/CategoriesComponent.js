@@ -2,11 +2,8 @@ import React from "react";
 import ExtraContentTwo from "./ExtraContentTwo";
 import ExtraContentThree from "./ExtraContentThree";
 import Footer from "./Footer";
-import { connect } from "react-redux";
 import ExtraContentOne from "./ExtraContentOne";
-import Header from "./Header";
 import Navbar from "./Navbar";
-import Drawers from "./Drawer";
 import Sider from "./SideMenu";
 import "../css/categories-components.css";
 import ShowCardProvider from '../providers/show-card-provider';
@@ -14,18 +11,90 @@ import DrawerProvider from '../providers/drawer-provider';
 import { Icon, Select, Tabs, List, Card, Button ,Pagination,message} from "antd";
 
 class CategoriesComponent extends React.Component {
- handleClick = (Id)=>{
-   message.success('item added')
-   console.log(this.props.addtocart(this.props.data[Id].id));
-  //  this.props.addtocart(this.props)
- }
+  constructor (props){
+    super(props);
+    this.state={
+      categoriesdata:[]
+    }
+  }
+ handleClick = (Id, Price) => {
+    let newSum, newvalue,cartCounter;
+     let cartCopy = this.props.categoriesData.value;
+     cartCounter=this.props.cartItem.count;
+     console.log(cartCopy)
+      let cartItemCopy = this.props.cartItem;
+      console.log(cartItemCopy)
+          let newCartItem = cartCopy.find(ele => ele.id == Id);
+        console.log(newCartItem,"newCartItem")
+    if(this.props.cartItem.value.length >0){
+      let cartflg = false; let i; 
+        for( i=0;i<cartItemCopy.value.length;i++){
+          if(newCartItem.id ===cartItemCopy.value[i].id){
+            cartflg=true     
+          }    
+        }
+        if(cartflg ===false){ 
+          message.success("added");
+          cartCounter +=1;
+          newvalue=[...cartItemCopy.value,newCartItem];
+          newSum=cartItemCopy.sum+Price
+          this.props.addToCart(newvalue,newSum,cartCounter);    
+        }
+        else{
+          cartflg=false;
+          message.success("exist")
+        }
+        }
+        else{
+          cartCounter +=1;
+           newvalue=[...cartItemCopy.value,newCartItem];
+           newSum=cartItemCopy.sum+Price
+          message.success("added")
+          this.props.addToCart(newvalue,newSum,cartCounter);
+        }
+  };
   goToDescriptionPage = Id => {
-    console.log(this.props, Id, this.props.data[Id].id );
+    console.log(this.props, Id, this.props.categoriesData.value[Id].id );
     this.props.history.push({
-      pathname: `/description/${this.props.data[Id].id }`,
+      pathname: `/description/${this.props.categoriesData.value[Id].id }`,
       data: this.props.data
     });
   };
+  handleChange=(value)=> {
+    console.log(`selected ${value}`);
+    let sortData = this.props.categoriesData.value.slice();
+    if(value=="price"){
+      function compare(a, b) {
+        const bandA = a.price;
+        const bandB = b.price;
+        let comparison = 0;
+        if (bandA > bandB) {
+          comparison = 1;
+        } else if (bandA < bandB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      sortData.sort(compare);
+this.props.sortByPrice(sortData)  
+     }
+     if(value=="product"){
+      function compare(a, b) {
+        const bandA = a.title;
+        const bandB = b.title;
+        let comparison = 0;
+        if (bandA > bandB) {
+          comparison = 1;
+        } else if (bandA < bandB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+      sortData.sort(compare);
+this.props.sortByPrice(sortData)  
+     }
+    }
+  
   render() {
     const { Option } = Select;
     const { TabPane } = Tabs;
@@ -41,14 +110,7 @@ class CategoriesComponent extends React.Component {
         </div>
         <ShowCardProvider/>
         <DrawerProvider/>
-        {/* <Drawers
-             visible={this.state.visible}
-             onClose={this.onClose}
-             showCartData={this.state.cartItem}
-             sendCount={this.state.count}
-             sendAdd={this.add}
-             sendMinus={this.delete}
-            /> */}
+       
       
           <Navbar />
             
@@ -69,10 +131,10 @@ class CategoriesComponent extends React.Component {
               <p>Mobiles</p>
               <p>
                 Sort By
-                <Select defaultValue="lucy" style={{ width: 120 }}>
-                  <Option value="jack">Jack</Option>
-                  <Option value="lucy">Lucy</Option>
-                  <Option value="Yiminghe">yiminghe</Option>
+                <Select defaultValue="Position" style={{ width: 120 }} onChange={this.handleChange}>
+                  <Option value="price">Price</Option>
+                  <Option value="product">Product</Option>
+                 
                 </Select>
                 <Icon type="arrow-up" />
               </p>
@@ -84,7 +146,7 @@ class CategoriesComponent extends React.Component {
                 <TabPane tab="ALL PRODUCTS" key="1">
                   <List
                     itemLayout="horizontal"
-                    dataSource={this.props.data}
+                    dataSource={this.props.categoriesData.value}
                     renderItem={item => (
                       <List.Item
                         
@@ -109,7 +171,7 @@ class CategoriesComponent extends React.Component {
                                   //   item.counter,
                                   //   item.Img
                                   // )
-                                  this.handleClick(item.id)
+                                  this.handleClick(item.id,item.price)
                                 }
                                 type="danger"
                               >

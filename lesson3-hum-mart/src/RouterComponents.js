@@ -4,7 +4,7 @@ import App from './App';
 import Default from './components/Default'
 import Meal from './components/meal.js'
 import CategoriesPageData from './providers/categories-page-data';
-import ProductDescription from './components/ProductDescription';
+import ProduceDescriptionProvider from './providers/product-description-provider';
 class RouterComponents extends React.Component{
     render(){
         return(
@@ -14,7 +14,7 @@ class RouterComponents extends React.Component{
                     <Route exact={true} path="/" component={App}/>
                     <Route path="/category/:id" component={CategoriesPageData} />
                     <Route path="/descriptionmeal" component={Meal}/>
-                    <Route path = "/description/:descriptionId" component={ProductDescription}/>
+                    <Route path = "/description/:descriptionId" component={ProduceDescriptionProvider}/>
                     <Route path="/default" component={Default}/>
                    </Switch>
                 </BrowserRouter>

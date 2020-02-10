@@ -67,7 +67,7 @@ class App extends React.Component {
           <ExtraContentTwo />
         </div>
 
-        <ShowCardProvider />
+        <ShowCardProvider  />
 
         <DrawerProvider />
 

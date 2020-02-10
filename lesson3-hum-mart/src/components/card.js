@@ -1,8 +1,10 @@
 import React from "react";
 import { List, Card, Button, message } from "antd";
 import Header from "./Header";
+import AddToCartService from '../services/AddToCartService'
 class Cart extends React.Component {
   handleClick = (Id, Price) => {
+    // AddToCartService.addtocart(Id,Price);
     let newSum, newvalue,cartCounter;
      let cartCopy = this.props.data;
      cartCounter=this.props.cartItem.count;

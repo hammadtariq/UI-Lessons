@@ -1,24 +1,60 @@
 import React from "react";
-import { connect } from "react-redux";
-import { render } from "@testing-library/react";
 import ExtraContentOne from "./ExtraContentOne";
 import ExtraComtentTwo from "./ExtraContentTwo";
 import Navbar from "./Navbar";
-import { Icon, Button, Tabs, Form, Input } from "antd";
+import { Icon, Button, Tabs, Form, Input,message } from "antd";
 import "../css/product-description.css";
 import ShowCardProvider from "../providers/show-card-provider";
 import Footer from "./Footer";
-import { addToCart } from "../actions/add-to-cart";
 import DrawerProvider from "../providers/drawer-provider";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
   }
-  // handleClick = () => {
-  //   console.log(this.props.addtocart(this.props.post.id));
-  // };
+
+  handleClick = (Id, Price) => {
+    let newSum, newvalue,cartCounter;
+     let cartCopy = this.props.data;
+     cartCounter=this.props.cartItem.count;
+     console.log(cartCopy)
+      let cartItemCopy = this.props.cartItem;
+      console.log(cartItemCopy)
+          let newCartItem = cartCopy.value.find(ele => ele.id == Id);
+        console.log(newCartItem,"newCartItem")
+    if(this.props.cartItem.value.length >0){
+      let cartflg = false; let i; 
+        for( i=0;i<cartItemCopy.value.length;i++){
+          if(newCartItem.id ===cartItemCopy.value[i].id){
+            cartflg=true     
+          }    
+        }
+        if(cartflg ===false){ 
+          message.success("added");
+          cartCounter +=1;
+          newvalue=[...cartItemCopy.value,newCartItem];
+          newSum=cartItemCopy.sum+Price
+          this.props.addToCart(newvalue,newSum,cartCounter);    
+        }
+        else{
+          cartflg=false;
+          message.success("exist")
+        }
+        }
+        else{
+          cartCounter +=1;
+           newvalue=[...cartItemCopy.value,newCartItem];
+           newSum=cartItemCopy.sum+Price
+          message.success("added")
+          this.props.addToCart(newvalue,newSum,cartCounter);
+        }
+  };
+ 
    render() {
-    console.log(this.props, "sk");
+   debugger;
+   let id = this.props.match.params.descriptionId;
+    console.log(this.props, id, "hjshjdhasjdhj");
+   let postId= this.props.data.value.find(ele=>id==ele.id)
+   console.log(postId)
     const { postd } = this.props;
     const { TabPane } = Tabs;
     const { TextArea } = Input;
@@ -47,11 +83,11 @@ class ProductDescription extends React.Component {
 
         <div className="des-body">
           <div className="des-img">
-            <img src={postd.Img} height="400px"></img>
+            <img src={postId.Img} height="400px"></img>
           </div>
           <div className="des-cart">
             <div className="des-cart-up">
-              <h1>{postd.title}</h1>
+              <h1>{postId.title}</h1>
               <p className="des-cart-p">4 GB | 64 GB</p>
               <span className="five-star">
                 <Icon type="star" />
@@ -63,9 +99,9 @@ class ProductDescription extends React.Component {
               </span>
             </div>
             <div className="des-cart-down">
-              <p>Rs:{postd.price}</p>
+              <p>Rs:{postId.price}</p>
               <Button
-                // onClick={this.handleClick}
+                onClick={()=>this.handleClick(postId.id,postId.price)}
                 type="danger"
                 icon="shopping"
                 block
@@ -112,7 +148,7 @@ class ProductDescription extends React.Component {
             <TabPane tab="Tab 2" key="2">
               <div>
                 <p>YOU'RE REVIEWING:</p>
-                <h3>{postd.title}</h3>
+                <h3>{postId.title}</h3>
                 <p>Your Rating</p>
                 <span>
                   <Icon type="star" />
@@ -150,16 +186,16 @@ class ProductDescription extends React.Component {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.match.params.descriptionId;
+// const mapStateToProps = (state, ownProps) => {
+//   let id = ownProps.match.params.descriptionId;
 
-  console.log(ownProps, id, "hjshjdhasjdhj", state);
-  return {
-     postd:state.data.value.find(postd =>postd.id==id),
-    // post: state.categoriesData.find(post => post.id == id)
+//   console.log(ownProps, id, "hjshjdhasjdhj", state);
+//   return {
+//      postd:state.data.value.find(postd =>postd.id==id),
+//     post: state.categoriesData.find(post => post.id == id)
   
-  };
-};
+//   };
+// };
 // const mapDispatchToProps = dispatch => {
 //   return {
 //     addtocart: id => {
@@ -167,4 +203,4 @@ const mapStateToProps = (state, ownProps) => {
 //     }
 //   };
 // };
-export default connect(mapStateToProps)(ProductDescription);
+export default ProductDescription;
