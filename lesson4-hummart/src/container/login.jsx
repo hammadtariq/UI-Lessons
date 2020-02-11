@@ -7,25 +7,23 @@ class Store extends Component {
   state = { redirect: false };
 
   handleSubmit = e => {
-    let d = JSON.parse(localStorage.getItem("redirect"));
     const data = JSON.parse(localStorage.getItem("login"));
     if (data.id === e.target[0].value && data.password === e.target[1].value) {
-      if (!d.condition) {
-        localStorage.setItem('redirect',"{condition:true}")
-        this.setState({ redirect: true });
-      }
+      this.setState({ redirect: true });
     }
   };
   renderRedirect = () => {
     if (this.state.redirect === true) {
+      localStorage.setItem("redirect", '{"condition":true}');
       return <Redirect to="/storedetail" />;
     }
   };
 
   render() {
-    localStorage.setItem("redirect", "{condition:false}");
+    debugger;
     const { getFieldDecorator } = this.props.form;
     let data = { id: "admin", password: "admin" };
+    localStorage.setItem("redirect", '{"condition":false}');
     localStorage.setItem("login", JSON.stringify(data));
     return (
       <div style={{ marginLeft: "30rem", marginTop: "10rem" }}>
