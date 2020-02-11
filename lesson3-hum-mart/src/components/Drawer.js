@@ -85,7 +85,13 @@ class Drawers extends React.Component {
               );
             })
           ) : (
-            <div>hsd</div>
+            <div className="blank-drawer">
+             
+              <Icon type="meh" theme="filled" />
+              <h5>No Items in your cart</h5>
+              <p>Your favourite items are just a click away.</p>
+              
+            </div>
           )}
 
           <Button type="danger" block className="drawer-button">

@@ -106,15 +106,15 @@ class Header extends React.Component {
             </span>
           </Link>
         </p>
-        <div className="global-search-wrapper" style={{ width: 300 }}>
+        <div className="global-search-wrapper" style={{ width: 350 }}>
           <AutoComplete
             value={value}
             dataSource={dataSource}
-            style={{ width: 200 }}
+            style={{ width: 280 }}
             onSelect={this.onSelect}
             onSearch={this.onSearch}
             onChange={this.onChange}
-            placeholder="control mode"
+            placeholder="Search entire store here..."
             filterOption={(inputValue, option) =>
               option.props.children
                 .toUpperCase()
@@ -127,7 +127,8 @@ class Header extends React.Component {
             onClick={this.handleClick}
             type="primary"
           >
-            <Icon type="search" />
+            {/* <Icon type="search" /> */}
+            <b>Search</b>
           </Button>
         </div>
         <p>Zero 5 </p>
@@ -140,7 +141,7 @@ class Header extends React.Component {
            
           >
             <a href="#" className="head-example" />
-            <Icon type="shopping-cart" />
+            <Icon type="shopping-cart" className="cart-icon"/>
           </Badge>
          
         </div>
