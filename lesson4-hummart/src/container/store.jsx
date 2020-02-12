@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { Table, Rate, Icon, Button, Modal } from "antd";
 import Top from "../components/top";
 class Store extends Component {
@@ -182,11 +182,17 @@ class Store extends Component {
           <input onChange={this.change3} value={this.state.dataitem.stars} />
         </Modal>
         <Top />
-        <Link to='/'>Mobiles Home Page</Link>
+        <Link to="/">
+          <h1>Mobiles Home Page</h1>
+        </Link>
         <Table columns={columns} dataSource={data} />
-        <Link to='/'>Offers </Link>
+        <Link to="/">
+          <h1>Offers </h1>
+        </Link>
         <Table columns={columns} dataSource={data1} />
-        <Link to='/'>Mobiles Categories Page</Link>
+        <Link to="/">
+          <h1>Mobiles Categories Page</h1>
+        </Link>
         <Table columns={columns} dataSource={data2} />
       </div>
     );

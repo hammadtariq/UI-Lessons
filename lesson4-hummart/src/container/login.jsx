@@ -20,7 +20,6 @@ class Store extends Component {
   };
 
   render() {
-    debugger;
     const { getFieldDecorator } = this.props.form;
     let data = { id: "admin", password: "admin" };
     localStorage.setItem("redirect", '{"condition":false}');
