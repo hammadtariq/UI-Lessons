@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/Login.css";
 
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button, Checkbox, message } from "antd";
 import {Route, Redirect } from "react-router-dom";
 
 class NormalLoginForm extends React.Component {
@@ -21,9 +21,12 @@ class NormalLoginForm extends React.Component {
         ) 
         {
             debugger
+            localStorage.setItem("myLoginState","true")
             this.setState({
                 Redirect:false
             })
+        }else{
+          message.error("Wrong Credentiel")
         }
 
         console.log("Received values of form: ", values);

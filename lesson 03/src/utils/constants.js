@@ -4,6 +4,8 @@ export const ROUTES = {
   Discription: "/description",
   Dashboard:"/Dashboard"
   ,Login:"/Login"
+  ,Store:"/Store"
+
 };
 
 export const MYACTION = {
