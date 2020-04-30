@@ -32,25 +32,27 @@ class Store extends React.Component {
       visible: false
     });
   };
-  handlePriceChange = e => {
+  handlePriceChange = (e,index) => {
     debugger;
     let r = this.state.myList;
-    r[0].price = parseInt(e.target.value);
+    r[index].price = parseInt(e.target.value);
     this.setState({
       myList: r
     });
   };
-  handleImageChange = e => {
+  handleImageChange = (e,index) => {
     let r = this.state.myList;
-    r[0].image = e.target.value;
+    r[index].image = e.target.value;
+    const a=typeof(r[index].image)
+    alert(a)
     this.setState({
       myList: r
     });
   };
-  handleTextChange = e => {
+  handleTextChange = (e,index) => {
     debugger;
     let r = this.state.myList;
-    r[0].text = e.target.value;
+    r[index].text = e.target.value;
     this.setState({
       myList: r
     });
@@ -69,16 +71,17 @@ class Store extends React.Component {
         >
           <div>
             <Input
+            
               value={this.state.myList[this.state.Index].img}
-              onChange={this.handleImageChange}
+              onChange={(e)=>this.handleImageChange(e,this.state.Index)}
             />
             <Input
               value={this.state.myList[this.state.Index].text}
-              onChange={this.handleTextChange}
+              onChange={(e)=>this.handleTextChange(e,this.state.Index)}
             />
             <Input
               value={this.state.myList[this.state.Index].price}
-              onChange={this.handlePriceChange}
+              onChange={(e)=>this.handlePriceChange(e,this.state.Index)}
             />
           </div>
         </Modal>

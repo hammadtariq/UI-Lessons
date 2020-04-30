@@ -129,10 +129,9 @@ class Header extends React.Component {
     this.props.bodyObject.productImages.forEach(element => {
       dataSource.push(element);
     });
-    debugger;
     console.log(dataSource);
     return (
-      <div className="Logodiv">
+      <div style={{width:"85%" , margin:"auto" }} className="Logodiv">
         <div>
           <span className="items">
             <div>
@@ -300,5 +299,3 @@ class Header extends React.Component {
   }
 }
 export default Header;
-
-// }

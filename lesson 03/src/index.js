@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -12,7 +12,7 @@ import reducer from "./reducers/homeReducer";
 const store = createStore(reducer);
 
 ReactDOM.render(
-  // <BrowserRouter>
+  // <BrowserRouter>  
   <Router>
     <Provider store={store}>
       <App />

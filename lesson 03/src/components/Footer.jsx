@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Drawer, Input, Button, Icon, Badge } from "antd";
+import GooglePlay from "../images/playStore.png"
 import "../css/Footer.css";
 
 class Footer extends React.Component {
@@ -54,6 +55,7 @@ class Footer extends React.Component {
                     <a href="#">{mylist}</a>
                   </li>
                 ))}
+                <li><img src={GooglePlay}/></li>
               </ul>
             </div>
           ))}

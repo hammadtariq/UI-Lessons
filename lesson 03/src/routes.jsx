@@ -7,6 +7,8 @@ import descriptionProvider from "./providers/descriptionProvider";
 import DashboardProvider from "./providers/DashboardProvider";
 import LoginProvider from "./providers/LoginProvider";
 import StoreProvider from "./providers/StoreProvider";
+import SatirProvider from "./providers/SatirProvider";
+
 
 
 import mobile from "./containers/Mobile";
@@ -35,6 +37,8 @@ const Routes = () => {
         <Route exact path={"/"} component={homeProvider} />
         <Route exact path={ROUTES.MOBILE} component={mobileProvider} />
         <Route exact path={ROUTES.Login} component={LoginProvider} />
+        <Route exact path={ROUTES.satir} component={SatirProvider} />
+
         <Route
           exact
           path={ROUTES.Discription}

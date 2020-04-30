@@ -40,6 +40,8 @@ class mycl extends React.Component {
       }
     }
   };
+
+
   CartMinus = (index, props) => {
     let count = props.bodyObject.count;
     count = count - 1;
@@ -85,11 +87,6 @@ class mycl extends React.Component {
     let list = props.bodyObject.myCartList[index];
     list.counter += 1;
   };
-  // updateProductImagesCounter = (props)=>{
-  //   debugger;
-  //     props.updateProductImagesCounter(myList)
-     
-
-  // }
 }
 export default mycl;
+

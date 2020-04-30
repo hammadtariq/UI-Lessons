@@ -260,57 +260,57 @@ class Body extends React.Component {
       </div>
     );
   };
-  Gallery = () => {
-    const handleOnDragStart = e => e.preventDefault();
-    return (
-      // mouseTrackingEnabled
-      <AliceCarousel autoPlayInterval={2000}    autoPlay={true}
->
+//   Gallery = () => {
+//     const handleOnDragStart = e => e.preventDefault();
+//     return (
+//       // mouseTrackingEnabled
+//       <AliceCarousel autoPlayInterval={2000}    autoPlay={true}
+// >
          
 
-          <div className="Mobilediv">
-            {this.props.bodyObject.productImages.map((item, index) => {
-              return (
-                <div className="one">
-                  <Link style={{}} to="/mobiles">
-                    <img className="mobileimg" src={item.img}></img>
-                    {/* <span> */}
-                    <label>{item.text}</label>
-                    <br />
-                    <label style={{ fontSize: "20px", color: "black" }}>
-                      RS{" "}
-                    </label>
-                    <label id="mylabel">{item.price}</label>
-                  </Link>
-                  <Button
-                    style={{
-                      float: "right",
-                      borderRadius: "20px",
-                      backgroundColor: "#e96125"
-                    }}
-                    onClick={() => this.updateCount(index)}
-                    id="btn"
-                    type="danger"
-                  >
-                    Add To Cart
-                  </Button>
+//           <div className="Mobilediv">
+//             {this.props.bodyObject.productImages.map((item, index) => {
+//               return (
+//                 <div className="one">
+//                   <Link style={{}} to="/mobiles">
+//                     <img className="mobileimg" src={item.img}></img>
+//                     {/* <span> */}
+//                     <label>{item.text}</label>
+//                     <br />
+//                     <label style={{ fontSize: "20px", color: "black" }}>
+//                       RS{" "}
+//                     </label>
+//                     <label id="mylabel">{item.price}</label>
+//                   </Link>
+//                   <Button
+//                     style={{
+//                       float: "right",
+//                       borderRadius: "20px",
+//                       backgroundColor: "#e96125"
+//                     }}
+//                     onClick={() => this.updateCount(index)}
+//                     id="btn"
+//                     type="danger"
+//                   >
+//                     Add To Cart
+//                   </Button>
 
-                  {/* </span> */}
-                </div>
-              );
-            })}
-          </div>
+//                   {/* </span> */}
+//                 </div>
+//               );
+//             })}
+//           </div>
          
 
          
-        <img
-          src={m1}
-          onDragStart={handleOnDragStart}
-          className="yours-custom-class"
-        />
-      </AliceCarousel>
-    );
-  };
+//         <img
+//           src={m1}
+//           onDragStart={handleOnDragStart}
+//           className="yours-custom-class"
+//         />
+//       </AliceCarousel>
+//     );
+//   };
 
   render() {
     return (
